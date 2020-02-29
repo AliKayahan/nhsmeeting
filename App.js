@@ -1,19 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-native-paper';
+import App from './src';
+import { theme } from './src/core/theme';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Hello Ahmad and Carmi</Text>
-    </View>
-  );
-}
+const Main = () => (
+  <Provider theme={theme}>
+    <App />
+  </Provider>
+);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ccc',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default Main;
