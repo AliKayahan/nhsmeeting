@@ -1,3 +1,7 @@
+/**
+ * This is where we should define app-wide styles.
+ * Please refer to NHS Brand Guidelines before adding styles.
+ */
 export default {
     color: {
         grey1: '#333333',
