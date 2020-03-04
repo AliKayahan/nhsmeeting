@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import {AppLoading} from 'expo';
+import Background from './components/Background';
 
 /**
  * This Async method loads the app-wide fonts.
@@ -28,16 +29,17 @@ export default function App() {
   }
   // Return default app view after loading static assets, we should handle dynamic screens here
   return (
-    <View style={styles.container}>
-      <Text style={styles.fontTest}>Welcome to NHS Meeting Room App</Text>
-    </View>
+    <Background>
+      <View style={styles.container}>
+        <Text style={styles.fontTest}>Welcome to NHS Meeting Room App</Text>
+      </View>
+    </Background>
   );
 }
 // Do not define styles below, better to manage from Theme.js
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ccc',
     alignItems: 'center',
     justifyContent: 'center',
   },
