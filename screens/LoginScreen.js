@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import Background from '../components/Background';
 import NHSStyle from '../constants/NHSStyle';
 import NHSInput from '../components/NHSInput';
+import {Checkbox} from 'react-native-paper';
+import Theme from '../constants/Theme';
 
 const LoginScreen = () => {
+    const [rememberMe, setRememberMe] = useState('checked');
     return(
         <Background>
             <View style={styles.logoContainer}>
@@ -25,6 +28,17 @@ const LoginScreen = () => {
                         mode='outlined'
                         label='Password' 
                     />
+                    <View style={styles.rememberMeContainer}>
+                        <Checkbox 
+                            style={styles.checkBox}
+                            status={rememberMe}
+                            color={Theme.color.blue1}
+                            onPress={() => {
+                                setRememberMe(rememberMe === 'checked' ? 'unchecked' : 'checked')
+                            }}
+                        />
+                        <Text style={styles.rememberMeText}>Remember me</Text>
+                    </View>
                 </View>
             </View>
         </Background>
@@ -42,6 +56,19 @@ const styles = StyleSheet.create({
     },
     inputContainer:{
         marginTop: 20
+    },
+    rememberMeContainer: {
+        flexDirection: 'row'
+    },
+    checkBox: {
+
+    },
+    rememberMeText: {
+        marginTop: 13,
+        marginLeft: 2,
+        fontFamily: 'Frutiger',
+        fontSize: 14,
+        color: Theme.color.black
     }
 });
 
