@@ -5,9 +5,9 @@ import Background from '../components/Background';
 
 const LoginScreen = () => {
     return(
-        <View>
+        <Background>
             <Text>This is login screen</Text>
-        </View>
+        </Background>
     );
 };
 
