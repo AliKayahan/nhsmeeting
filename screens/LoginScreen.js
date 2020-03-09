@@ -1,9 +1,8 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import {TextInput} from 'react-native-paper';
 import Background from '../components/Background';
 import NHSStyle from '../constants/NHSStyle';
-import Theme from '../constants/Theme';
+import NHSInput from '../components/NHSInput';
 
 const LoginScreen = () => {
     return(
@@ -18,18 +17,9 @@ const LoginScreen = () => {
                     Welcome{"\n"}Back
                 </Text>
                 <View style={styles.inputContainer}>
-                    <TextInput 
-                        style={NHSStyle.input}
-                        theme={{
-                            colors: {
-                                primary: Theme.color.blue2,
-                                background: Theme.color.background,
-                                placeholder: Theme.color.grey5,
-                                text: Theme.color.black
-                            }
-                        }}
+                    <NHSInput 
                         mode='outlined'
-                        label='E-mail'
+                        label='E-mail' 
                     />
                 </View>
             </View>
