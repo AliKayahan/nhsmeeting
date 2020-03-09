@@ -8,7 +8,8 @@ import Theme from '../constants/Theme';
 // We are creating a generic style object to be used with all components.
 export default NHSStyle = StyleSheet.create({
     input: {
-        width: 320
+        width: 320,
+        marginVertical: 12
     },  
     header1: {
         fontFamily: 'Frutiger',

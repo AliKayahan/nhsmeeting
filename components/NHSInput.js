@@ -6,7 +6,7 @@ import NHSStyle from '../constants/NHSStyle';
 const NHSInput = (props) => {
     return(
         <TextInput 
-            style={NHSStyle.input}
+            style={[NHSStyle.input, props.style]}
             theme={{
                 colors: {
                     primary: Theme.color.blue2,

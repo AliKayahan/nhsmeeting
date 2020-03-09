@@ -21,6 +21,10 @@ const LoginScreen = () => {
                         mode='outlined'
                         label='E-mail' 
                     />
+                    <NHSInput 
+                        mode='outlined'
+                        label='Password' 
+                    />
                 </View>
             </View>
         </Background>
