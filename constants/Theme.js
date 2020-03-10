@@ -4,6 +4,8 @@
  */
 export default {
     color: {
+        black: '#0A1145',
+        background: '#F6F8FD',
         grey1: '#333333',
         grey2: '#4F4F4F',
         grey3: '#828282',
@@ -20,6 +22,7 @@ export default {
         blue2: '#2D9CDB',
         blue3: '#56CCF2',
         purple1: '#9B51E0',
-        purple2: '#BB6BD9' 
-    }   
+        purple2: '#BB6BD9',
+        purple3: '#AE2573' 
+    }
 }

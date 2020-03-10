@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import {AppLoading} from 'expo';
 import Background from './components/Background';
-
+import NHSNavigator from './navigation/NHSNavigator';
 /**
  * This Async method loads the app-wide fonts.
  * AppLoading component of react-native expects an Async method to trigger
@@ -27,13 +27,9 @@ export default function App() {
   if(!fontsLoaded){
     return <AppLoading startAsync={fetchFonts} onFinish={() => setFontsLoaded(true)} />
   }
-  // Return default app view after loading static assets, we should handle dynamic screens here
+  // Return default app view after loading static assets
   return (
-    <Background>
-      <View style={styles.container}>
-        <Text style={styles.fontTest}>Welcome to NHS Meeting Room App</Text>
-      </View>
-    </Background>
+    <NHSNavigator />// Main navigation handler
   );
 }
 // Do not define styles below, better to manage from Theme.js
