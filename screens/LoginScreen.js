@@ -55,6 +55,11 @@ const LoginScreen = () => {
                             Sign In
                         </Button>
                     </View>
+                    <View style={styles.signupTextContainer}>
+                        <Text style={styles.signUpText}>
+                            Don't have an account yet? <Text style={styles.signUpLink}> Sign Up</Text>
+                        </Text>
+                    </View>
                 </View>
             </View>
         </Background>
@@ -78,8 +83,24 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         marginVertical: 15,
-        width: 315
+        width: 319,
+        alignContent: 'center',
+        justifyContent: 'center'
     },  
+    signupTextContainer: {
+        marginTop: 10,
+        width: '85%',
+        alignContent: 'center',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    signUpText: {
+        fontFamily: 'Frutiger',
+        color: Theme.color.grey4
+    },
+    signUpLink: {
+        color: Theme.color.blue2
+    },
     loginButton: {
         height: 50,
     },
