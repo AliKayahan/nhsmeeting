@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import Background from '../components/Background';
 import NHSStyle from '../constants/NHSStyle';
 import NHSInput from '../components/NHSInput';
-import {Checkbox} from 'react-native-paper';
+import {Checkbox, Button} from 'react-native-paper';
 import Theme from '../constants/Theme';
 
 const LoginScreen = () => {
@@ -33,11 +33,27 @@ const LoginScreen = () => {
                             style={styles.checkBox}
                             status={rememberMe}
                             color={Theme.color.blue1}
+                            uncheckedColor={Theme.color.grey4}
                             onPress={() => {
                                 setRememberMe(rememberMe === 'checked' ? 'unchecked' : 'checked')
                             }}
                         />
-                        <Text style={styles.rememberMeText}>Remember me</Text>
+                        <View style={styles.sideTexts}>
+                            <Text style={styles.rememberMeText}>Remember me</Text>
+                            <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+                        </View>
+                    </View>
+                    <View style={styles.buttonContainer}>
+                        <Button 
+                            mode="contained" 
+                            uppercase={false}
+                            color={Theme.color.purple3}
+                            contentStyle={styles.loginButton}
+                            labelStyle={styles.buttonLabel}
+                            style={styles.loginButtonDefault}
+                            onPress={() => console.log('Login')}>
+                            Sign In
+                        </Button>
                     </View>
                 </View>
             </View>
@@ -58,14 +74,39 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     rememberMeContainer: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+    },
+    buttonContainer: {
+        marginVertical: 15,
+        width: 315
+    },  
+    loginButton: {
+        height: 50,
+    },
+    buttonLabel: {
+        fontFamily: 'Frutiger-Bold',
+        fontSize: 16,
+        paddingTop: 6
+    },
+    loginButtonDefault:{
+        textAlignVertical: 'bottom'
     },
     checkBox: {
 
     },
-    rememberMeText: {
+    sideTexts: {
         marginTop: 13,
         marginLeft: 2,
+        flexDirection: 'row',
+        flex: 1
+    },
+    forgotPasswordText: {
+        fontFamily: 'Frutiger',
+        fontSize: 14,
+        color: Theme.color.grey4,
+        marginLeft: 70
+    },
+    rememberMeText: {
         fontFamily: 'Frutiger',
         fontSize: 14,
         color: Theme.color.black
