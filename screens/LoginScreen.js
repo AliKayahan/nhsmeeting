@@ -40,7 +40,7 @@ const LoginScreen = () => {
                         />
                         <View style={styles.sideTexts}>
                             <Text style={styles.rememberMeText}>Remember me</Text>
-                            <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+                            <Text style={styles.forgotPasswordText}>Forgot Password ?</Text>
                         </View>
                     </View>
                     <View style={styles.buttonContainer}>
