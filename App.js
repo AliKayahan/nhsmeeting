@@ -51,13 +51,3 @@ export default function App() {
   );
 }
 // Do not define styles below, better to manage from Theme.js
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  fontTest:{
-    fontFamily: 'Frutiger'
-  }
-});
