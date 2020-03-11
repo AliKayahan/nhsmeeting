@@ -2,8 +2,24 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import {AppLoading} from 'expo';
-import Background from './components/Background';
 import NHSNavigator from './navigation/NHSNavigator';
+import {createStore, combineReducers} from 'redux';
+import {Provider} from 'react-redux';
+import userReducer from './store/reducers/user';
+import { enableScreens } from 'react-native-screens';
+
+// Pre-load screens during app load.
+enableScreens(); 
+
+/**
+ * We are merging different reducers 
+ */
+const rootReducer = combineReducers({
+  users: userReducer
+});
+// Set app-wide store for data flow
+ const store = createStore(rootReducer);
+
 /**
  * This Async method loads the app-wide fonts.
  * AppLoading component of react-native expects an Async method to trigger
@@ -29,17 +45,9 @@ export default function App() {
   }
   // Return default app view after loading static assets
   return (
-    <NHSNavigator />// Main navigation handler
+    <Provider store={store}>
+      <NHSNavigator />
+    </Provider>
   );
 }
 // Do not define styles below, better to manage from Theme.js
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  fontTest:{
-    fontFamily: 'Frutiger'
-  }
-});
