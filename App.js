@@ -8,7 +8,8 @@ import {Provider} from 'react-redux';
 import userReducer from './store/reducers/user';
 import { enableScreens } from 'react-native-screens';
 
-enableScreens(); // Pre-load screens during app load.
+// Pre-load screens during app load.
+enableScreens(); 
 
 /**
  * We are merging different reducers 
@@ -16,7 +17,7 @@ enableScreens(); // Pre-load screens during app load.
 const rootReducer = combineReducers({
   users: userReducer
 });
-
+// Set app-wide store for data flow
  const store = createStore(rootReducer);
 
 /**
