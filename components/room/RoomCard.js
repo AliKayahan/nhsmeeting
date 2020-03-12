@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import Theme from '../../constants/Theme';
 import NHSStyle from '../../constants/NHSStyle';
+import {Ionicons, FontAwesome} from '@expo/vector-icons';
 
 const RoomCard = (props) =>{
     return(
@@ -14,6 +15,9 @@ const RoomCard = (props) =>{
                 <View style={styles.roomCardBody}>
                     <View style={styles.roomImageContainer}>
                         <Image style={styles.roomImage} source={{uri: props.images[0]}} />
+                    </View>
+                    <View style={styles.roomInfoContainer}>
+                        <FontAwesome name='glass' />
                     </View>
                 </View>
             </View>
@@ -59,6 +63,9 @@ const styles = StyleSheet.create({
     roomImage: {
         width: '100%',
         height: '100%'
+    },
+    roomInfoContainer: {
+
     }
 });
 
