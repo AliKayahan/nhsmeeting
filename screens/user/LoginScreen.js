@@ -16,7 +16,7 @@ const LoginScreen = () => {
                     />
             </View>
             <View style={styles.bodyContainer}>
-                <Text style={NHSStyle.header1}>
+                <Text style={NHSStyle.bigHeader}>
                     Welcome{"\n"}Back
                 </Text>
                 <View style={styles.inputContainer}>

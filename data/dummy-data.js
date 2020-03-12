@@ -3,6 +3,7 @@ import Room from '../models/room';
 const ROOMS = [
     new Room(
         'r1',
+        'Wolverhampton Centre',
         'Room A',
         '3',
         20,
@@ -16,6 +17,7 @@ const ROOMS = [
     ),
     new Room(
         'r2',
+        'Birmingham Digbeth',
         'Room B',
         '4',
         12,
@@ -29,6 +31,7 @@ const ROOMS = [
     ),
     new Room(
         'r3',
+        'London City Park',
         'Room C',
         '1',
         50,
@@ -42,6 +45,7 @@ const ROOMS = [
     ),
     new Room(
         'r4',
+        'Luton Station',
         'Room D',
         '5',
         12,
@@ -55,6 +59,7 @@ const ROOMS = [
     ),
     new Room(
         'r5',
+        'NHS HQ',
         'Room E',
         '2',
         50,
