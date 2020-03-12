@@ -1,6 +1,6 @@
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-import LoginScreen from '../screens/LoginScreen';
+import LoginScreen from '../screens/user/LoginScreen';
 
 // The default NHSNavigator styling and customization settings goes here
 const NHSMainNavOptions = {
