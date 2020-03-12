@@ -4,7 +4,7 @@ class Room{
         name, 
         floor, 
         capacity, // How many seats do we have
-        type, // Clinic, class room, conferance hall
+        type, // Clinic, class, conference 
         images,// Array of images
         description,
         features,// Array of pre-defined features
