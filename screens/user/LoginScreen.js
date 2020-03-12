@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import Background from '../components/Background';
-import NHSStyle from '../constants/NHSStyle';
-import NHSInput from '../components/NHSInput';
+import Background from '../../components/Background';
+import NHSStyle from '../../constants/NHSStyle';
+import NHSInput from '../../components/NHSInput';
 import {Checkbox, Button} from 'react-native-paper';
-import Theme from '../constants/Theme';
+import Theme from '../../constants/Theme';
 
 const LoginScreen = () => {
     const [rememberMe, setRememberMe] = useState('checked');
@@ -12,7 +12,7 @@ const LoginScreen = () => {
         <Background>
             <View style={styles.logoContainer}>
                 <Image 
-                    source={require('../assets/images/NHSLogo.png')} 
+                    source={require('../../assets/images/NHSLogo.png')} 
                     />
             </View>
             <View style={styles.bodyContainer}>
