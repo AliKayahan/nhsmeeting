@@ -14,4 +14,9 @@ const ListRoomScreen = props => {
     );
 };
 
+ListRoomScreen.navigationOptions = {
+    headerTitle: 'Matching Rooms'
+}
+
+
 export default ListRoomScreen;

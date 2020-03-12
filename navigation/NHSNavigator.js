@@ -16,12 +16,12 @@ const NHSMainNavOptions = {
 
 // This stack navigator is the app-wide main navigation
 const NHSNavigator = createStackNavigator({
-    Login: {
-        screen: LoginScreen,
-        navigationOptions: { // Hides headerbar in login screen
-            headerShown: false
-        }
-    },
+    // Login: {
+    //     screen: LoginScreen,
+    //     navigationOptions: { // Hides headerbar in login screen
+    //         headerShown: false
+    //     }
+    // },
     ListRoom: {
         screen: ListRoomScreen
     } 
