@@ -9,7 +9,8 @@ const NHSMainNavOptions = {
     defaultNavigationOptions :{
         headerStyle: {
             backgroundColor: Theme.color.blue1
-        }
+        },
+        headerTintColor: Theme.color.white
     }
 }
 
