@@ -17,6 +17,7 @@ const ListRoomScreen = props => {
                         building={itemData.item.building}
                         floor={itemData.item.floor}
                         images={itemData.item.images}    
+                        capacity={itemData.item.capacity}
                     >
                     </RoomCard>
                 )} 

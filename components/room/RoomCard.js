@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import Theme from '../../constants/Theme';
 import NHSStyle from '../../constants/NHSStyle';
-import {Ionicons, FontAwesome} from '@expo/vector-icons';
+import {Ionicons} from '@expo/vector-icons';
 
 const RoomCard = (props) =>{
     return(
@@ -17,7 +17,14 @@ const RoomCard = (props) =>{
                         <Image style={styles.roomImage} source={{uri: props.images[0]}} />
                     </View>
                     <View style={styles.roomInfoContainer}>
-                        <FontAwesome name='glass' />
+                        <View style={styles.itemContainer}>
+                            <Ionicons name='md-contact' size={25} color={Theme.color.teal} />
+                            <Text style={[NHSStyle.mediumText, styles.featureText]}>{props.capacity} Seats</Text>
+                        </View>
+                        <View style={styles.itemContainer}>
+                            <Ionicons name='ios-pin' size={25} style={{paddingLeft:3}} color={Theme.color.teal} />
+                            <Text style={[NHSStyle.mediumText, styles.featureText, {paddingLeft:9}]}>WV1 3AB,{'\n'}Wolverhampton</Text>
+                        </View>
                     </View>
                 </View>
             </View>
@@ -34,12 +41,12 @@ const styles = StyleSheet.create({
     },
     roomCard: {
         width: 380,
-        height: 205,
+        height: 215,
         backgroundColor: Theme.color.white,
         borderRadius: 10,
         marginVertical: 10,
         shadowColor: Theme.color.grey4,
-        shadowOpacity: .26,
+        shadowOpacity: 1,
         shadowOffset: {width: 0, height: 2},
         shadowRadius: 10,
     },
@@ -47,11 +54,12 @@ const styles = StyleSheet.create({
         borderLeftWidth: 3,
         borderLeftColor: Theme.color.purple1,
         height: 34,
-        marginTop: 10,
+        marginTop: 15,
         paddingLeft: 15
     },
     roomCardBody: {
-        marginTop: 14,
+        marginTop: 17,
+        flexDirection: 'row'
     },
     roomImageContainer: {
         marginLeft: 18,
@@ -65,7 +73,15 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     roomInfoContainer: {
-
+        marginLeft: 10,
+    },
+    itemContainer: {
+        flexDirection: 'row',
+        marginBottom: 10
+    },  
+    featureText: {
+        paddingLeft: 6,
+        paddingTop: 6
     }
 });
 

@@ -10,6 +10,9 @@ const NHSMainNavOptions = {
         headerStyle: {
             backgroundColor: Theme.color.blue1
         },
+        cardStyle:{
+            backgroundColor: Theme.color.background2
+        },
         headerTintColor: Theme.color.white
     }
 }

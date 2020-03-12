@@ -27,5 +27,10 @@ export default NHSStyle = StyleSheet.create({
         fontFamily: 'Frutiger',
         fontSize: 14,
         color: Theme.color.grey1
+    },
+    mediumText: {
+        fontFamily: 'Frutiger',
+        fontSize: 16,
+        color: Theme.color.grey1
     }
 });
