@@ -6,6 +6,7 @@ import NHSNavigator from './navigation/NHSNavigator';
 import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 import userReducer from './store/reducers/user';
+import roomReducer from './store/reducers/room';
 import { enableScreens } from 'react-native-screens';
 
 // Pre-load screens during app load.
@@ -15,7 +16,8 @@ enableScreens();
  * We are merging different reducers 
  */
 const rootReducer = combineReducers({
-  users: userReducer
+  users: userReducer,
+  rooms: roomReducer
 });
 // Set app-wide store for data flow
  const store = createStore(rootReducer);

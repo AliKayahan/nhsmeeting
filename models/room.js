@@ -19,3 +19,4 @@ class Room{
             this.features = features;
         }
 }
+export default Room;
