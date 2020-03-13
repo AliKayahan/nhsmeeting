@@ -13,11 +13,11 @@ const ROOMS = [
             'https://www.mycommunityspace.org.uk/wp-content/uploads/job-manager-uploads/main_image/2018/04/Astor1-1-1200x800.jpg'
         ],
         'Big and bright room with class setup',
-        ['wifi', 'refreshments', 'air conditioner', 'projector', 'microphone']
+        ['ios-wifi', 'ios-cafe', 'ios-snow', 'ios-videocam', 'ios-mic']
     ),
     new Room(
         'r2',
-        'Birmingham Digbeth',
+        'London Excell',
         'Room B',
         '4',
         12,
@@ -27,7 +27,7 @@ const ROOMS = [
             'https://media.spacebase.com/media/cache/spaces/5755/citizenm-paris-la-defense-fr-med16_1280.jpg'
         ],
         'A clinic room with default setup',
-        ['air conditioner', 'projector']
+        ['ios-snow', 'ios-videocam']
     ),
     new Room(
         'r3',
@@ -41,7 +41,7 @@ const ROOMS = [
             'https://usandco.com/wp-content/uploads/2018/04/b-2.jpg'
         ],
         'Conference room with a big table seating setup',
-        ['air conditioner', 'projector', 'microphone', 'wifi']
+        ['ios-snow', 'ios-videocam', 'ios-mic', 'ios-wifi', 'ios-car']
     ),
     new Room(
         'r4',
@@ -55,7 +55,7 @@ const ROOMS = [
             'https://usandco.com/wp-content/uploads/2020/02/UsCo-Stratford-10-person-boardroom.jpg'
         ],
         'Small meeting room with a TV',
-        ['air conditioner', 'projector', 'tv', 'wifi']
+        ['ios-snow', 'ios-videocam', 'ios-tv', 'ios-wifi']
     ),
     new Room(
         'r5',
@@ -69,7 +69,7 @@ const ROOMS = [
             'https://usandco.com/wp-content/uploads/2020/02/UsCo-Stratford-10-person-boardroom.jpg'
         ],
         'A conference hall with theather seating setup',
-        ['air conditioner', 'projector', 'microphone', 'wifi']
+        ['ios-snow', 'ios-videocam', 'ios-mic', 'ios-wifi', 'ios-car']
     )
 ]
 

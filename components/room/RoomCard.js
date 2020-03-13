@@ -3,7 +3,12 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import Theme from '../../constants/Theme';
 import NHSStyle from '../../constants/NHSStyle';
 import {Ionicons} from '@expo/vector-icons';
-
+import FeatureIcon from './FeatureIcon';
+/**
+ * Lists rooms in a card format.
+ * Used to list rooms after search.
+ * @param {*} props 
+ */
 const RoomCard = (props) =>{
     return(
         <View style={styles.roomCardContainer}>
@@ -22,8 +27,11 @@ const RoomCard = (props) =>{
                             <Text style={[NHSStyle.mediumText, styles.featureText]}>{props.capacity} Seats</Text>
                         </View>
                         <View style={styles.itemContainer}>
-                            <Ionicons name='ios-pin' size={25} style={{paddingLeft:3}} color={Theme.color.teal} />
+                            <Ionicons name='ios-pin' size={25} style={{paddingLeft:3}} color={Theme.color.teal} />{/* We should always keep this as 2 lines postcode, city */}
                             <Text style={[NHSStyle.mediumText, styles.featureText, {paddingLeft:9}]}>WV1 3AB,{'\n'}Wolverhampton</Text>
+                        </View>
+                        <View style={styles.iconContainer}>
+                            <FeatureIcon icons={props.features} /> {/* This component dynamically renders feature icons */}
                         </View>
                     </View>
                 </View>
@@ -82,6 +90,9 @@ const styles = StyleSheet.create({
     featureText: {
         paddingLeft: 6,
         paddingTop: 6
+    },
+    iconContainer: {
+        paddingLeft: 3
     }
 });
 
