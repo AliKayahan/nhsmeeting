@@ -27,7 +27,7 @@ const ROOMS = [
             'https://media.spacebase.com/media/cache/spaces/5755/citizenm-paris-la-defense-fr-med16_1280.jpg'
         ],
         'A clinic room with default setup',
-        ['ios-snow', 'ios-videocam']
+        ['ios-snow', 'ios-videocam', 'ios-car']
     ),
     new Room(
         'r3',

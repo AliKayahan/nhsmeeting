@@ -9,7 +9,7 @@ import Theme from  '../../constants/Theme';
  * https://expo.github.io/vector-icons/
  * @param {*} props 
  */
-
+// TODO: We should add limit property to limit the count of icons listed at a time.
 const FeatureIcon = (props) =>{
     return(
         <View style={styles.iconListContainer}>
