@@ -27,11 +27,11 @@ const RoomCard = (props) =>{
                             <Text style={[NHSStyle.mediumText, styles.featureText]}>{props.capacity} Seats</Text>
                         </View>
                         <View style={styles.itemContainer}>
-                            <Ionicons name='ios-pin' size={25} style={{paddingLeft:3}} color={Theme.color.teal} />{/* We should always keep this as 2 lines postcode, city */}
+                            <Ionicons name='ios-pin' size={25} style={{paddingLeft:3}} color={Theme.color.teal} />
                             <Text style={[NHSStyle.mediumText, styles.featureText, {paddingLeft:9}]}>WV1 3AB,{'\n'}Wolverhampton</Text>
                         </View>
                         <View style={styles.iconContainer}>
-                            <FeatureIcon icons={props.features} /> {/* This component dynamically renders feature icons */}
+                            <FeatureIcon icons={props.features} />
                         </View>
                     </View>
                 </View>
