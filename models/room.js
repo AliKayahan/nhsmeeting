@@ -1,6 +1,7 @@
 class Room{
     constructor(
-        id, 
+        id,
+        building, 
         name, 
         floor, 
         capacity, // How many seats do we have
@@ -10,6 +11,7 @@ class Room{
         features,// Array of pre-defined features
         ){
             this.id = id;
+            this.building = building;
             this.name = name;
             this.floor = floor;
             this.capacity = capacity;

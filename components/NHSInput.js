@@ -9,9 +9,9 @@ const NHSInput = (props) => {
             style={[NHSStyle.input, props.style]}
             theme={{
                 colors: {
-                    primary: Theme.color.blue2,
+                    primary: Theme.color.teal,
                     background: Theme.color.background,
-                    placeholder: Theme.color.grey4,
+                    placeholder: Theme.color.grey1,
                     text: Theme.color.black
                 }
             }}

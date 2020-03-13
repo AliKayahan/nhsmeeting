@@ -11,10 +11,26 @@ export default NHSStyle = StyleSheet.create({
         width: 320,
         marginVertical: 12
     },  
-    header1: {
+    bigHeader: {
         fontFamily: 'Frutiger',
         fontSize: 44,
         color: Theme.color.black,
         lineHeight: 50
-    }   
+    },
+    header: {
+        fontFamily: 'Frutiger',
+        fontSize: 18,
+        color: Theme.color.black,
+        lineHeight: 22
+    },
+    smallText: {
+        fontFamily: 'Frutiger',
+        fontSize: 14,
+        color: Theme.color.grey1
+    },
+    mediumText: {
+        fontFamily: 'Frutiger',
+        fontSize: 16,
+        color: Theme.color.grey1
+    }
 });
