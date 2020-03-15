@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Platform, Text, StyleSheet, Image, TouchableOpacity, TouchableNativeFeedback} from 'react-native';
 import Theme from '../../constants/Theme';
 import NHSStyle from '../../constants/NHSStyle';
 import {Ionicons} from '@expo/vector-icons';
@@ -10,33 +10,42 @@ import FeatureIcon from './FeatureIcon';
  * @param {*} props 
  */
 const RoomCard = (props) =>{
+    let TouchableComponent = TouchableOpacity;
+
+    // A little fix for android devices to provide ripple effect on room card press
+    if(Platform.OS === 'android' && Platform.Version >= 21){
+        TouchableComponent = TouchableNativeFeedback
+    }
+
     return(
-        <View style={styles.roomCardContainer}>
-            <View style={styles.roomCard}>
-                <View style={styles.roomCardHeader}>
-                    <Text style={[NHSStyle.smallText]}>{props.building}</Text>
-                    <Text style={[NHSStyle.header]}>{props.name}, {props.floor}. floor</Text>
-                </View>
-                <View style={styles.roomCardBody}>
-                    <View style={styles.roomImageContainer}>
-                        <Image style={styles.roomImage} source={{uri: props.images[0]}} />
+        <TouchableComponent onPress={props.onViewDetail} useForeground>
+            <View style={styles.roomCardContainer}>
+                <View style={styles.roomCard}>
+                    <View style={styles.roomCardHeader}>
+                        <Text style={[NHSStyle.smallText]}>{props.building}</Text>
+                        <Text style={[NHSStyle.header]}>{props.name}, {props.floor}. floor</Text>
                     </View>
-                    <View style={styles.roomInfoContainer}>
-                        <View style={styles.itemContainer}>
-                            <Ionicons name='md-contact' size={25} color={Theme.color.teal} />
-                            <Text style={[NHSStyle.mediumText, styles.featureText]}>{props.capacity} Seats</Text>
+                    <View style={styles.roomCardBody}>
+                        <View style={styles.roomImageContainer}>
+                            <Image style={styles.roomImage} source={{uri: props.images[0]}} />
                         </View>
-                        <View style={styles.itemContainer}>
-                            <Ionicons name='ios-pin' size={25} style={{paddingLeft:3}} color={Theme.color.teal} />
-                            <Text style={[NHSStyle.mediumText, styles.featureText, {paddingLeft:9}]}>WV1 3AB,{'\n'}Wolverhampton</Text>
-                        </View>
-                        <View style={styles.iconContainer}>
-                            <FeatureIcon icons={props.features} />
+                        <View style={styles.roomInfoContainer}>
+                            <View style={styles.itemContainer}>
+                                <Ionicons name='md-contact' size={25} color={Theme.color.teal} />
+                                <Text style={[NHSStyle.mediumText, styles.featureText]}>{props.capacity} Seats</Text>
+                            </View>
+                            <View style={styles.itemContainer}>
+                                <Ionicons name='ios-pin' size={25} style={{paddingLeft:3}} color={Theme.color.teal} />
+                                <Text style={[NHSStyle.mediumText, styles.featureText, {paddingLeft:9}]}>WV1 3AB,{'\n'}Wolverhampton</Text>
+                            </View>
+                            <View style={styles.iconContainer}>
+                                <FeatureIcon icons={props.features} />
+                            </View>
                         </View>
                     </View>
                 </View>
             </View>
-        </View>
+        </TouchableComponent>
     );
 };
 

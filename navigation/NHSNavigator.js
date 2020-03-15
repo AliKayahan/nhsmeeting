@@ -2,6 +2,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import LoginScreen from '../screens/user/LoginScreen';
 import ListRoomScreen from '../screens/room/ListRoomScreen';
+import RoomDetailScreen from '../screens/room/RoomDetailScreen';
 import Theme from '../constants/Theme';
 
 // The default NHSNavigator styling and customization settings goes here
@@ -27,6 +28,9 @@ const NHSNavigator = createStackNavigator({
     // },
     ListRoom: {
         screen: ListRoomScreen
+    },
+    RoomDetailScreen: {
+        screen: RoomDetailScreen
     } 
 },NHSMainNavOptions);
 
