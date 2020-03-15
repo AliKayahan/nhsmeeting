@@ -18,8 +18,8 @@ const RoomCard = (props) =>{
     }
 
     return(
-        <TouchableComponent onPress={props.onViewDetail} useForeground>
-            <View style={styles.roomCardContainer}>
+        <View style={styles.roomCardContainer}>
+            <TouchableComponent onPress={props.onViewDetail} useForeground>
                 <View style={styles.roomCard}>
                     <View style={styles.roomCardHeader}>
                         <Text style={[NHSStyle.smallText]}>{props.building}</Text>
@@ -44,8 +44,8 @@ const RoomCard = (props) =>{
                         </View>
                     </View>
                 </View>
-            </View>
-        </TouchableComponent>
+            </TouchableComponent>
+        </View>
     );
 };
 
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowOffset: {width: 0, height: 2},
         shadowRadius: 10,
+        overflow: 'hidden' // Fixes android flat corner issue during ripple effect
     },
     roomCardHeader: {
         borderLeftWidth: 3,
