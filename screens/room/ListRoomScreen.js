@@ -19,6 +19,12 @@ const ListRoomScreen = props => {
                         images={itemData.item.images}  
                         features={itemData.item.features}  
                         capacity={itemData.item.capacity}
+                        onViewDetail={() => {
+                            props.navigation.navigate('RoomDetailScreen', {
+                                roomId: itemData.item.id,
+                                roomName: itemData.item.name
+                            })
+                        }}
                     >
                     </RoomCard>
                 )} 
