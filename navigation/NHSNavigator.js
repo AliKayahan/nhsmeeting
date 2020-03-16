@@ -1,12 +1,14 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createDrawerNavigator, DrawerItemList} from '@react-navigation/drawer';
 import LoginScreen from '../screens/user/LoginScreen';
 import ListRoomScreen, { ListRoomNavOptions } from '../screens/room/ListRoomScreen';
 import RoomDetailScreen, { RoomDetailNavOptions } from '../screens/room/RoomDetailScreen';
 import Theme from '../constants/Theme';
 import EditRoomScreen from '../screens/room/EditRoomScreen';
 import AddRoomScreen from '../screens/room/AddRoomScreen';
+import { Ionicons } from '@expo/vector-icons';
+import { View, Text, SafeAreaView } from 'react-native'; 
 
 // The default NHSNavigator styling and customization settings goes here
 const defaultNavigationOptions = {
@@ -55,5 +57,40 @@ export const NHSAdminNavigator = () => {
                 name="AddRoom"
                 component={AddRoomScreen} />
         </NHSAdminStackNavigator>
+    );
+}
+
+const NHSDrawerNavigatior = createDrawerNavigator();
+
+export const NHSSideNavigatior = () =>{
+    return(
+        <NHSDrawerNavigatior.Navigator
+            drawerContentOptions={{
+                activeTintColor: Theme.color.blue1
+            }}
+            drawerContent={
+                props => {
+                    return(
+                        <View style={{flex:1, paddingTop:20}}>
+                            <SafeAreaView forceInset={{top: 'always', horizontal: 'never'}}>
+                                <DrawerItemList {...props}>
+                                    <Text>Hello</Text>
+                                </DrawerItemList>
+                            </SafeAreaView>
+                        </View>
+                    );
+                }
+            }
+        >
+            <NHSDrawerNavigatior.Screen 
+                name="Rooms" 
+                component={NHSNavigator} 
+                options={{
+                    drawerIcon: props => {
+                        <Ionicons name="ios-create" size={23} color={props.color} />
+                    }
+                }}
+            />                
+        </NHSDrawerNavigatior.Navigator>
     );
 }
