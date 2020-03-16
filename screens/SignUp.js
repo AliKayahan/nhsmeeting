@@ -3,11 +3,11 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import Background from '../components/Background';
 import NHSStyle from '../constants/NHSStyle';
 import NHSInput from '../components/NHSInput';
-import {Checkbox, Button} from 'react-native-paper';
+import {FasEye, Button} from 'react-native-paper';
 import Theme from '../constants/Theme';
 
-const LoginScreen = () => {
-    const [rememberMe, setRememberMe] = useState('checked');
+const SignUpScreen = () => {
+    const ; //fa's eye
     return(
         <Background>
             <View style={styles.logoContainer}>
@@ -17,9 +17,13 @@ const LoginScreen = () => {
             </View>
             <View style={styles.bodyContainer}>
                 <Text style={NHSStyle.header1}>
-                    Welcome{"\n"}Back
+                    Create{"\n"}Account
                 </Text>
                 <View style={styles.inputContainer}>
+                <NHSInput 
+                        mode='outlined'
+                        label='First and Last Name' 
+                    />
                     <NHSInput 
                         mode='outlined'
                         label='E-mail' 
@@ -29,7 +33,7 @@ const LoginScreen = () => {
                         label='Password' 
                     />
                     <View style={styles.rememberMeContainer}>
-                        <Checkbox 
+                        <FasEye 
                             style={styles.checkBox}
                             status={rememberMe}
                             color={Theme.color.blue1}
@@ -48,16 +52,16 @@ const LoginScreen = () => {
                             mode="contained" 
                             uppercase={false}
                             color={Theme.color.purple3}
-                            contentStyle={styles.loginButton}
+                            contentStyle={styles.signupButton}
                             labelStyle={styles.buttonLabel}
-                            style={styles.loginButtonDefault}
-                            onPress={() => console.log('Login')}>
-                            Sign In
+                            style={styles.signupButtonDefault}
+                            onPress={() => console.log('Sign-Up')}>
+                            Sign Up
                         </Button>
                     </View>
                     <View style={styles.signupTextContainer}>
                         <Text style={styles.signUpText}>
-                            Don't have an account yet? <Text style={styles.signUpLink}> Sign Up</Text>
+                            Already got an Account? <Text style={styles.signupLink}> Sign In</Text>
                         </Text>
                     </View>
                 </View>
@@ -77,9 +81,6 @@ const styles = StyleSheet.create({
     },
     inputContainer:{
         marginTop: 20
-    },
-    rememberMeContainer: {
-        flexDirection: 'row',
     },
     buttonContainer: {
         marginVertical: 15,
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
     signUpLink: {
         color: Theme.color.blue2
     },
-    loginButton: {
+    signupButton: {
         height: 50,
     },
     buttonLabel: {
@@ -109,29 +110,15 @@ const styles = StyleSheet.create({
         fontSize: 16,
         paddingTop: 6
     },
-    loginButtonDefault:{
+    signupButtonDefault:{
         textAlignVertical: 'bottom'
-    },
-    checkBox: {
-
     },
     sideTexts: {
         marginTop: 13,
         marginLeft: 2,
         flexDirection: 'row',
         flex: 1
-    },
-    forgotPasswordText: {
-        fontFamily: 'Frutiger',
-        fontSize: 14,
-        color: Theme.color.grey4,
-        marginLeft: 70
-    },
-    rememberMeText: {
-        fontFamily: 'Frutiger',
-        fontSize: 14,
-        color: Theme.color.black
     }
 });
 
-export default LoginScreen;
+export default SignUpScreen;
