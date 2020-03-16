@@ -5,6 +5,8 @@ import LoginScreen from '../screens/user/LoginScreen';
 import ListRoomScreen, { ListRoomNavOptions } from '../screens/room/ListRoomScreen';
 import RoomDetailScreen, { RoomDetailNavOptions } from '../screens/room/RoomDetailScreen';
 import Theme from '../constants/Theme';
+import EditRoomScreen from '../screens/room/EditRoomScreen';
+import AddRoomScreen from '../screens/room/AddRoomScreen';
 
 // The default NHSNavigator styling and customization settings goes here
 const defaultNavigationOptions = {
@@ -38,5 +40,20 @@ export const NHSNavigator = () => {
                 options={RoomDetailNavOptions} 
             />
         </NHSStackNavigator.Navigator>
+    );
+}
+
+const NHSAdminStackNavigator = createStackNavigator();
+
+export const NHSAdminNavigator = () => {
+    return(
+        <NHSAdminStackNavigator screenOptions={defaultNavigationOptions}>
+            <NHSAdminStackNavigator.Screen 
+                name="EditRoom"
+                component={EditRoomScreen} />
+            <NHSAdminStackNavigator.Screen 
+                name="AddRoom"
+                component={AddRoomScreen} />
+        </NHSAdminStackNavigator>
     );
 }
