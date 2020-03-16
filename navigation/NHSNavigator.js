@@ -25,6 +25,7 @@ export const NHSNavigator = () => {
             {/* <NHSStackNavigator.Screen 
                 name="Login" 
                 component={LoginScreen} 
+                options= {{headerShown: false}}
             /> */}
             <NHSStackNavigator.Screen 
                 name="ListRoom" 
