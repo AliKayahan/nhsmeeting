@@ -33,7 +33,7 @@ const ListRoomScreen = props => {
     );
 };
 
-ListRoomScreen.navigationOptions = {
+export const ListRoomNavOptions = {
     headerTitle: 'Matching Rooms'
 }
 

@@ -15,7 +15,7 @@ const RoomDetailScreen = (props) =>{
     );
 };
 
-RoomDetailScreen.navigationOptions = navData => {
+export const RoomDetailNavOptions = navData => {
     return{
         headerTitle: navData.navigation.getParam('roomName')
     };

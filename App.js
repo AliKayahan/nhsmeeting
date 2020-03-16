@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import userReducer from './store/reducers/user';
 import roomReducer from './store/reducers/room';
 import { enableScreens } from 'react-native-screens';
-import NavigationContainer from './navigation/NavigationContainer';
+import NHSNavigationContainer from './navigation/NHSNavigationContainer';
 
 // Pre-load screens during app load.
 enableScreens(); 
@@ -47,7 +47,7 @@ export default function App() {
   // Return default app view after loading static assets
   return (
     <Provider store={store}>
-      <NavigationContainer />
+      <NHSNavigationContainer />
     </Provider>
   );
 }

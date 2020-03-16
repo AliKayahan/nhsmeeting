@@ -1,41 +1,41 @@
 import React from 'react';
-import {createStackNavigator} from 'react-navigation-stack';
-import {createAppContainer} from 'react-navigation';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import LoginScreen from '../screens/user/LoginScreen';
-import ListRoomScreen from '../screens/room/ListRoomScreen';
-import RoomDetailScreen from '../screens/room/RoomDetailScreen';
+import ListRoomScreen, { ListRoomNavOptions } from '../screens/room/ListRoomScreen';
+import RoomDetailScreen, { RoomDetailNavOptions } from '../screens/room/RoomDetailScreen';
 import Theme from '../constants/Theme';
-import {Ionicons} from '@expo/vector-icons';
 
 // The default NHSNavigator styling and customization settings goes here
-const NHSMainNavOptions = {
-    defaultNavigationOptions :{
-        headerStyle: {
-            backgroundColor: Theme.color.blue1
-        },
-        cardStyle:{
-            backgroundColor: Theme.color.background2
-        },
-        headerTintColor: Theme.color.white
-    }
+const defaultNavigationOptions = {
+    headerStyle: {
+        backgroundColor: Theme.color.blue1
+    },
+    cardStyle:{
+        backgroundColor: Theme.color.background2
+    },
+    headerTintColor: Theme.color.white
 }
 
-// This stack navigator is the app-wide main navigation
-const NHSNavigator = createStackNavigator({
-    // Login: {
-    //     screen: NHSTabNavigator,
-    //     navigationOptions: { // Hides headerbar in login screen
-    //         headerShown: false
-    //     }
-    // },
-    ListRoom: {
-        screen: ListRoomScreen
-    },
-    RoomDetailScreen: {
-        screen: RoomDetailScreen
-    } 
-},NHSMainNavOptions);
+const NHSStackNavigator = createStackNavigator();
 
-
-export default createAppContainer(NHSNavigator);
+export const NHSNavigator = () => {
+    return (
+        <NHSStackNavigator.Navigator screenOptions={defaultNavigationOptions}>
+            {/* <NHSStackNavigator.Screen 
+                name="Login" 
+                component={LoginScreen} 
+            /> */}
+            <NHSStackNavigator.Screen 
+                name="ListRoom" 
+                component={ListRoomScreen}
+                options={ListRoomNavOptions} 
+            />
+            <NHSStackNavigator.Screen 
+                name="RoomDetail" 
+                component={RoomDetailScreen}
+                options={RoomDetailNavOptions} 
+            />
+        </NHSStackNavigator.Navigator>
+    );
+}
