@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import * as Font from 'expo-font';
 import {AppLoading} from 'expo';
-import NHSNavigator from './navigation/NHSNavigator';
 import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 import userReducer from './store/reducers/user';
 import roomReducer from './store/reducers/room';
 import { enableScreens } from 'react-native-screens';
+import NavigationContainer from './navigation/NavigationContainer';
 
 // Pre-load screens during app load.
 enableScreens(); 
@@ -47,7 +47,7 @@ export default function App() {
   // Return default app view after loading static assets
   return (
     <Provider store={store}>
-      <NHSNavigator />
+      <NavigationContainer />
     </Provider>
   );
 }
