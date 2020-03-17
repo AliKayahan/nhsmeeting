@@ -32,14 +32,14 @@ export const NHSNavigator = () => {
                 options= {{headerShown: false}}
             /> */}
             <NHSStackNavigator.Screen 
-                name="ListRoom" 
-                component={ListRoomScreen}
-                options={ListRoomNavOptions} 
-            />
-            <NHSStackNavigator.Screen 
                 name="RoomDetail" 
                 component={RoomDetailScreen}
                 options={RoomDetailNavOptions} 
+            />
+            <NHSStackNavigator.Screen 
+                name="ListRoom" 
+                component={ListRoomScreen}
+                options={ListRoomNavOptions} 
             />
         </NHSStackNavigator.Navigator>
     );

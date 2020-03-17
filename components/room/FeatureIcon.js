@@ -15,7 +15,7 @@ const FeatureIcon = (props) =>{
         <View style={styles.iconListContainer}>
             {props.icons.map((icon, key) => (
                 <View style={styles.icon} key={key}>
-                    <Ionicons name={icon} size={18} color={Theme.color.purple2} />
+                    <Ionicons name={icon} size={props.size} color={Theme.color.purple2} />
                 </View> 
             ))}
         </View>

@@ -39,7 +39,7 @@ const RoomCard = (props) =>{
                                 <Text style={[NHSStyle.mediumText, styles.featureText, {paddingLeft:9}]}>WV1 3AB,{'\n'}Wolverhampton</Text>
                             </View>
                             <View style={styles.iconContainer}>
-                                <FeatureIcon icons={props.features} />
+                                <FeatureIcon size={18} icons={props.features} />
                             </View>
                         </View>
                     </View>
