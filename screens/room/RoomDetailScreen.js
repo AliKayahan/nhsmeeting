@@ -2,29 +2,27 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {useSelector} from 'react-redux';
 import { Ionicons } from '@expo/vector-icons';
+import FeatureIcon from '../../components/room/FeatureIcon';
 
 const RoomDetailScreen = (props) =>{
-    const roomId = props.navigation.getParam('roomId');
-    const selectedRoom = useSelector(state => 
-        state.rooms.availableRooms.find(room => room.id === roomId)
-    );
+    // const roomId = props.navigation.getParam('roomId');
+    // const selectedRoom = useSelector(state => 
+    //     state.rooms.availableRooms.find(room => room.id === roomId)
+    // );
 
     return(
     <View>
-      {/* Header */}   
-      <View style={styles.containerHeader}>
-          <Ionicons name="md-arrow-round-back" style={styles.arrowStyle}size={30} color="#2F80ED" />
-          <Text style={styles.headerText}>Room 505</Text>
-        </View>
-      {/* Image */}
+      {/* Removed header as we already have a native one */}
         <View style={styles.imageContainer}>
+          {/* TODO: We need to get room images via uri */}
         <Image
           style={{width: "100%", height: "110%"}}
-          source={require('./assets/office.jpg')}
+          source={{uri: 'https://www.citizenm.com/cache/images/citizenm_schipol_2-0199_web_00ecec985a24cc.jpg'}}
         />
         </View>
         {/* Room Info Section */}
         <View style={styles.infoContainer}>
+          {/* TODO: We need to use text styling from NHSStyle.js */}
           <Text style={styles.officeName}>Apple Office</Text>
           <Text style={styles.officeInfo}>Room 505, Floor. 3</Text>   
         <View style={styles.containerIcon}>
@@ -36,12 +34,8 @@ const RoomDetailScreen = (props) =>{
           <Text style={styles.iconStyle}>Albion Street, Wolverhampton, WV1 3EB</Text>
         </View>
         <View style={styles.roomFacilities}>
-          <Ionicons name="md-wifi" style={styles.facilityIcons} size={26} color="#2F80ED" />
-          <Ionicons name="md-car" style={styles.facilityIcons} size={26} color="#2F80ED" />
-          <Ionicons name="md-mic" style={styles.facilityIcons} size={26} color="#2F80ED" />
-          <Ionicons name="md-user" style={styles.facilityIcons} size={26} color="#2F80ED" />
-          <Ionicons name="md-call" style={styles.facilityIcons}size={26} color="#2F80ED" />
-          <Ionicons name="md-cafe" style={styles.facilityIcons}size={26} color="#2F80ED" />
+          {/* TODO:Need to fix size, may be we can adjust the box size by using font size */}
+          <FeatureIcon size={18} icons={['ios-snow', 'ios-videocam', 'ios-mic', 'ios-wifi', 'ios-car']} />
         </View>
         <View style={styles.description}>
           <Text style={styles.descriptionHeader}>Description</Text>
@@ -53,12 +47,13 @@ const RoomDetailScreen = (props) =>{
 };
 
 export const RoomDetailNavOptions = navData => {
+  // Updated react-navigation, removed parameters for now (working on seperate branch)
     return{
-        headerTitle: navData.navigation.getParam('roomName')
+        headerTitle: 'Room Details'
     };
 }
 
-
+// We should use colors from Theme, text styling from NHSStyles
 const styles = StyleSheet.create({
     containerHeader: {
       backgroundColor: '#2F80ED',
