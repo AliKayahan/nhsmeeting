@@ -23,7 +23,7 @@ const defaultNavigationOptions = {
 
 const NHSStackNavigator = createStackNavigator();
 
-export const NHSNavigator = () => {
+export const NHSNavigator = (props) => {
     return (
         <NHSStackNavigator.Navigator screenOptions={defaultNavigationOptions}>
             {/* <NHSStackNavigator.Screen 
@@ -37,7 +37,7 @@ export const NHSNavigator = () => {
                 options={ListRoomNavOptions} 
             />
             <NHSStackNavigator.Screen 
-                name="RoomDetail" 
+                name="RoomDetailScreen" 
                 component={RoomDetailScreen}
                 options={RoomDetailNavOptions} 
             />
@@ -47,7 +47,7 @@ export const NHSNavigator = () => {
 
 const NHSAdminStackNavigator = createStackNavigator();
 
-export const NHSAdminNavigator = () => {
+export const NHSAdminNavigator = (props) => {
     return(
         <NHSAdminStackNavigator screenOptions={defaultNavigationOptions}>
             <NHSAdminStackNavigator.Screen 
@@ -62,7 +62,7 @@ export const NHSAdminNavigator = () => {
 
 const NHSDrawerNavigatior = createDrawerNavigator();
 
-export const NHSSideNavigatior = () =>{
+export const NHSSideNavigatior = (props) =>{
     return(
         <NHSDrawerNavigatior.Navigator
             drawerContentOptions={{
