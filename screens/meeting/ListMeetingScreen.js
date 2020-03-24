@@ -30,8 +30,17 @@ const ListMeetingScreen = (props) =>{
                         '2020-03-24': [{name: 'item 1 - any js object'}],
                         '2020-03-25': [{name: 'item 2 - any js object', height: 80}],
                         '2020-03-26': [],
-                        '2020-03-27': [{name: 'item 3 - any js object'}, {name: 'any js object'}]
+                        '2020-03-27': [{name: 'item 3 - any js object'}, {name: 'any js object'}],
+                        '2020-03-28': [{name: 'item 3 - any js object'}, {name: 'any js object'}],
+                        '2020-03-29': [{name: 'item 3 - any js object'}, {name: 'any js object'}],
+                        '2020-03-30': [{name: 'item 3 - any js object'}, {name: 'any js object'}],
                     }}
+                    // Callback that gets called when items for a certain month should be loaded (month became visible)
+                    loadItemsForMonth={(month) => {console.log(month)}}
+                    // Callback that fires when the calendar is opened or closed
+                    onCalendarToggled={(calendarOpened) => {console.log(calendarOpened)}}
+                    // Callback that gets called on day press
+                    onDayPress={(day)=>{console.log('day pressed')}}
                 />
             </View>
         </Background>
