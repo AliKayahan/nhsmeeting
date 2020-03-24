@@ -2,12 +2,13 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import CustomHeaderButton from '../../components/ui/HeaderButton';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import Background from '../../components/Background';
 
 const ListMeetingScreen = (props) =>{
     return(
-        <View>
-            <Text>List Meetings</Text>
-        </View>
+        <Background>
+            <Text>List Meetings!</Text>
+        </Background>
     );
 };
 
