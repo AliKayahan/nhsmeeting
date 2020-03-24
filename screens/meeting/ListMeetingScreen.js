@@ -75,6 +75,18 @@ const ListMeetingScreen = (props) =>{
                     //}}
                     // If disabledByDefault={true} dates flagged as not disabled will be enabled. Default = false
                     //disabledByDefault={true}
+                    // If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make sure to also set the refreshing prop correctly.
+                    //onRefresh={() => console.log('refreshing...')}
+                    // Set this true while waiting for new data from a refresh
+                    refreshing={false}
+                    // Add a custom RefreshControl component, used to provide pull-to-refresh functionality for the ScrollView.
+                    //refreshControl={null}
+                    // Agenda theme
+                    theme={{
+                        agendaKnobColor: Theme.color.grey2
+                    }}
+                    // Agenda container style
+                    style={{}}
                 />
             </View>
         </Background>
