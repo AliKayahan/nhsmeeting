@@ -9,6 +9,9 @@ import EditRoomScreen from '../screens/room/EditRoomScreen';
 import AddRoomScreen from '../screens/room/AddRoomScreen';
 import { Ionicons } from '@expo/vector-icons';
 import { View, Text, SafeAreaView } from 'react-native'; 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import ListMeetingScreen, { ListMeetingNavOptions } from '../screens/meeting/ListMeetingScreen';
+import SearchRoomScreen from '../screens/room/SearchRoomScreen';
 
 // The default NHSNavigator styling and customization settings goes here
 const defaultNavigationOptions = {
@@ -21,30 +24,64 @@ const defaultNavigationOptions = {
     headerTintColor: Theme.color.white
 }
 
-const NHSStackNavigator = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
-export const NHSNavigator = (props) => {
+export const TabNavigator = (props) => {
+    return(
+        <Tab.Navigator>
+            <Tab.Screen 
+                name="List Meetings" 
+                component={ListMeetingScreen} 
+            />
+            <Tab.Screen
+                name="Search Room" 
+                component={SearchRoomScreen} 
+            />
+        </Tab.Navigator>
+    );
+}
+
+const TabStackNavigator = createStackNavigator();
+
+export const TabStackNavigatorComponent = (props) => {
     return (
-        <NHSStackNavigator.Navigator screenOptions={defaultNavigationOptions}>
+        <TabStackNavigator.Navigator screenOptions={defaultNavigationOptions}>
             {/* <NHSStackNavigator.Screen 
                 name="Login" 
                 component={LoginScreen} 
                 options= {{headerShown: false}}
             /> */}
-            <NHSStackNavigator.Screen 
-                name="ListRoom" 
-                component={ListRoomScreen}
+            <TabStackNavigator.Screen 
+                name="Home" 
+                component={TabNavigator}
                 options={ListRoomNavOptions} 
             />
-            <NHSStackNavigator.Screen 
+            <TabStackNavigator.Screen 
                 name="RoomDetailScreen" 
                 component={RoomDetailScreen}
                 options={RoomDetailNavOptions} 
             />
-        </NHSStackNavigator.Navigator>
+        </TabStackNavigator.Navigator>
     );
 }
+const DrawerStackNavigator = createStackNavigator();
 
+export const DrawerStackNavigatorComponent = (props) => {
+    return (
+        <DrawerStackNavigator.Navigator screenOptions={defaultNavigationOptions}>
+            <DrawerStackNavigator.Screen 
+                name="ListRoom" 
+                component={ListRoomScreen}
+                options={ListRoomNavOptions} 
+            />
+            <DrawerStackNavigator.Screen 
+                name="RoomDetailScreen" 
+                component={RoomDetailScreen}
+                options={RoomDetailNavOptions} 
+            />
+        </DrawerStackNavigator.Navigator>
+    );
+}
 const NHSAdminStackNavigator = createStackNavigator();
 
 export const NHSAdminNavigator = (props) => {
@@ -66,7 +103,7 @@ export const NHSSideNavigatior = (props) =>{
     return(
         <NHSDrawerNavigatior.Navigator
             drawerContentOptions={{
-                activeTintColor: Theme.color.blue1
+                activeTintColor: Theme.color.blue1,
             }}
             drawerContent={
                 props => {
@@ -83,13 +120,13 @@ export const NHSSideNavigatior = (props) =>{
             }
         >
             <NHSDrawerNavigatior.Screen 
-                name="Rooms" 
-                component={NHSNavigator} 
-                options={{
-                    drawerIcon: props => {
-                        <Ionicons name="ios-create" size={23} color={props.color} />
-                    }
-                }}
+                name="Home" 
+                component={TabStackNavigatorComponent} 
+            /> 
+            <NHSDrawerNavigatior.Screen 
+                name="ListRoom" 
+                component={ListRoomScreen}
+                options={ListRoomNavOptions}
             />                
         </NHSDrawerNavigatior.Navigator>
     );
