@@ -57,6 +57,10 @@ const ListMeetingScreen = (props) =>{
                     renderItem={(item, firstItemInDay) => {return (<View><Text>{item.name}</Text></View>);}}
                     // Specify how each date should be rendered. day can be undefined if the item is not first in that day.
                     //renderDay={(day, item) => {return (<View />);}}
+                    // Specify how empty date content with no items should be rendered
+                    //renderEmptyDate={() => {return (<View />);}}
+                    // Specify how agenda knob should look like
+                    //renderKnob={() => {return (<View />);}}
                 />
             </View>
         </Background>
