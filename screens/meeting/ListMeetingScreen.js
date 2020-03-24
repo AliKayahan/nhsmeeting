@@ -55,6 +55,8 @@ const ListMeetingScreen = (props) =>{
                     futureScrollRange={50}
                     // Specify how each item should be rendered in agenda
                     renderItem={(item, firstItemInDay) => {return (<View><Text>{item.name}</Text></View>);}}
+                    // Specify how each date should be rendered. day can be undefined if the item is not first in that day.
+                    //renderDay={(day, item) => {return (<View />);}}
                 />
             </View>
         </Background>
