@@ -41,6 +41,18 @@ const ListMeetingScreen = (props) =>{
                     onCalendarToggled={(calendarOpened) => {console.log(calendarOpened)}}
                     // Callback that gets called on day press
                     onDayPress={(day)=>{console.log('day pressed')}}
+                    // Callback that gets called when day changes while scrolling agenda list
+                    onDayChange={(day)=>{console.log('day changed')}}
+                    // Initially selected day
+                    selected={'2020-03-25'}
+                    // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
+                    minDate={'2020-03-23'}
+                    // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
+                    maxDate={'2020-03-30'}
+                    // Max amount of months allowed to scroll to the past. Default = 50
+                    pastScrollRange={50}
+                    // Max amount of months allowed to scroll to the future. Default = 50
+                    futureScrollRange={50}
                 />
             </View>
         </Background>
