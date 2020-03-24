@@ -61,6 +61,12 @@ const ListMeetingScreen = (props) =>{
                     //renderEmptyDate={() => {return (<View />);}}
                     // Specify how agenda knob should look like
                     //renderKnob={() => {return (<View />);}}
+                    // Specify what should be rendered instead of ActivityIndicator
+                    //renderEmptyData = {() => {return (<View />);}}
+                    // Specify your item comparison function for increased performance
+                    //rowHasChanged={(r1, r2) => {return r1.text !== r2.text}}
+                    // Hide knob button. Default = false
+                    //hideKnob={true}
                 />
             </View>
         </Background>
