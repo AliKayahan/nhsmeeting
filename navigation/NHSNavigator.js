@@ -79,3 +79,7 @@ export const MainNavigator = (props) => {
         </MainStackNavigator.Navigator>
     );
 }
+
+/**
+ * Please note that DefaultHeaderOptions is used for generic headbar rendering
+ */
