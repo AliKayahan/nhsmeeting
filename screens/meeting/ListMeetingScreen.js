@@ -5,6 +5,7 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Background from '../../components/Background';
 import NHSStyle from '../../constants/NHSStyle';
 import Theme from '../../constants/Theme';
+import { Ionicons } from '@expo/vector-icons';
 
 const ListMeetingScreen = (props) =>{
     return(
@@ -12,7 +13,9 @@ const ListMeetingScreen = (props) =>{
             <View style={styles.headerContainer}>
                 <View style={styles.textContainer}>
                     <Text style={NHSStyle.mediumHeader}>Hi John,</Text>
-                    <Text style={NHSStyle.bigText}>April, 25 Monday</Text>
+                    <Text style={NHSStyle.bigText}>
+                        April, 25 Monday  <Ionicons name='md-calendar' size={22} color={Theme.color.grey1} />
+                    </Text>
                 </View>
                 <View style={styles.profilePicShadow}>
                     <View style={styles.imageContainer}>
@@ -32,7 +35,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     textContainer:{
-        width: 280
+        width: 280,
     },
     profilePicShadow: {
         shadowColor: Theme.color.black,
