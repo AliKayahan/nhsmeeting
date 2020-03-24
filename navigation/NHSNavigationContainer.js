@@ -1,12 +1,12 @@
 import React from 'react';
-import {NHSSideNavigatior} from './NHSNavigator';
+import {MainNavigator} from './NHSNavigator';
 import {NavigationContainer} from '@react-navigation/native';
 
 
 const NHSNavigationContainer = (props) =>{
     return (
         <NavigationContainer>
-            <NHSSideNavigatior />
+            <MainNavigator />
         </NavigationContainer>
     );
 };

@@ -12,6 +12,7 @@ import { View, Text, SafeAreaView } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ListMeetingScreen, { ListMeetingNavOptions } from '../screens/meeting/ListMeetingScreen';
 import SearchRoomScreen from '../screens/room/SearchRoomScreen';
+import { DefaultHeaderOptions } from './DefaultHeaderOptions';
 
 // The default NHSNavigator styling and customization settings goes here
 const defaultNavigationOptions = {
@@ -23,7 +24,8 @@ const defaultNavigationOptions = {
     },
     headerTintColor: Theme.color.white
 }
-
+// This is the bottom tab navigator located at home screen
+// TODO: update this to match with bottom tab navigation design
 const Tab = createBottomTabNavigator();
 
 export const TabNavigator = (props) => {
@@ -31,7 +33,7 @@ export const TabNavigator = (props) => {
         <Tab.Navigator>
             <Tab.Screen 
                 name="List Meetings" 
-                component={ListMeetingScreen} 
+                component={ListMeetingScreen}
             />
             <Tab.Screen
                 name="Search Room" 
@@ -40,94 +42,40 @@ export const TabNavigator = (props) => {
         </Tab.Navigator>
     );
 }
-
-const TabStackNavigator = createStackNavigator();
-
-export const TabStackNavigatorComponent = (props) => {
-    return (
-        <TabStackNavigator.Navigator screenOptions={defaultNavigationOptions}>
-            {/* <NHSStackNavigator.Screen 
-                name="Login" 
-                component={LoginScreen} 
-                options= {{headerShown: false}}
-            /> */}
-            <TabStackNavigator.Screen 
-                name="Home" 
-                component={TabNavigator}
-                options={ListRoomNavOptions} 
-            />
-            <TabStackNavigator.Screen 
-                name="RoomDetailScreen" 
-                component={RoomDetailScreen}
-                options={RoomDetailNavOptions} 
-            />
-        </TabStackNavigator.Navigator>
-    );
-}
-const DrawerStackNavigator = createStackNavigator();
-
-export const DrawerStackNavigatorComponent = (props) => {
-    return (
-        <DrawerStackNavigator.Navigator screenOptions={defaultNavigationOptions}>
-            <DrawerStackNavigator.Screen 
-                name="ListRoom" 
-                component={ListRoomScreen}
-                options={ListRoomNavOptions} 
-            />
-            <DrawerStackNavigator.Screen 
-                name="RoomDetailScreen" 
-                component={RoomDetailScreen}
-                options={RoomDetailNavOptions} 
-            />
-        </DrawerStackNavigator.Navigator>
-    );
-}
-const NHSAdminStackNavigator = createStackNavigator();
-
-export const NHSAdminNavigator = (props) => {
-    return(
-        <NHSAdminStackNavigator screenOptions={defaultNavigationOptions}>
-            <NHSAdminStackNavigator.Screen 
-                name="EditRoom"
-                component={EditRoomScreen} />
-            <NHSAdminStackNavigator.Screen 
-                name="AddRoom"
-                component={AddRoomScreen} />
-        </NHSAdminStackNavigator>
-    );
-}
-
+// We are creating the main side drawer navigation
+// The first screen is forwarded to bottom tab navigation
 const NHSDrawerNavigatior = createDrawerNavigator();
 
 export const NHSSideNavigatior = (props) =>{
     return(
-        <NHSDrawerNavigatior.Navigator
-            drawerContentOptions={{
-                activeTintColor: Theme.color.blue1,
-            }}
-            drawerContent={
-                props => {
-                    return(
-                        <View style={{flex:1, paddingTop:20}}>
-                            <SafeAreaView forceInset={{top: 'always', horizontal: 'never'}}>
-                                <DrawerItemList {...props}>
-                                    <Text>Hello</Text>
-                                </DrawerItemList>
-                            </SafeAreaView>
-                        </View>
-                    );
-                }
-            }
-        >
+        <NHSDrawerNavigatior.Navigator>
             <NHSDrawerNavigatior.Screen 
-                name="Home" 
-                component={TabStackNavigatorComponent} 
-            /> 
+                name="Tabs" 
+                component={TabNavigator}
+            />
             <NHSDrawerNavigatior.Screen 
-                name="ListRoom" 
+                name="List Rooms" 
                 component={ListRoomScreen}
-                options={ListRoomNavOptions}
             />                
         </NHSDrawerNavigatior.Navigator>
+    );
+}
+// This is the site-wide navigation stack
+// We should include most of the navigation elements here
+const MainStackNavigator = createStackNavigator();
+
+export const MainNavigator = (props) => {
+    return (
+        <MainStackNavigator.Navigator screenOptions={defaultNavigationOptions}>
+            <MainStackNavigator.Screen 
+                name="Home" 
+                component={NHSSideNavigatior}
+                options={DefaultHeaderOptions}
+            />
+            <MainStackNavigator.Screen 
+                name="RoomDetailScreen" 
+                component={RoomDetailScreen}
+            />
+        </MainStackNavigator.Navigator>
     );
 }

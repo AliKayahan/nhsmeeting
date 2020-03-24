@@ -2,8 +2,6 @@ import React from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
 import { useSelector } from 'react-redux';
 import RoomCard from '../../components/room/RoomCard';
-import CustomHeaderButton from '../../components/ui/HeaderButton';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 // We are planning to list and manage room state within this function
 const ListRoomScreen = props => {
@@ -35,20 +33,9 @@ const ListRoomScreen = props => {
     );
 };
 
-export const ListRoomNavOptions = navData => {
+export const ListRoomNavOptions = (navData) => {
     return {
-        headerTitle: 'Matching Rooms',
-        headerLeft: () => (
-            <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
-                <Item 
-                    title="Menu" 
-                    iconName="ios-menu"
-                    onPress={() => {
-                        navData.navigation.toggleDrawer();
-                    }}
-                />
-            </HeaderButtons>
-        )
+        headerTitle: 'Matching Rooms'
     }
 }
 
