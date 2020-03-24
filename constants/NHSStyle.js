@@ -17,6 +17,12 @@ export default NHSStyle = StyleSheet.create({
         color: Theme.color.black,
         lineHeight: 50
     },
+    mediumHeader: {
+        fontFamily: 'Frutiger',
+        fontSize: 34,
+        color: Theme.color.black,
+        lineHeight: 50
+    },
     header: {
         fontFamily: 'Frutiger',
         fontSize: 18,
@@ -31,6 +37,11 @@ export default NHSStyle = StyleSheet.create({
     mediumText: {
         fontFamily: 'Frutiger',
         fontSize: 16,
+        color: Theme.color.grey1
+    },
+    bigText: {
+        fontFamily: 'Frutiger',
+        fontSize: 22,
         color: Theme.color.grey1
     }
 });
