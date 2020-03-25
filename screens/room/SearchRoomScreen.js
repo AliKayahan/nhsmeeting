@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {useEffect} from 'react';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
 import Background from '../../components/Background';
 import NHSStyle from '../../constants/NHSStyle';
 import Theme from '../../constants/Theme';
@@ -7,8 +7,20 @@ import NHSInput from '../../components/NHSInput';
 import {Ionicons} from '@expo/vector-icons';
 import { TextInput } from 'react-native';
 import { Button } from 'react-native-paper';
+import {useSelector} from 'react-redux';
+import RoomCardThumb from '../../components/room/RoomCardThumb';
+
+let flatListRef;
 
 const SearchRoomScreen = (props) =>{
+    const rooms = useSelector(state => state.rooms.availableRooms);   
+
+    useEffect(() => {
+        flatListRef.scrollToIndex({animated: true, index:2});   
+    }, []);
+    // array of variables that can trigger an update if they change. Pass an
+    // an empty array if you just want to run it once after component mounted. 
+
     return( 
         <Background>
             <View style={styles.headerContainer}>
@@ -50,10 +62,32 @@ const SearchRoomScreen = (props) =>{
             <View style={styles.roomLister}>
                 <View style={styles.roomsNearbyHeaderContainer}>
                     <Text style={{...NHSStyle.smallText, color: Theme.color.black}}>Rooms Nearby</Text>
-                    <Text style={{...NHSStyle.smallText, color: Theme.color.purple1}}> (8)</Text>
+                    <Text style={{...NHSStyle.smallText, color: Theme.color.purple1}}> ({rooms.length})</Text>
                 </View>
-                <View>
-                    
+                <View style={styles.roomCardThumbs}>
+                    <FlatList 
+                        data={rooms} 
+                        horizontal={true}
+                        getItemLayout={(data, index) => { return {length: 33, index, offset: 33 * index} }}
+                        ref={(ref) => { flatListRef = ref; }}
+                        renderItem={itemData => (
+                            <RoomCardThumb 
+                                name={itemData.item.name}
+                                building={itemData.item.building}
+                                floor={itemData.item.floor}
+                                images={itemData.item.images}  
+                                features={itemData.item.features}  
+                                capacity={itemData.item.capacity}
+                                onViewDetail={() => {
+                                    props.navigation.navigate('RoomDetailScreen', {
+                                        roomId: itemData.item.id,
+                                        roomName: itemData.item.name
+                                    })
+                                }}
+                            >
+                            </RoomCardThumb>
+                        )} 
+                    />
                 </View>
             </View>
         </Background>
@@ -111,12 +145,14 @@ const styles = StyleSheet.create({
     roomLister:{
         marginVertical: 25,
         width: '100%',
-        height: 50,
+        height: 278,
         paddingLeft: 15
     },
     roomsNearbyHeaderContainer: {
-        flex: 1,
         flexDirection: 'row'
+    },
+    roomCardThumbs: {
+        marginLeft: -18
     }
 });
 
