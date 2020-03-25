@@ -37,13 +37,13 @@ const ListMeetingScreen = (props) =>{
                         '2020-03-30': [{name: 'item for 30 A', color: '#FFC649'}, {name: 'item for 30 B', color: '#AE2573'}],
                     }}
                     // Callback that gets called when items for a certain month should be loaded (month became visible)
-                    loadItemsForMonth={(month) => {console.log(month)}}
+                    //loadItemsForMonth={(month) => {console.log(month)}}
                     // Callback that fires when the calendar is opened or closed
-                    onCalendarToggled={(calendarOpened) => {console.log(calendarOpened)}}
+                    //onCalendarToggled={(calendarOpened) => {console.log(calendarOpened)}}
                     // Callback that gets called on day press
-                    onDayPress={(day)=>{console.log('day pressed')}}
+                    //onDayPress={(day)=>{console.log('day pressed')}}
                     // Callback that gets called when day changes while scrolling agenda list
-                    onDayChange={(day)=>{console.log('day changed')}}
+                    //onDayChange={(day)=>{console.log('day changed')}}
                     // Initially selected day
                     selected={'2020-03-25'}
                     // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
@@ -55,7 +55,16 @@ const ListMeetingScreen = (props) =>{
                     // Max amount of months allowed to scroll to the future. Default = 50
                     futureScrollRange={50}
                     // Specify how each item should be rendered in agenda
-                    renderItem={(item, firstItemInDay) => {return (<MeetingCard item={item} />);}}
+                    renderItem={(item, firstItemInDay) => {
+                        return (
+                            <MeetingCard 
+                                item={item} 
+                                onGotoDetail={() => {
+                                        props.navigation.navigate('MeetingDetailScreen',{
+                                            item: item
+                                        })
+                                    }} />);
+                                }}
                     // Specify how each date should be rendered. day can be undefined if the item is not first in that day.
                     //renderDay={(day, item) => {return (<View />);}}
                     // Specify how empty date content with no items should be rendered
