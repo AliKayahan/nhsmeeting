@@ -5,11 +5,10 @@ import Theme from '../../constants/Theme';
 import {Ionicons} from '@expo/vector-icons';
 
 const MeetingCard = (props) =>{
-    console.log(props);
     return(
         <TouchableOpacity   
             style={styles.agendaItem} 
-            onPress={() => {}}>
+            onPress={props.onGotoDetail}>
             <View style={{...styles.itemColorBorder, backgroundColor: props.item.color}}></View>
             <View style={{padding:10}}>
                 <Text style={NHSStyle.headerBold}>Month Planning</Text>
