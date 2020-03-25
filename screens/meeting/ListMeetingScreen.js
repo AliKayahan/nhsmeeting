@@ -83,10 +83,10 @@ const ListMeetingScreen = (props) =>{
                     //refreshControl={null}
                     // Agenda theme
                     theme={{
-                        agendaKnobColor: Theme.color.grey2
+                        backgroundColor: Theme.color.background,
+                        agendaKnobColor: Theme.color.grey2,
+                        //'stylesheet.agenda.list': { dayHeader: { borderTopColor: Theme.color.grey4, borderTopWidth: 1 } },
                     }}
-                    // Agenda container style
-                    style={{}}
                 />
             </View>
         </Background>
@@ -131,8 +131,7 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20
-    },
-    calendarTheme: {}
+    }
 });
 
 export default ListMeetingScreen;
