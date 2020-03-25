@@ -1,8 +1,9 @@
 import React from 'react';
-import HeaderBar from "../components/ui/HeaderBar"
+import { BurgerMenu, NotificationBell } from "../components/ui/HeaderBar"
 
 export const DefaultHeaderOptions = (navData) => {
     return {
-        headerLeft: () => (<HeaderBar navData={navData} />)
+        headerLeft: () => (<BurgerMenu navData={navData} />),
+        headerRight: () => (<NotificationBell navData={navData} />)
     }
 }
