@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-
+import Background from '../../components/Background';
 const SearchRoomScreen = (props) =>{
-    return(
-        <View>
-            <Text>Search Room</Text>
-        </View>
+    return( 
+        <Background>
+            <Text>Hi</Text>
+        </Background>
     );
 };
 
