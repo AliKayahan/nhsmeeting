@@ -23,6 +23,12 @@ export default NHSStyle = StyleSheet.create({
         color: Theme.color.black,
         lineHeight: 50
     },
+    headerBold: {
+        fontFamily: 'Frutiger-Bold',
+        fontSize: 17,
+        color: Theme.color.black,
+        lineHeight:22
+    },
     header: {
         fontFamily: 'Frutiger',
         fontSize: 18,
@@ -38,6 +44,11 @@ export default NHSStyle = StyleSheet.create({
         fontFamily: 'Frutiger',
         fontSize: 16,
         color: Theme.color.grey1
+    },
+    mediumLightText: {
+        fontFamily: 'Frutiger-Light',
+        fontSize: 16,
+        color: Theme.color.grey5,
     },
     bigText: {
         fontFamily: 'Frutiger',
