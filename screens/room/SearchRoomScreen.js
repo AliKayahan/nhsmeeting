@@ -47,6 +47,15 @@ const SearchRoomScreen = (props) =>{
                     Find Room
                 </Button>
             </View>
+            <View style={styles.roomLister}>
+                <View style={styles.roomsNearbyHeaderContainer}>
+                    <Text style={{...NHSStyle.smallText, color: Theme.color.black}}>Rooms Nearby</Text>
+                    <Text style={{...NHSStyle.smallText, color: Theme.color.purple1}}> (8)</Text>
+                </View>
+                <View>
+                    
+                </View>
+            </View>
         </Background>
     );
 };
@@ -95,10 +104,20 @@ const styles = StyleSheet.create({
         height: 55
     },
     searchButtonLabel: {
-        fontFamily: 'Frutiger',
+        fontFamily: 'Frutiger-Light-Bold',
         fontSize: 16,
         paddingTop: 12
     },
+    roomLister:{
+        marginVertical: 25,
+        width: '100%',
+        height: 50,
+        paddingLeft: 15
+    },
+    roomsNearbyHeaderContainer: {
+        flex: 1,
+        flexDirection: 'row'
+    }
 });
 
 export default SearchRoomScreen;
