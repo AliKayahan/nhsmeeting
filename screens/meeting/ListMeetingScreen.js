@@ -7,6 +7,7 @@ import NHSStyle from '../../constants/NHSStyle';
 import Theme from '../../constants/Theme';
 import { Ionicons } from '@expo/vector-icons';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
+import MeetingCard from '../../components/ui/MeetingCard';
 
 const ListMeetingScreen = (props) =>{
     return(
@@ -27,13 +28,13 @@ const ListMeetingScreen = (props) =>{
             <View style={styles.calendarContainer}>
                 <Agenda 
                     items={{
-                        '2020-03-24': [{name: 'item 1 - any js object'}],
-                        '2020-03-25': [{name: 'item 2 - any js object', height: 80}],
+                        '2020-03-24': [{name: 'item for 24 - any js object', color: '#AE2573'}],
+                        '2020-03-25': [{name: 'item for 25 - any js object', color: '#FFC649'}],
                         '2020-03-26': [],
-                        '2020-03-27': [{name: 'item 3 - any js object'}, {name: 'any js object'}],
-                        '2020-03-28': [{name: 'item 3 - any js object'}, {name: 'any js object'}],
-                        '2020-03-29': [{name: 'item 3 - any js object'}, {name: 'any js object'}],
-                        '2020-03-30': [{name: 'item 3 - any js object'}, {name: 'any js object'}],
+                        '2020-03-27': [{name: 'item for 27 A', color: '#AE2573'}, {name: 'item for 27 B', color: '#79BE23'}],
+                        '2020-03-28': [{name: 'item for 28 A', color: '#0072CE'}, {name: 'item for 28 B', color: '#41B6E6'}],
+                        '2020-03-29': [{name: 'item for 29 A', color: '#AE2573'}, {name: 'item for 29 B', color: '#FFC649'}],
+                        '2020-03-30': [{name: 'item for 30 A', color: '#FFC649'}, {name: 'item for 30 B', color: '#AE2573'}],
                     }}
                     // Callback that gets called when items for a certain month should be loaded (month became visible)
                     loadItemsForMonth={(month) => {console.log(month)}}
@@ -54,7 +55,7 @@ const ListMeetingScreen = (props) =>{
                     // Max amount of months allowed to scroll to the future. Default = 50
                     futureScrollRange={50}
                     // Specify how each item should be rendered in agenda
-                    renderItem={(item, firstItemInDay) => {return (<View><Text>{item.name}</Text></View>);}}
+                    renderItem={(item, firstItemInDay) => {return (<MeetingCard item={item} />);}}
                     // Specify how each date should be rendered. day can be undefined if the item is not first in that day.
                     //renderDay={(day, item) => {return (<View />);}}
                     // Specify how empty date content with no items should be rendered
@@ -83,9 +84,10 @@ const ListMeetingScreen = (props) =>{
                     //refreshControl={null}
                     // Agenda theme
                     theme={{
-                        backgroundColor: Theme.color.background,
+                        backgroundColor: Theme.color.white,
                         agendaKnobColor: Theme.color.grey2,
-                        //'stylesheet.agenda.list': { dayHeader: { borderTopColor: Theme.color.grey4, borderTopWidth: 1 } },
+                       'stylesheet.agenda.main':{knobContainer: styles.knobContainer} 
+                        //'stylesheet.agenda.list': { content: { borderTopColor: Theme.color.grey4, borderTopWidth: 1 } },
                     }}
                 />
             </View>
@@ -131,6 +133,18 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20
+    },
+    knobContainer: {
+        flex: 1,
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        height: 24,
+        bottom: 0,
+        backgroundColor: Theme.color.white,
+        alignItems: 'center',
+        borderBottomColor: Theme.color.grey4, 
+        borderBottomWidth: 1 
     }
 });
 
