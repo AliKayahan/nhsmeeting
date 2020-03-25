@@ -32,6 +32,7 @@ const fetchFonts = () => {
     'Frutiger-Bold': require('./assets/fonts/Frutiger-Bold.otf'),// Make sure that we are loading local fonts
     'Frutiger-Italic': require('./assets/fonts/Frutiger-Italic.otf'),
     'Frutiger-Light-Bold': require('./assets/fonts/Frutiger-Light-Bold.otf'),
+    'Frutiger-Light': require('./assets/fonts/Frutiger-Light.otf'),
     'Frutiger-Roman-Bold': require('./assets/fonts/Frutiger-Roman-Bold.otf')
   });
 }
