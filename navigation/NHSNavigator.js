@@ -13,6 +13,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ListMeetingScreen, { ListMeetingNavOptions } from '../screens/meeting/ListMeetingScreen';
 import SearchRoomScreen from '../screens/room/SearchRoomScreen';
 import { DefaultHeaderOptions } from './DefaultHeaderOptions';
+import MeetingDetailScreen from '../screens/meeting/MeetingDetailScreen';
 
 // The default NHSNavigator styling and customization settings goes here
 const defaultNavigationOptions = {
@@ -75,6 +76,10 @@ export const MainNavigator = (props) => {
             <MainStackNavigator.Screen 
                 name="RoomDetailScreen" 
                 component={RoomDetailScreen}
+            />
+            <MainStackNavigator.Screen 
+                name="MeetingDetailScreen" 
+                component={MeetingDetailScreen}
             />
         </MainStackNavigator.Navigator>
     );
