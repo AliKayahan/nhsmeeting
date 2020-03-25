@@ -4,7 +4,7 @@ import CustomHeaderButton from './HeaderButton';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { DrawerActions } from '@react-navigation/native';
 
-const HeaderBar = (props) =>{
+export const BurgerMenu = (props) =>{
     return(
         <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
             <Item 
@@ -18,8 +18,18 @@ const HeaderBar = (props) =>{
     );
 };
 
+export const NotificationBell = (props) => {
+    return(
+        <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+            <Item
+                title="Menu"
+                iconName="ios-notifications"
+                onPress={()=>{ }}
+            />
+        </HeaderButtons>
+    )
+}
+
 const styles = StyleSheet.create({
 
 });
-
-export default HeaderBar;
