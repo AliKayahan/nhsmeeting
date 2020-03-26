@@ -21,7 +21,13 @@ export default NHSStyle = StyleSheet.create({
         fontFamily: 'Frutiger',
         fontSize: 34,
         color: Theme.color.black,
-        lineHeight: 50
+        lineHeight: 45
+    },
+    subTitle: {
+        fontFamily: 'Frutiger-Light',
+        fontSize: 18,
+        color: Theme.color.black,
+        lineHeight: 20
     },
     headerBold: {
         fontFamily: 'Frutiger-Bold',
