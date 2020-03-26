@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import Background from '../../components/Background';
-import PasswordInputText from 'react=mative-hide-password-input';
+import PasswordInputText from 'react-native-hide-password-input';
 import NHSStyle from '../../constants/NHSStyle';
 import NHSInput from '../../components/NHSInput';
 import {FasEye, Button} from 'react-native-paper';
@@ -29,12 +29,14 @@ const SignUpScreen = () => {
                         mode='outlined'
                         label='E-mail' 
                     />
+                    <PasswordInputText>
                     <NHSInput 
                         mode='outlined'
                         label='Password' 
                         value={this.StaticRange.password}
                         onChangeText={ (Password) => this.setState({Password})}
                     />
+                    </PasswordInputText>
 
 
                         <View style={styles.sideTexts}>
