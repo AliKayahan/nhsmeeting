@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import Background from '../components/Background';
-import NHSStyle from '../constants/NHSStyle';
-import NHSInput from '../components/NHSInput';
+import Background from '../../components/Background';
+import NHSStyle from '../../constants/NHSStyle';
+import NHSInput from '../../components/NHSInput';
 import {Checkbox, Button} from 'react-native-paper';
-import Theme from '../constants/Theme';
+import Theme from '../../constants/Theme';
 
 const LoginScreen = () => {
     const [rememberMe, setRememberMe] = useState('checked');
@@ -12,11 +12,11 @@ const LoginScreen = () => {
         <Background>
             <View style={styles.logoContainer}>
                 <Image 
-                    source={require('../assets/images/NHSLogo.png')} 
+                    source={require('../../assets/images/NHSLogo.png')} 
                     />
             </View>
             <View style={styles.bodyContainer}>
-                <Text style={NHSStyle.header1}>
+                <Text style={NHSStyle.bigHeader}>
                     Welcome{"\n"}Back
                 </Text>
                 <View style={styles.inputContainer}>
@@ -33,7 +33,7 @@ const LoginScreen = () => {
                             style={styles.checkBox}
                             status={rememberMe}
                             color={Theme.color.blue1}
-                            uncheckedColor={Theme.color.grey4}
+                            uncheckedColor={Theme.color.grey1}
                             onPress={() => {
                                 setRememberMe(rememberMe === 'checked' ? 'unchecked' : 'checked')
                             }}
@@ -47,7 +47,7 @@ const LoginScreen = () => {
                         <Button 
                             mode="contained" 
                             uppercase={false}
-                            color={Theme.color.purple3}
+                            color={Theme.color.purple1}
                             contentStyle={styles.loginButton}
                             labelStyle={styles.buttonLabel}
                             style={styles.loginButtonDefault}
@@ -96,10 +96,10 @@ const styles = StyleSheet.create({
     },
     signUpText: {
         fontFamily: 'Frutiger',
-        color: Theme.color.grey4
+        color: Theme.color.grey1
     },
     signUpLink: {
-        color: Theme.color.blue2
+        color: Theme.color.teal
     },
     loginButton: {
         height: 50,
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     forgotPasswordText: {
         fontFamily: 'Frutiger',
         fontSize: 14,
-        color: Theme.color.grey4,
+        color: Theme.color.grey1,
         marginLeft: 70
     },
     rememberMeText: {

@@ -11,10 +11,54 @@ export default NHSStyle = StyleSheet.create({
         width: 320,
         marginVertical: 12
     },  
-    header1: {
+    bigHeader: {
         fontFamily: 'Frutiger',
         fontSize: 44,
         color: Theme.color.black,
         lineHeight: 50
-    }   
+    },
+    mediumHeader: {
+        fontFamily: 'Frutiger',
+        fontSize: 34,
+        color: Theme.color.black,
+        lineHeight: 45
+    },
+    subTitle: {
+        fontFamily: 'Frutiger-Light',
+        fontSize: 18,
+        color: Theme.color.black,
+        lineHeight: 20
+    },
+    headerBold: {
+        fontFamily: 'Frutiger-Bold',
+        fontSize: 17,
+        color: Theme.color.black,
+        lineHeight:22
+    },
+    header: {
+        fontFamily: 'Frutiger',
+        fontSize: 18,
+        color: Theme.color.black,
+        lineHeight: 22
+    },
+    smallText: {
+        fontFamily: 'Frutiger',
+        fontSize: 14,
+        color: Theme.color.grey1
+    },
+    mediumText: {
+        fontFamily: 'Frutiger',
+        fontSize: 16,
+        color: Theme.color.grey1
+    },
+    mediumLightText: {
+        fontFamily: 'Frutiger-Light',
+        fontSize: 16,
+        color: Theme.color.grey5,
+    },
+    bigText: {
+        fontFamily: 'Frutiger',
+        fontSize: 22,
+        color: Theme.color.grey1
+    }
 });
