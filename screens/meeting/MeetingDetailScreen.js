@@ -20,6 +20,13 @@ const MeetingDetailScreen = props => {
                         <Text style={[NHSStyle.mediumText, {paddingLeft: 15, paddingTop: 5}]}>Business Meeting</Text>
                     </View>
                 </View>
+                <View style={styles.detailContainer}>
+                <ScrollView>
+                    <View style={styles.memberHeader}>
+                        <Text style={[NHSStyle.header, {color: Theme.color.purple1}]}>Members (9)</Text>
+                    </View>
+                </ScrollView>
+            </View>
         </Background>
     )
 }
