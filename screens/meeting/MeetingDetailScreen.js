@@ -25,6 +25,26 @@ const MeetingDetailScreen = props => {
 }
 
 const styles = StyleSheet.create({
-    
+    meetingContainer:{
+        flexDirection: "row",
+        alignItems: "center",
+        height: 115,
+        padding:15,
+    },
+    meetingTextContainer: {
+        height: 90,
+        paddingTop:15,
+        paddingBottom: 15
+    },
+    detailContainer: {
+        backgroundColor: Theme.color.white,
+        width: "100%",
+        height: "100%",
+        borderRadius: 20,
+        shadowColor: Theme.color.grey4,
+        shadowOpacity: 1,
+        shadowOffset: {width:14, height: 0},
+        shadowRadius: 10,
+    }
 })
 export default MeetingDetailScreen;
