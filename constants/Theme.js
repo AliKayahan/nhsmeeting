@@ -20,6 +20,6 @@ export default {
         purple1: '#AE2573',
         purple2: '#94ADD7',
         green1: '#79BE23',
-        yellow: '#FFC649' 
+        yellow: '#FFC649', 
     }
 }

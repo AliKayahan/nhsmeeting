@@ -68,7 +68,7 @@ const MeetingDetailScreen = props => {
                         </View>
                     </View>
                     <View style={styles.meetingDetailContainer}>
-                        <View style={[styles.meetingDetailIcon, styles.rgbaTeal20]}>
+                        <View style={[styles.meetingDetailIcon, NHSStyle.rgbaTeal20]}>
                             <Ionicons name="ios-calendar" size={23} color={Theme.color.teal} />
                         </View>
                         <View style={styles.meetingDetailText}>
@@ -77,7 +77,7 @@ const MeetingDetailScreen = props => {
                         </View>
                     </View>
                     <View style={styles.meetingDetailContainer}>
-                        <View style={[styles.meetingDetailIcon, styles.rgbaPurple20]}>
+                        <View style={[styles.meetingDetailIcon, NHSStyle.rgbaPurple20]}>
                             <Ionicons name="ios-pin" size={23} color={Theme.color.purple1} />
                         </View>
                         <View style={styles.meetingDetailText}>
@@ -86,7 +86,7 @@ const MeetingDetailScreen = props => {
                         </View>
                     </View>
                     <View style={styles.meetingDetailContainer}>
-                        <View style={[styles.meetingDetailIcon, styles.rgbaYellow20]}>
+                        <View style={[styles.meetingDetailIcon, NHSStyle.rgbaYellow20]}>
                             <Ionicons name="ios-pin" size={23} color={Theme.color.yellow} />
                         </View>
                         <View style={styles.meetingDetailText}>
@@ -276,15 +276,6 @@ const styles = StyleSheet.create({
     },
     featureIconContainer:{
         flexDirection: "row",
-    },
-    rgbaTeal20: {
-        backgroundColor: "rgba(65, 182, 230, 0.20)",
-    },
-    rgbaPurple20: {
-        backgroundColor: "rgba(174, 37, 115, 0.20)",
-    },
-    rgbaYellow20: {
-        backgroundColor: "rgba(255, 184, 28, 0.20)",
     },
     descContainer:{
         padding: 15,
