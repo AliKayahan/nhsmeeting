@@ -14,9 +14,9 @@ const MeetingDetailScreen = props => {
                     <View style={styles.meetingTextContainer}>
                         <View style={styles.headerContainer}>
                             <View style={styles.borderLine}></View>                   
-                            <Text style={[NHSStyle.bigTextBold, {color: Theme.color.black, paddingTop: 10}]}>Month Planning</Text>
+                            <Text style={[NHSStyle.mediumHeader, {paddingTop: 12}]}>Month Planning</Text>
                         </View>
-                        <Text style={[NHSStyle.mediumText, {paddingLeft: 15, paddingTop: 5}]}>Business Meeting</Text>
+                        <Text style={[NHSStyle.mediumText, {paddingLeft: 15}]}>Business Meeting</Text>
                     </View>
                 </View>
                 <View style={styles.detailContainer}>
@@ -136,7 +136,6 @@ const styles = StyleSheet.create({
     },
     meetingTextContainer: {
         height: 90,
-        paddingTop:15,
         paddingBottom: 15
     },
     detailContainer: {
