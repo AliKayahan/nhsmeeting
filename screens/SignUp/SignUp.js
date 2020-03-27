@@ -8,7 +8,7 @@ import NHSInput from '../../components/NHSInput';
 import Theme from '../../constants/Theme';
 
 const SignUpScreen = () => {
-    const [password, setPassword] = useState(''); 
+    const [Password, setPassword] = useState(''); 
     return(  
         <Background>
             <View style={style.bodyContainer}>
