@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 import Background from '../../components/Background';
 import PasswordInputText from 'react-native-hide-password-input';
+import Background from './components/Background'
 import NHSStyle from '../../constants/NHSStyle';
 import NHSInput from '../../components/NHSInput';
 import Theme from '../../constants/Theme';
@@ -10,7 +11,7 @@ const SignUpScreen = () => {
     const [password, setPassword] = useState(''); 
     return(  
         <Background>
-            <View style={nha .bodyContainer}>
+            <View style={style.bodyContainer}>
                 <Text style={NHSStyle.headerBold}>
                     Create{"\n"}Account
                 </Text>
@@ -32,10 +33,6 @@ const SignUpScreen = () => {
                     />
                     </PasswordInputText>
 
-
-                    <View>
-                            <Text style={NHSStyle.mediumText}>Forgot Password ?</Text>
-                        </View>
                     </View>
                     <View style={styles.buttonContainer}>
                         <Button 
@@ -83,10 +80,6 @@ const style = StyleSheet.create({
         alignContent: 'center',
         justifyContent: 'center',
         alignItems: 'center'
-    },
-    signUpText: {
-        fontFamily: 'Frutiger',
-        color: Theme.color.grey4
     },
     signUpLink: {
         color: Theme.color.blue2
