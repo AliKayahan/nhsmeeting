@@ -25,6 +25,42 @@ const MeetingDetailScreen = props => {
                     <View style={styles.memberHeader}>
                         <Text style={[NHSStyle.header, {color: Theme.color.purple1}]}>Members (9)</Text>
                     </View>
+                    <View style={styles.memberContainer}>
+                        <View style={styles.memberContent}>
+                            <View style={styles.imageContainer}>
+                                <View  style={[styles.statusContainer, styles.statusFounder]}>
+                                    <Text style={styles.statusIcon}></Text>
+                                </View>
+                                <Image source={{uri: 'https://randomuser.me/api/portraits/men/17.jpg'}} style={styles.profilePic} />
+                            </View>
+                            <View style={styles.imageContainer}>
+                                <View  style={[styles.statusContainer, styles.statusCancel]}>
+                                    <Text style={styles.statusIcon}></Text>
+                                </View>
+                                <Image source={{uri: 'https://randomuser.me/api/portraits/men/17.jpg'}} style={styles.profilePic} />
+                            </View>
+                            <View style={styles.imageContainer}>
+                                <View  style={[styles.statusContainer, styles.statusOk]}>
+                                    <Text style={styles.statusIcon}></Text>
+                                </View>
+                                <Image source={{uri: 'https://randomuser.me/api/portraits/men/17.jpg'}} style={styles.profilePic} />
+                            </View>
+                            <View style={styles.imageContainer}>
+                                <View  style={[styles.statusContainer, styles.statusOk]}>
+                                    <Text style={styles.statusIcon}></Text>
+                                </View>
+                                <Image source={{uri: 'https://randomuser.me/api/portraits/men/17.jpg'}} style={styles.profilePic} />
+                            </View>
+                            <View style={styles.allMemberContainer}>
+                                <Text style={styles.allMemberText}>+ 5</Text>
+                            </View>
+                        </View>
+                        <View style={styles.addMemberContainer}>
+                            <View style={{paddingTop: 5}}>
+                                <Ionicons name="ios-add" size={25} color={Theme.color.green1}  />
+                            </View>
+                        </View>
+                    </View>
                     <View style={styles.goingContainer}>
                         <Text style={NHSStyle.header}>Are you going ?</Text>
                         <View style={styles.goingIcon}>
