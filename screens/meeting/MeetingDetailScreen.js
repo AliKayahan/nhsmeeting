@@ -25,6 +25,22 @@ const MeetingDetailScreen = props => {
                     <View style={styles.memberHeader}>
                         <Text style={[NHSStyle.header, {color: Theme.color.purple1}]}>Members (9)</Text>
                     </View>
+                    <View style={styles.goingContainer}>
+                        <Text style={NHSStyle.header}>Are you going ?</Text>
+                        <View style={styles.goingIcon}>
+                            <Ionicons name="ios-checkmark-circle" size={45} color={Theme.color.green1} style={{paddingRight: 25}} />
+                            <Ionicons name="ios-close-circle" size={45} color={Theme.color.red}  />
+                        </View>
+                    </View>
+                    <View style={styles.meetingDetailContainer}>
+                        <View style={[styles.meetingDetailIcon, styles.rgbaTeal20]}>
+                            <Ionicons name="ios-calendar" size={23} color={Theme.color.teal} />
+                        </View>
+                        <View style={styles.meetingDetailText}>
+                            <Text style={[NHSStyle.smallText, {lineHeight: 21}]}>Monday, April 10</Text>
+                            <Text  style={NHSStyle.header}>10:00 AM -11:00 AM</Text>
+                        </View>
+                    </View>
                     <View style={styles.meetingDetailContainer}>
                         <View style={[styles.meetingDetailIcon, styles.rgbaPurple20]}>
                             <Ionicons name="ios-pin" size={23} color={Theme.color.purple1} />
