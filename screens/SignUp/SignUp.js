@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, Button, StyleSheet, Image} from 'react-native';
 import Background from '../../components/Background';
 import PasswordInputText from 'react-native-hide-password-input';
 import NHSStyle from '../../constants/NHSStyle';
 import NHSInput from '../../components/NHSInput';
-import {FasEye, Button} from 'react-native-paper';
-import eyeinput from '../../components/eyeinput';
 import Theme from '../../constants/Theme';
 
 const SignUpScreen = () => {
