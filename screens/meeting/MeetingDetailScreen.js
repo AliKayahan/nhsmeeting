@@ -112,7 +112,22 @@ const MeetingDetailScreen = props => {
         </Background>
     )
 }
-
+export const MeetingDetailNavOptions = navData => {
+    return{
+        headerTitle: 'Meeting Detail',
+        headerRight: () => (
+            <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+                <Item
+                    title="Edit"
+                    iconName="md-create"
+                    onPress={()=>{
+                        navData.navigation.toggleDrawer();
+                    }}
+                />
+            </HeaderButtons>
+        )
+    }
+}
 const styles = StyleSheet.create({
     meetingContainer:{
         flexDirection: "row",
