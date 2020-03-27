@@ -5,6 +5,8 @@ import CustomHeaderButton from '../../components/ui/HeaderButton';
 import Background from '../../components/Background';
 import Theme from '../../constants/Theme';
 import NHSStyle from '../../constants/NHSStyle';
+import { Ionicons } from '@expo/vector-icons';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const MeetingDetailScreen = props => {
     return(
