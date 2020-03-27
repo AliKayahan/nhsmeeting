@@ -25,6 +25,10 @@ const MeetingDetailScreen = props => {
                     <View style={styles.memberHeader}>
                         <Text style={[NHSStyle.header, {color: Theme.color.purple1}]}>Members (9)</Text>
                     </View>
+                    <View style={styles.descContainer}>
+                        <Text style={[NHSStyle.header, {lineHeight: 25}]}>Description</Text>
+                        <Text  style={NHSStyle.smallText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor.</Text>
+                    </View>
                 </ScrollView>
             </View>
         </Background>
