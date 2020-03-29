@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 import Background from '../../components/Background';
 import NHSStyle from '../../constants/NHSStyle';
@@ -9,12 +9,35 @@ import { TextInput } from 'react-native';
 import { Button } from 'react-native-paper';
 import {useSelector} from 'react-redux';
 import RoomCardThumb from '../../components/room/RoomCardThumb';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import Modal from 'react-native-modal';
 
 let flatListRef;
 
 const SearchRoomScreen = (props) =>{
-    const rooms = useSelector(state => state.rooms.availableRooms);   
+    const rooms = useSelector(state => state.rooms.availableRooms);  
+    const [date, setDate] = useState(new Date(1598051730000));
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
 
+    const onChange = (event, selectedDate) => {
+        const currentDate = selectedDate || date;
+        setShow(Platform.OS === 'ios');
+        setDate(currentDate);
+    };
+
+    const showMode = currentMode => {
+        setShow(true);
+        setMode(currentMode);
+    };
+
+    const showDatepicker = () => {
+        showMode('date');
+    };
+
+    const showTimepicker = () => {
+        showMode('time');
+    };
     useEffect(() => {
         flatListRef.scrollToIndex({animated: true, index:2});   
     }, []);
@@ -31,7 +54,8 @@ const SearchRoomScreen = (props) =>{
                 <View style={styles.inputContainer}>
                     <Ionicons name='ios-calendar' size={36} color={Theme.color.purple2}  />
                     <View style={styles.inputWrapper}>
-                        <TextInput style={{...styles.textInput, ...NHSStyle.subTitle}} placeholder='Time - Date' placeholderTextColor={Theme.color.black} />
+                        {/* <RNDateTimePicker display="spinner" /> */}
+                        {/* <TextInput style={{...styles.textInput, ...NHSStyle.subTitle}} placeholder='Time - Date' placeholderTextColor={Theme.color.black} /> */}
                     </View>
                 </View>
                 <View style={{...styles.inputContainer, paddingLeft: 24}}>
@@ -64,6 +88,29 @@ const SearchRoomScreen = (props) =>{
                     onPress={() => console.log('Search')}>
                     Find Room
                 </Button>
+            </View>
+            <View>
+                <View>
+                    <Button onPress={showDatepicker} title="Show date picker!" />
+                </View>
+                <View>
+                    <Button onPress={showTimepicker} title="Show time picker!" />
+                </View>
+                <Modal isVisible={true}>
+                    <View style={{ flex: 1 , ...styles.modalBottom}}>
+                        <View style={{backgroundColor: 'white', width:'100%', height: 200, borderRadius:20}} >
+                            <DateTimePicker
+                                testID="dateTimePicker"
+                                timeZoneOffsetInMinutes={0}
+                                value={date}
+                                mode={mode}
+                                is24Hour={true}
+                                swipeDirection={['up', 'left', 'right', 'down']}
+                                onChange={onChange}
+                            />
+                        </View>
+                    </View>
+                </Modal>  
             </View>
             <View style={styles.roomLister}>
                 <View style={styles.roomsNearbyHeaderContainer}>
@@ -159,7 +206,11 @@ const styles = StyleSheet.create({
     },
     roomCardThumbs: {
         marginLeft: -18
-    }
+    },
+    modalBottom: {
+        justifyContent: 'flex-end',
+        margin: 0,
+    },
 });
 
 export default SearchRoomScreen;
