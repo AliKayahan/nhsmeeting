@@ -43,7 +43,13 @@ const SearchRoomScreen = (props) =>{
                 <View style={{...styles.inputContainer, borderBottomWidth: 0}}>
                     <Ionicons name='ios-people' size={36} color={Theme.color.purple2}  />
                     <View style={styles.inputWrapper}>
-                        <TextInput style={{...styles.textInput, ...NHSStyle.subTitle}} placeholder='Capacity' placeholderTextColor={Theme.color.black} />
+                        <TextInput 
+                            style={{...styles.textInput, ...NHSStyle.subTitle}} 
+                            placeholder='Capacity' 
+                            placeholderTextColor={Theme.color.black} 
+                            keyboardType='number-pad'
+                            maxLength={2}
+                        />
                     </View>
                 </View>
             </View>
