@@ -2,18 +2,17 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import NHSInputAndroid from "../../components/NHSInputAndroid";
 import NHSStyle from "../../constants/NHSStyle";
-import Background from "./components/Background";
+import Background from "../../components/Background";
 import Theme from "../../constants/Theme";
 
-export default class App extends Component {
-  render() {
+const RegisterScreen = () => {
     return (
       <Background>
         <View>
           <View>
             <Image
               style={styles.logo}
-              source={require("./assets/images/NHSLogo.png")}
+              source={require("../../assets/images/NHSLogo.png")}
             />
             <Image />
           </View>
@@ -36,7 +35,6 @@ export default class App extends Component {
         </View>
       </Background>
     );
-  }
 }
 
 const styles = StyleSheet.create({
@@ -77,3 +75,5 @@ const styles = StyleSheet.create({
     fontFamily: "Frutiger-Bold"
   }
 });
+
+export default RegisterScreen;
