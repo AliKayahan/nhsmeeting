@@ -9,8 +9,8 @@ import { TextInput } from 'react-native';
 import { Button } from 'react-native-paper';
 import {useSelector} from 'react-redux';
 import RoomCardThumb from '../../components/room/RoomCardThumb';
-import DateTimePicker from '@react-native-community/datetimepicker';
-import Modal from 'react-native-modal';
+// import DateTimePicker from '@react-native-community/datetimepicker';
+// import Modal from 'react-native-modal';
 
 let flatListRef;
 
@@ -96,7 +96,7 @@ const SearchRoomScreen = (props) =>{
                 <View>
                     <Button onPress={showTimepicker} title="Show time picker!" />
                 </View>
-                <Modal isVisible={true}>
+                {/* <Modal isVisible={true}>
                     <View style={{ flex: 1 , ...styles.modalBottom}}>
                         <View style={{backgroundColor: 'white', width:'100%', height: 200, borderRadius:20}} >
                             <DateTimePicker
@@ -110,7 +110,7 @@ const SearchRoomScreen = (props) =>{
                             />
                         </View>
                     </View>
-                </Modal>  
+                </Modal>   */}
             </View>
             <View style={styles.roomLister}>
                 <View style={styles.roomsNearbyHeaderContainer}>
