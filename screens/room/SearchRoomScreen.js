@@ -11,6 +11,8 @@ import RoomCardThumb from '../../components/room/RoomCardThumb';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import { useColorScheme } from 'react-native-appearance';
 import moment from 'moment';
+import PlacesInput from '../../components/ui/PlacesInput';
+
 
 let flatListRef;
 
@@ -65,7 +67,7 @@ const SearchRoomScreen = (props) =>{
                 <View style={{...styles.inputContainer, paddingLeft: 24}}>
                     <Ionicons name='ios-pin' size={36} color={Theme.color.purple2}  />
                     <View style={{...styles.inputWrapper, marginLeft: 22}}>
-                        <TextInput style={{...styles.textInput, ...NHSStyle.subTitle}} placeholder='Location' placeholderTextColor={Theme.color.black} />
+                        <PlacesInput />
                     </View>
                 </View>
                 <View style={{...styles.inputContainer, borderBottomWidth: 0}}>
