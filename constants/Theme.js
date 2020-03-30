@@ -13,12 +13,13 @@ export default {
         grey3: '#E5E7F3',
         grey4: '#DEEAFF',
         grey5: '#ACAFBC',
+        lightgrey1: '#EDF4FF',
         red: '#DA291C',
         blue1: '#0072CE',
         teal: '#41B6E6',
         purple1: '#AE2573',
         purple2: '#94ADD7',
         green1: '#79BE23',
-        yellow: '#FFC649' 
+        yellow: '#FFC649', 
     }
 }
