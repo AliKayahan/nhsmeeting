@@ -10,6 +10,7 @@ import {useSelector} from 'react-redux';
 import RoomCardThumb from '../../components/room/RoomCardThumb';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import { useColorScheme } from 'react-native-appearance';
+import moment from 'moment';
 
 let flatListRef;
 
@@ -19,7 +20,8 @@ const SearchRoomScreen = (props) =>{
     const [selectedDate, setSelectedDate] = useState('');
 
     const handleDatePickerConfirm = (date) => {
-        setSelectedDate(date.toString());
+        const formattedDate = moment(date).format("llll");
+        setSelectedDate(formattedDate.toString());
         setModalIsOn(false);
     }
 
