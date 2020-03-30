@@ -11,12 +11,13 @@ import {useSelector} from 'react-redux';
 import RoomCardThumb from '../../components/room/RoomCardThumb';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 let flatListRef;
 
 const SearchRoomScreen = (props) =>{
     const rooms = useSelector(state => state.rooms.availableRooms);  
-    const [modalIsOn, setModalIsOn] = useState(false);
+    const [modalIsOn, setModalIsOn] = useState(true);
 
     const [date, setDate] = useState(new Date(1598051730000));
     const [mode, setMode] = useState('date');
@@ -57,8 +58,9 @@ const SearchRoomScreen = (props) =>{
                 <View style={styles.inputContainer}>
                     <Ionicons name='ios-calendar' size={36} color={Theme.color.purple2}  />
                     <View style={styles.inputWrapper}>
-                        {/* <RNDateTimePicker display="spinner" /> */}
-                        {/* <TextInput style={{...styles.textInput, ...NHSStyle.subTitle}} placeholder='Time - Date' placeholderTextColor={Theme.color.black} /> */}
+                        <TouchableOpacity onPress={() => {setModalIsOn(true)}}>
+                            <TextInput style={{...styles.textInput, ...NHSStyle.subTitle}} placeholder='Time - Date' placeholderTextColor={Theme.color.black} />
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={{...styles.inputContainer, paddingLeft: 24}}>
@@ -95,7 +97,10 @@ const SearchRoomScreen = (props) =>{
             <View>
                 <Modal isVisible={modalIsOn}>
                     <View style={{ flex: 1 , ...styles.modalBottom}}>
-                        <View style={{backgroundColor: 'white', width:'100%', height: 200, borderRadius:20}} >
+                        <View style={{backgroundColor: 'white', width:'100%', height: 300, borderRadius:20, marginBottom:20}} >
+                            <View style={{marginLeft: 140,marginTop:15}}>
+                                <Text style={NHSStyle.header}>Pick a date</Text>
+                            </View>
                             <DateTimePicker
                                 testID="dateTimePicker"
                                 timeZoneOffsetInMinutes={0}
@@ -105,6 +110,12 @@ const SearchRoomScreen = (props) =>{
                                 swipeDirection={['up', 'left', 'right', 'down']}
                                 onChange={onChange}
                             />
+                            <View style={{...styles.modalButton, borderTopColor: Theme.color.grey3, borderTopWidth:1}}>
+                                <Button color={Theme.color.white} labelStyle={{color:Theme.color.blue1, paddingTop: 7}} onPress={() => {setModalIsOn(false)}}>Confirm</Button>
+                            </View>
+                        </View>
+                        <View style={styles.modalButton}>
+                            <Button color={Theme.color.white} labelStyle={{color:Theme.color.red, paddingTop: 7}} onPress={() => {setModalIsOn(false)}}>Cancel</Button>
                         </View>
                     </View>
                 </Modal>
@@ -207,6 +218,12 @@ const styles = StyleSheet.create({
     modalBottom: {
         justifyContent: 'flex-end',
         margin: 0,
+    },
+    modalButton: {
+        width: '100%',
+        height: 50,
+        borderRadius: 15,
+        backgroundColor: Theme.color.white
     },
 });
 
