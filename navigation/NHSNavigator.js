@@ -32,10 +32,10 @@ const Tab = createBottomTabNavigator();
 export const TabNavigator = (props) => {
     return(
         <Tab.Navigator>
-            <Tab.Screen 
+            {/* <Tab.Screen 
                 name="List Meetings" 
                 component={ListMeetingScreen}
-            />
+            /> */}
             <Tab.Screen
                 name="Search Room" 
                 component={SearchRoomScreen} 
