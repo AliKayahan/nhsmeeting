@@ -9,13 +9,15 @@ import { TextInput } from 'react-native';
 import { Button } from 'react-native-paper';
 import {useSelector} from 'react-redux';
 import RoomCardThumb from '../../components/room/RoomCardThumb';
-// import DateTimePicker from '@react-native-community/datetimepicker';
-// import Modal from 'react-native-modal';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import Modal from 'react-native-modal';
 
 let flatListRef;
 
 const SearchRoomScreen = (props) =>{
     const rooms = useSelector(state => state.rooms.availableRooms);  
+    const [modalIsOn, setModalIsOn] = useState(false);
+
     const [date, setDate] = useState(new Date(1598051730000));
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
@@ -38,6 +40,7 @@ const SearchRoomScreen = (props) =>{
     const showTimepicker = () => {
         showMode('time');
     };
+
     useEffect(() => {
         flatListRef.scrollToIndex({animated: true, index:2});   
     }, []);
@@ -90,13 +93,7 @@ const SearchRoomScreen = (props) =>{
                 </Button>
             </View>
             <View>
-                <View>
-                    <Button onPress={showDatepicker} title="Show date picker!" />
-                </View>
-                <View>
-                    <Button onPress={showTimepicker} title="Show time picker!" />
-                </View>
-                {/* <Modal isVisible={true}>
+                <Modal isVisible={modalIsOn}>
                     <View style={{ flex: 1 , ...styles.modalBottom}}>
                         <View style={{backgroundColor: 'white', width:'100%', height: 200, borderRadius:20}} >
                             <DateTimePicker
@@ -110,7 +107,7 @@ const SearchRoomScreen = (props) =>{
                             />
                         </View>
                     </View>
-                </Modal>   */}
+                </Modal>
             </View>
             <View style={styles.roomLister}>
                 <View style={styles.roomsNearbyHeaderContainer}>
