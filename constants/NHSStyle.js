@@ -60,5 +60,14 @@ export default NHSStyle = StyleSheet.create({
         fontFamily: 'Frutiger',
         fontSize: 22,
         color: Theme.color.grey1
-    }
+    },
+    rgbaTeal20: {
+        backgroundColor: "rgba(65, 182, 230, 0.20)",
+    },
+    rgbaPurple20: {
+        backgroundColor: "rgba(174, 37, 115, 0.20)",
+    },
+    rgbaYellow20: {
+        backgroundColor: "rgba(255, 184, 28, 0.20)",
+    },
 });

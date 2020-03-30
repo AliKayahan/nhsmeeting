@@ -1,19 +1,36 @@
-import React, {useEffect} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, StyleSheet, FlatList, TouchableWithoutFeedback} from 'react-native';
 import Background from '../../components/Background';
 import NHSStyle from '../../constants/NHSStyle';
 import Theme from '../../constants/Theme';
-import NHSInput from '../../components/NHSInput';
 import {Ionicons} from '@expo/vector-icons';
 import { TextInput } from 'react-native';
 import { Button } from 'react-native-paper';
 import {useSelector} from 'react-redux';
 import RoomCardThumb from '../../components/room/RoomCardThumb';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import { useColorScheme } from 'react-native-appearance';
+import moment from 'moment';
 
 let flatListRef;
 
 const SearchRoomScreen = (props) =>{
-    const rooms = useSelector(state => state.rooms.availableRooms);   
+    const rooms = useSelector(state => state.rooms.availableRooms);  
+    const [modalIsOn, setModalIsOn] = useState(false);
+    const [selectedDate, setSelectedDate] = useState('');
+
+    const handleDatePickerConfirm = (date) => {
+        const formattedDate = moment(date).format("llll");
+        setSelectedDate(formattedDate.toString());
+        setModalIsOn(false);
+    }
+
+    const handleDatePickerCancel = () => {
+        setModalIsOn(false);
+    }
+
+    const colorScheme = useColorScheme();
+    const isDark = colorScheme === 'dark';
 
     useEffect(() => {
         flatListRef.scrollToIndex({animated: true, index:2});   
@@ -28,12 +45,23 @@ const SearchRoomScreen = (props) =>{
                 <Text style={NHSStyle.subTitle}>Where do you want to host meeting?</Text>
             </View>
             <View style={styles.searchContainer}>
-                <View style={styles.inputContainer}>
-                    <Ionicons name='ios-calendar' size={36} color={Theme.color.purple2}  />
-                    <View style={styles.inputWrapper}>
-                        <TextInput style={{...styles.textInput, ...NHSStyle.subTitle}} placeholder='Time - Date' placeholderTextColor={Theme.color.black} />
+                <TouchableWithoutFeedback onPress={() => {
+                                    setModalIsOn(true)
+                                }}>
+                    <View style={styles.inputContainer}>
+                        <Ionicons name='ios-calendar' size={36} color={Theme.color.purple2}  />
+                            <View style={styles.inputWrapper}>
+                                {/* TODO: fix keyboard for android https://github.com/facebook/react-native/issues/14045 */}
+                                <TextInput 
+                                    onTouchStart = {() => {setModalIsOn(true)}}
+                                    editable={false} 
+                                    style={{...styles.textInput, ...NHSStyle.subTitle}} 
+                                    placeholder='Time - Date' 
+                                    value={selectedDate}
+                                    placeholderTextColor={Theme.color.black} />
+                            </View>
                     </View>
-                </View>
+                </TouchableWithoutFeedback>
                 <View style={{...styles.inputContainer, paddingLeft: 24}}>
                     <Ionicons name='ios-pin' size={36} color={Theme.color.purple2}  />
                     <View style={{...styles.inputWrapper, marginLeft: 22}}>
@@ -43,7 +71,13 @@ const SearchRoomScreen = (props) =>{
                 <View style={{...styles.inputContainer, borderBottomWidth: 0}}>
                     <Ionicons name='ios-people' size={36} color={Theme.color.purple2}  />
                     <View style={styles.inputWrapper}>
-                        <TextInput style={{...styles.textInput, ...NHSStyle.subTitle}} placeholder='Capacity' placeholderTextColor={Theme.color.black} />
+                        <TextInput 
+                            style={{...styles.textInput, ...NHSStyle.subTitle}} 
+                            placeholder='Capacity' 
+                            placeholderTextColor={Theme.color.black} 
+                            keyboardType='number-pad'
+                            maxLength={2}
+                        />
                     </View>
                 </View>
             </View>
@@ -58,6 +92,16 @@ const SearchRoomScreen = (props) =>{
                     onPress={() => console.log('Search')}>
                     Find Room
                 </Button>
+            </View>
+            <View>
+                <DateTimePickerModal
+                    isVisible={modalIsOn}
+                    mode="datetime"
+                    onConfirm={handleDatePickerConfirm}
+                    onCancel={handleDatePickerCancel}
+                    locale="en_GB"
+                    isDarkModeEnabled={isDark}
+                />     
             </View>
             <View style={styles.roomLister}>
                 <View style={styles.roomsNearbyHeaderContainer}>
@@ -153,7 +197,17 @@ const styles = StyleSheet.create({
     },
     roomCardThumbs: {
         marginLeft: -18
-    }
+    },
+    modalBottom: {
+        justifyContent: 'flex-end',
+        margin: 0,
+    },
+    modalButton: {
+        width: '100%',
+        height: 50,
+        borderRadius: 15,
+        backgroundColor: Theme.color.white
+    },
 });
 
 export default SearchRoomScreen;
