@@ -7,6 +7,7 @@ import userReducer from './store/reducers/user';
 import roomReducer from './store/reducers/room';
 import { enableScreens } from 'react-native-screens';
 import NHSNavigationContainer from './navigation/NHSNavigationContainer';
+import { AppearanceProvider } from 'react-native-appearance';
 
 // Pre-load screens during app load.
 enableScreens(); 
@@ -47,9 +48,11 @@ export default function App() {
   }
   // Return default app view after loading static assets
   return (
-    <Provider store={store}>
-      <NHSNavigationContainer />
-    </Provider>
+    <AppearanceProvider>
+      <Provider store={store}>
+        <NHSNavigationContainer />
+      </Provider>
+    </AppearanceProvider>
   );
 }
 // Do not define styles below, better to manage from Theme.js
