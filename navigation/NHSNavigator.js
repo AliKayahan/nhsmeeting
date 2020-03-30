@@ -14,6 +14,7 @@ import ListMeetingScreen, { ListMeetingNavOptions } from '../screens/meeting/Lis
 import SearchRoomScreen from '../screens/room/SearchRoomScreen';
 import { DefaultHeaderOptions } from './DefaultHeaderOptions';
 import MeetingDetailScreen from '../screens/meeting/MeetingDetailScreen';
+import RegisterScreen from '../screens/user/RegisterScreen';
 
 // The default NHSNavigator styling and customization settings goes here
 const defaultNavigationOptions = {
@@ -57,7 +58,15 @@ export const NHSSideNavigatior = (props) =>{
             <NHSDrawerNavigatior.Screen 
                 name="List Rooms" 
                 component={ListRoomScreen}
-            />                
+            /> 
+            <Tab.Screen
+                name="Register" 
+                component={RegisterScreen} 
+            />   
+            <Tab.Screen
+                name="Login" 
+                component={LoginScreen} 
+            />             
         </NHSDrawerNavigatior.Navigator>
     );
 }
