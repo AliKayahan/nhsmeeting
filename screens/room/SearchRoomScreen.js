@@ -3,15 +3,13 @@ import {View, Text, StyleSheet, FlatList, TouchableWithoutFeedback} from 'react-
 import Background from '../../components/Background';
 import NHSStyle from '../../constants/NHSStyle';
 import Theme from '../../constants/Theme';
-import NHSInput from '../../components/NHSInput';
 import {Ionicons} from '@expo/vector-icons';
 import { TextInput } from 'react-native';
 import { Button } from 'react-native-paper';
 import {useSelector} from 'react-redux';
 import RoomCardThumb from '../../components/room/RoomCardThumb';
-import DateTimePicker from '@react-native-community/datetimepicker';
-import Modal from 'react-native-modal';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import { useColorScheme } from 'react-native-appearance';
 
 let flatListRef;
 
@@ -19,28 +17,16 @@ const SearchRoomScreen = (props) =>{
     const rooms = useSelector(state => state.rooms.availableRooms);  
     const [modalIsOn, setModalIsOn] = useState(false);
 
-    const [date, setDate] = useState(new Date(1598051730000));
-    const [mode, setMode] = useState('date');
-    const [show, setShow] = useState(false);
+    const handleDatePickerConfirm = () => {
+        setModalIsOn(false);
+    }
 
-    const onChange = (event, selectedDate) => {
-        const currentDate = selectedDate || date;
-        setShow(Platform.OS === 'ios');
-        setDate(currentDate);
-    };
+    const handleDatePickerCancel = () => {
+        setModalIsOn(false);
+    }
 
-    const showMode = currentMode => {
-        setShow(true);
-        setMode(currentMode);
-    };
-
-    const showDatepicker = () => {
-        showMode('date');
-    };
-
-    const showTimepicker = () => {
-        showMode('time');
-    };
+    const colorScheme = useColorScheme();
+    const isDark = colorScheme === 'dark';
 
     useEffect(() => {
         flatListRef.scrollToIndex({animated: true, index:2});   
@@ -63,7 +49,7 @@ const SearchRoomScreen = (props) =>{
                             <View style={styles.inputWrapper}>
                                 {/* TODO: fix keyboard for android https://github.com/facebook/react-native/issues/14045 */}
                                 <TextInput 
-                                    editable={false} 
+                                    editable={isDark} 
                                     style={{...styles.textInput, ...NHSStyle.subTitle}} 
                                     placeholder='Time - Date' 
                                     placeholderTextColor={Theme.color.black} />
@@ -102,35 +88,13 @@ const SearchRoomScreen = (props) =>{
                 </Button>
             </View>
             <View>
-                <Modal isVisible={modalIsOn}>
-                    <View style={{ flex: 1 , ...styles.modalBottom}}>
-                        <View style={{backgroundColor: 'white', width:'100%', height: 300, borderRadius:20, marginBottom:20}} >
-                            <View style={{marginLeft: 140,marginTop:15}}>
-                                <Text style={NHSStyle.header}>Pick a date</Text>
-                            </View>
-                            {/* TODO: IOS Darkmode issue https://github.com/expo/expo/issues/5897 
-                                Expo client may not be able to produce Info.plist hence the date picker text seems white on dark mode
-                            */}
-                            <DateTimePicker
-                                testID="dateTimePicker"
-                                timeZoneOffsetInMinutes={0}
-                                value={date}
-                                mode={mode}
-                                is24Hour={true}
-                                swipeDirection={['up', 'left', 'right', 'down']}
-                                onChange={onChange}
-                                textColor='#000'
-                                isDarkModeEnabled={false}
-                            />
-                            <View style={{...styles.modalButton, borderTopColor: Theme.color.grey3, borderTopWidth:1}}>
-                                <Button color={Theme.color.white} labelStyle={{color:Theme.color.blue1, paddingTop: 7}} onPress={() => {setModalIsOn(false)}}>Confirm</Button>
-                            </View>
-                        </View>
-                        <View style={styles.modalButton}>
-                            <Button color={Theme.color.white} labelStyle={{color:Theme.color.red, paddingTop: 7}} onPress={() => {setModalIsOn(false)}}>Cancel</Button>
-                        </View>
-                    </View>
-                </Modal>
+                <DateTimePickerModal
+                    isVisible={modalIsOn}
+                    mode="datetime"
+                    onConfirm={handleDatePickerConfirm}
+                    onCancel={handleDatePickerCancel}
+                    isDarkModeEnabled={isDark}
+                />     
             </View>
             <View style={styles.roomLister}>
                 <View style={styles.roomsNearbyHeaderContainer}>
