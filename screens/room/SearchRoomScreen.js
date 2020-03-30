@@ -17,7 +17,7 @@ let flatListRef;
 
 const SearchRoomScreen = (props) =>{
     const rooms = useSelector(state => state.rooms.availableRooms);  
-    const [modalIsOn, setModalIsOn] = useState(true);
+    const [modalIsOn, setModalIsOn] = useState(false);
 
     const [date, setDate] = useState(new Date(1598051730000));
     const [mode, setMode] = useState('date');
@@ -56,11 +56,19 @@ const SearchRoomScreen = (props) =>{
             </View>
             <View style={styles.searchContainer}>
                 <View style={styles.inputContainer}>
-                    <Ionicons name='ios-calendar' size={36} color={Theme.color.purple2}  />
+                    <Ionicons onPress={() => {
+                                setModalIsOn(true)
+                            }} name='ios-calendar' size={36} color={Theme.color.purple2}  />
                     <View style={styles.inputWrapper}>
-                        <TouchableOpacity onPress={() => {setModalIsOn(true)}}>
-                            <TextInput style={{...styles.textInput, ...NHSStyle.subTitle}} placeholder='Time - Date' placeholderTextColor={Theme.color.black} />
-                        </TouchableOpacity>
+                        {/* TODO: fix keyboard for android https://github.com/facebook/react-native/issues/14045 */}
+                        <TextInput 
+                            onTouchStart={() => {
+                                setModalIsOn(true)
+                            }}
+                            editable={false} 
+                            style={{...styles.textInput, ...NHSStyle.subTitle}} 
+                            placeholder='Time - Date' 
+                            placeholderTextColor={Theme.color.black} />
                     </View>
                 </View>
                 <View style={{...styles.inputContainer, paddingLeft: 24}}>
