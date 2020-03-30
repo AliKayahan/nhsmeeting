@@ -16,8 +16,10 @@ let flatListRef;
 const SearchRoomScreen = (props) =>{
     const rooms = useSelector(state => state.rooms.availableRooms);  
     const [modalIsOn, setModalIsOn] = useState(false);
+    const [selectedDate, setSelectedDate] = useState('');
 
-    const handleDatePickerConfirm = () => {
+    const handleDatePickerConfirm = (date) => {
+        setSelectedDate(date.toString());
         setModalIsOn(false);
     }
 
@@ -49,9 +51,11 @@ const SearchRoomScreen = (props) =>{
                             <View style={styles.inputWrapper}>
                                 {/* TODO: fix keyboard for android https://github.com/facebook/react-native/issues/14045 */}
                                 <TextInput 
-                                    editable={isDark} 
+                                    onTouchStart = {() => {setModalIsOn(true)}}
+                                    editable={false} 
                                     style={{...styles.textInput, ...NHSStyle.subTitle}} 
                                     placeholder='Time - Date' 
+                                    value={selectedDate}
                                     placeholderTextColor={Theme.color.black} />
                             </View>
                     </View>
@@ -93,6 +97,7 @@ const SearchRoomScreen = (props) =>{
                     mode="datetime"
                     onConfirm={handleDatePickerConfirm}
                     onCancel={handleDatePickerCancel}
+                    locale="en_GB"
                     isDarkModeEnabled={isDark}
                 />     
             </View>
