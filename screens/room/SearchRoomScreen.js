@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Text, StyleSheet, FlatList, TouchableWithoutFeedback} from 'react-native';
 import Background from '../../components/Background';
 import NHSStyle from '../../constants/NHSStyle';
 import Theme from '../../constants/Theme';
@@ -55,22 +55,21 @@ const SearchRoomScreen = (props) =>{
                 <Text style={NHSStyle.subTitle}>Where do you want to host meeting?</Text>
             </View>
             <View style={styles.searchContainer}>
-                <View style={styles.inputContainer}>
-                    <Ionicons onPress={() => {
-                                setModalIsOn(true)
-                            }} name='ios-calendar' size={36} color={Theme.color.purple2}  />
-                    <View style={styles.inputWrapper}>
-                        {/* TODO: fix keyboard for android https://github.com/facebook/react-native/issues/14045 */}
-                        <TextInput 
-                            onTouchStart={() => {
-                                setModalIsOn(true)
-                            }}
-                            editable={false} 
-                            style={{...styles.textInput, ...NHSStyle.subTitle}} 
-                            placeholder='Time - Date' 
-                            placeholderTextColor={Theme.color.black} />
+                <TouchableWithoutFeedback onPress={() => {
+                                    setModalIsOn(true)
+                                }}>
+                    <View style={styles.inputContainer}>
+                        <Ionicons name='ios-calendar' size={36} color={Theme.color.purple2}  />
+                            <View style={styles.inputWrapper}>
+                                {/* TODO: fix keyboard for android https://github.com/facebook/react-native/issues/14045 */}
+                                <TextInput 
+                                    editable={false} 
+                                    style={{...styles.textInput, ...NHSStyle.subTitle}} 
+                                    placeholder='Time - Date' 
+                                    placeholderTextColor={Theme.color.black} />
+                            </View>
                     </View>
-                </View>
+                </TouchableWithoutFeedback>
                 <View style={{...styles.inputContainer, paddingLeft: 24}}>
                     <Ionicons name='ios-pin' size={36} color={Theme.color.purple2}  />
                     <View style={{...styles.inputWrapper, marginLeft: 22}}>
@@ -109,6 +108,9 @@ const SearchRoomScreen = (props) =>{
                             <View style={{marginLeft: 140,marginTop:15}}>
                                 <Text style={NHSStyle.header}>Pick a date</Text>
                             </View>
+                            {/* TODO: IOS Darkmode issue https://github.com/expo/expo/issues/5897 
+                                Expo client may not be able to produce Info.plist hence the date picker text seems white on dark mode
+                            */}
                             <DateTimePicker
                                 testID="dateTimePicker"
                                 timeZoneOffsetInMinutes={0}
@@ -117,6 +119,8 @@ const SearchRoomScreen = (props) =>{
                                 is24Hour={true}
                                 swipeDirection={['up', 'left', 'right', 'down']}
                                 onChange={onChange}
+                                textColor='#000'
+                                isDarkModeEnabled={false}
                             />
                             <View style={{...styles.modalButton, borderTopColor: Theme.color.grey3, borderTopWidth:1}}>
                                 <Button color={Theme.color.white} labelStyle={{color:Theme.color.blue1, paddingTop: 7}} onPress={() => {setModalIsOn(false)}}>Confirm</Button>
