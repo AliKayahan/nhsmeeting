@@ -17,7 +17,7 @@ let flatListRef;
 const SearchRoomScreen = (props) =>{
     const rooms = useSelector(state => state.rooms.availableRooms);  
     const [modalIsOn, setModalIsOn] = useState(false);
-    const [selectedDate, setSelectedDate] = useState('');
+    const [selectedDate, setSelectedDate] = useState(moment(new Date()).format("llll").toString());
 
     const handleDatePickerConfirm = (date) => {
         const formattedDate = moment(date).format("llll");
