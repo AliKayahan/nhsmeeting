@@ -66,7 +66,7 @@ const SearchRoomScreen = (props) =>{
                 </TouchableWithoutFeedback>
                 <View style={{...styles.inputContainer, paddingLeft: 24}}>
                     <Ionicons name='ios-pin' size={36} color={Theme.color.purple2}  />
-                    <View style={{...styles.inputWrapper, marginLeft: 22}}>
+                    <View style={{...styles.inputWrapper, marginLeft: 22, position: 'absolute', zIndex: 10}}>
                         <PlacesInput />
                     </View>
                 </View>
