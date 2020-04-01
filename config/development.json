@@ -1,3 +1,5 @@
 {
-    "GOOGLE_API_KEY" : ""
+    "API_KEYS": {
+        "GOOGLE" : ""
+    }
 }
