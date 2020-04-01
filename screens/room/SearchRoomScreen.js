@@ -11,13 +11,18 @@ import RoomCardThumb from '../../components/room/RoomCardThumb';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import { useColorScheme } from 'react-native-appearance';
 import moment from 'moment';
+import PlacesInput from '../../components/ui/PlacesInput';
+import Modal from 'react-native-modal';
+
 
 let flatListRef;
 
 const SearchRoomScreen = (props) =>{
     const rooms = useSelector(state => state.rooms.availableRooms);  
     const [modalIsOn, setModalIsOn] = useState(false);
-    const [selectedDate, setSelectedDate] = useState('');
+    const [locationModalIsOn, setLocationModalIsOn] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(moment(new Date()).format("llll").toString());
+    const [selectedLocation, setSelectedLocation] = useState({details:{"formatted_address": "Pick a location"}});
 
     const handleDatePickerConfirm = (date) => {
         const formattedDate = moment(date).format("llll");
@@ -45,9 +50,7 @@ const SearchRoomScreen = (props) =>{
                 <Text style={NHSStyle.subTitle}>Where do you want to host meeting?</Text>
             </View>
             <View style={styles.searchContainer}>
-                <TouchableWithoutFeedback onPress={() => {
-                                    setModalIsOn(true)
-                                }}>
+                <TouchableWithoutFeedback onPress={() => {setModalIsOn(true)}}>
                     <View style={styles.inputContainer}>
                         <Ionicons name='ios-calendar' size={36} color={Theme.color.purple2}  />
                             <View style={styles.inputWrapper}>
@@ -62,12 +65,20 @@ const SearchRoomScreen = (props) =>{
                             </View>
                     </View>
                 </TouchableWithoutFeedback>
-                <View style={{...styles.inputContainer, paddingLeft: 24}}>
-                    <Ionicons name='ios-pin' size={36} color={Theme.color.purple2}  />
-                    <View style={{...styles.inputWrapper, marginLeft: 22}}>
-                        <TextInput style={{...styles.textInput, ...NHSStyle.subTitle}} placeholder='Location' placeholderTextColor={Theme.color.black} />
+                <TouchableWithoutFeedback onPress={() => {setLocationModalIsOn(true)}}>
+                    <View style={{...styles.inputContainer, paddingLeft: 24}}>
+                        <Ionicons name='ios-pin' size={36} color={Theme.color.purple2}  />
+                        <View style={{...styles.inputWrapper, marginLeft: 22}}>
+                            <TextInput 
+                                onTouchStart = {() => {setLocationModalIsOn(true)}}
+                                editable={false} 
+                                style={{...styles.textInput, ...NHSStyle.subTitle}} 
+                                placeholder='Pick a location' 
+                                value={selectedLocation.details.formatted_address}
+                                placeholderTextColor={Theme.color.black} />
+                        </View>
                     </View>
-                </View>
+                </TouchableWithoutFeedback>
                 <View style={{...styles.inputContainer, borderBottomWidth: 0}}>
                     <Ionicons name='ios-people' size={36} color={Theme.color.purple2}  />
                     <View style={styles.inputWrapper}>
@@ -134,6 +145,29 @@ const SearchRoomScreen = (props) =>{
                     />
                 </View>
             </View>
+            <Modal style={styles.modalBottom} isVisible={locationModalIsOn}>
+                <View style={styles.modalContainer}>
+                        <View style={{flexDirection: 'row'}}>
+                            <View style={{flex:1,alignItems:'flex-end', marginLeft: '25%', paddingTop: 5}}>
+                                <Text style={styles.searchButtonLabel}>Pick a location</Text>
+                            </View>
+                            <View style={styles.placesButton}>
+                                <Button 
+                                    mode="text" 
+                                    uppercase={false}
+                                    color={Theme.color.blue1}
+                                    labelStyle={styles.searchButtonLabel}
+                                    onPress={() => setLocationModalIsOn(false)}>
+                                    Done
+                                </Button>
+                            </View>
+                        </View>
+                    <PlacesInput onSelect={(placeData) => {
+                        setSelectedLocation(placeData);
+                        setLocationModalIsOn(false);
+                    }} />
+                </View>
+            </Modal>
         </Background>
     );
 };
@@ -179,7 +213,12 @@ const styles = StyleSheet.create({
         marginLeft: 15,
     },
     searchButton: {
-        height: 55
+        height: 55,
+    },
+    placesButton: {
+        height: 50,
+        alignItems: 'flex-end',
+        flex:1
     },
     searchButtonLabel: {
         fontFamily: 'Frutiger-Light-Bold',
@@ -208,6 +247,17 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         backgroundColor: Theme.color.white
     },
+    modalContainer: {
+        width: '100%',
+        height: '90%',
+        borderRadius: 20,
+        backgroundColor: Theme.color.white,
+    },
+    modalButtonContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        height: '10%'
+    }
 });
 
 export default SearchRoomScreen;
