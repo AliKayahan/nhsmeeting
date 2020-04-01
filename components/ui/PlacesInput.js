@@ -5,7 +5,7 @@ import Theme from '../../constants/Theme';
 import NHSStyle from '../../constants/NHSStyle';
 import {Ionicons} from '@expo/vector-icons';
 
-const homePlace = { description: 'Home', geometry: { location: { lat: 48.8152937, lng: 2.4597668 } }};
+const homePlace = { description: 'NHS Headquarters', geometry: { location: { lat: 48.8152937, lng: 2.4597668 } }};
 const workPlace = { description: 'Work', geometry: { location: { lat: 48.8496818, lng: 2.2940881 } }};
 
 const PlacesInput = (props) =>{
@@ -70,7 +70,7 @@ const PlacesInput = (props) =>{
             GooglePlacesSearchQuery={{
                 // available options for GooglePlacesSearch API : https://developers.google.com/places/web-service/search
                 rankby: 'distance',
-                type: 'cafe'
+                type: 'hospital'
             }}
             
             GooglePlacesDetailsQuery={{
