@@ -86,7 +86,9 @@ const SearchRoomScreen = (props) =>{
                                             </Button>
                                         </View>
                                     </View>
-                                <PlacesInput />
+                                <PlacesInput onSelect={(placeData) => {
+                                    console.log(placeData)    
+                                }} />
                             </View>
                         </Modal>
                     </View>

@@ -19,7 +19,7 @@ const PlacesInput = (props) =>{
             fetchDetails={true}
             renderDescription={row => row.description} // custom description render
             onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
-                console.log(data, details);
+                props.onSelect({data: data, details: details});
             }}
 
             getDefaultValue={() => ''}
