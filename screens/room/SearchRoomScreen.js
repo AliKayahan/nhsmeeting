@@ -164,6 +164,7 @@ const SearchRoomScreen = (props) =>{
                         </View>
                     <PlacesInput onSelect={(placeData) => {
                         setSelectedLocation(placeData);
+                        setLocationModalIsOn(false);
                     }} />
                 </View>
             </Modal>
