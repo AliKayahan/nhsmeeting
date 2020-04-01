@@ -22,7 +22,7 @@ const SearchRoomScreen = (props) =>{
     const [modalIsOn, setModalIsOn] = useState(false);
     const [locationModalIsOn, setLocationModalIsOn] = useState(false);
     const [selectedDate, setSelectedDate] = useState(moment(new Date()).format("llll").toString());
-    const [selectedLocation, setSelectedLocation] = useState({});
+    const [selectedLocation, setSelectedLocation] = useState({details:{"formatted_address": "Pick a location"}});
 
     const handleDatePickerConfirm = (date) => {
         const formattedDate = moment(date).format("llll");
@@ -50,9 +50,7 @@ const SearchRoomScreen = (props) =>{
                 <Text style={NHSStyle.subTitle}>Where do you want to host meeting?</Text>
             </View>
             <View style={styles.searchContainer}>
-                <TouchableWithoutFeedback onPress={() => {
-                                    setModalIsOn(true)
-                                }}>
+                <TouchableWithoutFeedback onPress={() => {setModalIsOn(true)}}>
                     <View style={styles.inputContainer}>
                         <Ionicons name='ios-calendar' size={36} color={Theme.color.purple2}  />
                             <View style={styles.inputWrapper}>
@@ -67,9 +65,7 @@ const SearchRoomScreen = (props) =>{
                             </View>
                     </View>
                 </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback onPress={() => {
-                                    setLocationModalIsOn(true)
-                                }}>
+                <TouchableWithoutFeedback onPress={() => {setLocationModalIsOn(true)}}>
                     <View style={{...styles.inputContainer, paddingLeft: 24}}>
                         <Ionicons name='ios-pin' size={36} color={Theme.color.purple2}  />
                         <View style={{...styles.inputWrapper, marginLeft: 22}}>
@@ -78,7 +74,7 @@ const SearchRoomScreen = (props) =>{
                                 editable={false} 
                                 style={{...styles.textInput, ...NHSStyle.subTitle}} 
                                 placeholder='Pick a location' 
-                                value={selectedDate}
+                                value={selectedLocation.details.formatted_address}
                                 placeholderTextColor={Theme.color.black} />
                         </View>
                     </View>
@@ -167,7 +163,7 @@ const SearchRoomScreen = (props) =>{
                             </View>
                         </View>
                     <PlacesInput onSelect={(placeData) => {
-                        console.log(placeData)    
+                        setSelectedLocation(placeData);
                     }} />
                 </View>
             </Modal>
