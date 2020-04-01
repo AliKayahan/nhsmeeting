@@ -1,6 +1,9 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import Theme from '../../constants/Theme';
+import NHSStyle from '../../constants/NHSStyle';
+import {Ionicons} from '@expo/vector-icons';
 
 const homePlace = { description: 'Home', geometry: { location: { lat: 48.8152937, lng: 2.4597668 } }};
 const workPlace = { description: 'Work', geometry: { location: { lat: 48.8496818, lng: 2.2940881 } }};
@@ -30,17 +33,34 @@ const PlacesInput = (props) =>{
             }}
 
             styles={{
+                separator: {
+                    width: 0
+                },
+                textInput: {
+                    margin:0,
+                    width: '110%',
+                    height: 50,
+                    paddingLeft: 0
+                },
                 textInputContainer: {
-                width: '100%'
+                    borderTopColor: Theme.color.grey1,
+                    padding:0,
+                    width: '100%',
+                    height:60,
+                    backgroundColor: Theme.color.white
                 },
-                description: {
-                fontWeight: 'bold'
-                },
+                description: {...NHSStyle.mediumLightText, color: Theme.color.black},
                 predefinedPlacesDescription: {
-                color: '#1faadb'
+                    color: Theme.color.blue1
+                },
+                row: {
+                    height: 50,
+                    borderBottomColor: Theme.color.grey2,
+                    borderBottomWidth: 2,
+                    paddingTop: 18
                 }
             }}
-
+            listUnderlayColor={Theme.color.lightgrey1}
             currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
             currentLocationLabel="Current location"
             nearbyPlacesAPI='GooglePlacesSearch' // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
@@ -60,7 +80,16 @@ const PlacesInput = (props) =>{
 
             //filterReverseGeocodingByTypes={['locality', 'administrative_area_level_3']} // filter the reverse geocoding results by types - ['locality', 'administrative_area_level_3'] if you want to display only cities
             predefinedPlaces={[homePlace, workPlace]}
-
+            renderLeftButton={() => (
+                <View
+                style={{height:25, width:25, 
+                alignItems: "center", 
+                justifyContent: "center", 
+                marginTop: 20, 
+                marginLeft:15}}>
+                    <Ionicons name="ios-pin" size={22} style={{color: Theme.color.grey1}} />
+                </View>
+            )} 
             debounce={200} // debounce the requests in ms. Set to 0 to remove debounce. By default 0ms.
             //renderLeftButton={()  => <Ionicons name="ios-menu" />}
             //renderRightButton={() => <Text>Custom text after the input</Text>}
