@@ -4,6 +4,7 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import Theme from '../../constants/Theme';
 import NHSStyle from '../../constants/NHSStyle';
 import {Ionicons} from '@expo/vector-icons';
+import config from 'expo-config'
 
 const NHSHQ = { description: 'NHS Headquarters', geometry: { location: { lat: 53.723529, lng: -0.412577 } }};
 
@@ -26,7 +27,7 @@ const PlacesInput = (props) =>{
 
             query={{
                 // available options: https://developers.google.com/places/web-service/autocomplete
-                key: 'AIzaSyDdM5Erng7EUpDQVeWb7D_9jl7oaCS1U0g',
+                key: config.API_KEYS.GOOGLE,
                 language: 'en', // language of the results,
                 location: '52.436385,-1.801235',
                 types: '(regions)', // default: 'geocode' 

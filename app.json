@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Blank Template",
+    "name": "NHS Meeting Room",
     "slug": "nhsmeeting",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -27,6 +27,14 @@
       "supportsTablet": true,
       "infoPlist": {
         "UIUserInterfaceStyle": "Light"
+      }
+    },
+    "extra": {
+      "expoConfig": {
+        "GOOGLE_API_KEY": "",
+        "API_KEYS": {
+          "GOOGLE": "AIzaSyDdM5Erng7EUpDQVeWb7D_9jl7oaCS1U0g"
+        }
       }
     }
   }
