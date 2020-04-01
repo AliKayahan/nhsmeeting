@@ -5,8 +5,7 @@ import Theme from '../../constants/Theme';
 import NHSStyle from '../../constants/NHSStyle';
 import {Ionicons} from '@expo/vector-icons';
 
-const homePlace = { description: 'NHS Headquarters', geometry: { location: { lat: 48.8152937, lng: 2.4597668 } }};
-const workPlace = { description: 'Work', geometry: { location: { lat: 48.8496818, lng: 2.2940881 } }};
+const NHSHQ = { description: 'NHS Headquarters', geometry: { location: { lat: 53.723529, lng: -0.412577 } }};
 
 const PlacesInput = (props) =>{
     return(
@@ -28,8 +27,10 @@ const PlacesInput = (props) =>{
             query={{
                 // available options: https://developers.google.com/places/web-service/autocomplete
                 key: 'AIzaSyDdM5Erng7EUpDQVeWb7D_9jl7oaCS1U0g',
-                language: 'en', // language of the results
-                types: '(regions)' // default: 'geocode'
+                language: 'en', // language of the results,
+                location: '52.436385,-1.801235',
+                types: '(regions)', // default: 'geocode' 
+                components: 'country:gb'
             }}
 
             styles={{
@@ -54,7 +55,7 @@ const PlacesInput = (props) =>{
                     color: Theme.color.blue1
                 },
                 row: {
-                    height: 50,
+                    height: 56,
                     borderBottomColor: Theme.color.grey2,
                     borderBottomWidth: 2,
                     paddingTop: 18
@@ -70,7 +71,7 @@ const PlacesInput = (props) =>{
             GooglePlacesSearchQuery={{
                 // available options for GooglePlacesSearch API : https://developers.google.com/places/web-service/search
                 rankby: 'distance',
-                type: 'hospital'
+                //type: 'establishment'
             }}
             
             GooglePlacesDetailsQuery={{
@@ -79,7 +80,7 @@ const PlacesInput = (props) =>{
             }}
 
             //filterReverseGeocodingByTypes={['locality', 'administrative_area_level_3']} // filter the reverse geocoding results by types - ['locality', 'administrative_area_level_3'] if you want to display only cities
-            predefinedPlaces={[homePlace, workPlace]}
+            predefinedPlaces={[NHSHQ]}
             renderLeftButton={() => (
                 <View
                 style={{height:25, width:25, 
