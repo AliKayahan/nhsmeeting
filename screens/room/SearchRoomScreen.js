@@ -67,33 +67,22 @@ const SearchRoomScreen = (props) =>{
                             </View>
                     </View>
                 </TouchableWithoutFeedback>
-                <View style={{...styles.inputContainer, paddingLeft: 24}}>
-                    <Ionicons name='ios-pin' size={36} color={Theme.color.purple2}  />
-                    <View style={{...styles.inputWrapper, marginLeft: 22}}>
-                        <Modal style={styles.modalBottom} isVisible={locationModalIsOn}>
-                            <View style={styles.modalContainer}>
-                                    <View style={{flexDirection: 'row'}}>
-                                        <View style={{flex:1,alignItems:'flex-end', marginLeft: '25%', paddingTop: 5}}>
-                                            <Text style={styles.searchButtonLabel}>Pick a location</Text>
-                                        </View>
-                                        <View style={styles.placesButton}>
-                                            <Button 
-                                                mode="text" 
-                                                uppercase={false}
-                                                color={Theme.color.blue1}
-                                                labelStyle={styles.searchButtonLabel}
-                                                onPress={() => console.log('Choose Location')}>
-                                                Done
-                                            </Button>
-                                        </View>
-                                    </View>
-                                <PlacesInput onSelect={(placeData) => {
-                                    console.log(placeData)    
-                                }} />
-                            </View>
-                        </Modal>
+                <TouchableWithoutFeedback onPress={() => {
+                                    setLocationModalIsOn(true)
+                                }}>
+                    <View style={{...styles.inputContainer, paddingLeft: 24}}>
+                        <Ionicons name='ios-pin' size={36} color={Theme.color.purple2}  />
+                        <View style={{...styles.inputWrapper, marginLeft: 22}}>
+                            <TextInput 
+                                onTouchStart = {() => {setLocationModalIsOn(true)}}
+                                editable={false} 
+                                style={{...styles.textInput, ...NHSStyle.subTitle}} 
+                                placeholder='Pick a location' 
+                                value={selectedDate}
+                                placeholderTextColor={Theme.color.black} />
+                        </View>
                     </View>
-                </View>
+                </TouchableWithoutFeedback>
                 <View style={{...styles.inputContainer, borderBottomWidth: 0}}>
                     <Ionicons name='ios-people' size={36} color={Theme.color.purple2}  />
                     <View style={styles.inputWrapper}>
@@ -160,6 +149,28 @@ const SearchRoomScreen = (props) =>{
                     />
                 </View>
             </View>
+            <Modal style={styles.modalBottom} isVisible={locationModalIsOn}>
+                <View style={styles.modalContainer}>
+                        <View style={{flexDirection: 'row'}}>
+                            <View style={{flex:1,alignItems:'flex-end', marginLeft: '25%', paddingTop: 5}}>
+                                <Text style={styles.searchButtonLabel}>Pick a location</Text>
+                            </View>
+                            <View style={styles.placesButton}>
+                                <Button 
+                                    mode="text" 
+                                    uppercase={false}
+                                    color={Theme.color.blue1}
+                                    labelStyle={styles.searchButtonLabel}
+                                    onPress={() => setLocationModalIsOn(false)}>
+                                    Done
+                                </Button>
+                            </View>
+                        </View>
+                    <PlacesInput onSelect={(placeData) => {
+                        console.log(placeData)    
+                    }} />
+                </View>
+            </Modal>
         </Background>
     );
 };
