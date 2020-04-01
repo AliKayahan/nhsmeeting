@@ -214,7 +214,6 @@ const styles = StyleSheet.create({
     },
     searchButton: {
         height: 55,
-        alignItems: 'flex-end'
     },
     placesButton: {
         height: 50,
