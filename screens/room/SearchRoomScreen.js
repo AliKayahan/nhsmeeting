@@ -20,6 +20,7 @@ let flatListRef;
 const SearchRoomScreen = (props) =>{
     const rooms = useSelector(state => state.rooms.availableRooms);  
     const [modalIsOn, setModalIsOn] = useState(false);
+    const [locationModalIsOn, setLocationModalIsOn] = useState(false);
     const [selectedDate, setSelectedDate] = useState(moment(new Date()).format("llll").toString());
     const [selectedLocation, setSelectedLocation] = useState({});
 
@@ -69,7 +70,7 @@ const SearchRoomScreen = (props) =>{
                 <View style={{...styles.inputContainer, paddingLeft: 24}}>
                     <Ionicons name='ios-pin' size={36} color={Theme.color.purple2}  />
                     <View style={{...styles.inputWrapper, marginLeft: 22}}>
-                        <Modal style={styles.modalBottom} isVisible={true}>
+                        <Modal style={styles.modalBottom} isVisible={locationModalIsOn}>
                             <View style={styles.modalContainer}>
                                     <View style={{flexDirection: 'row'}}>
                                         <View style={{flex:1,alignItems:'flex-end', marginLeft: '25%', paddingTop: 5}}>
