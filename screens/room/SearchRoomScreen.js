@@ -12,6 +12,7 @@ import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import { useColorScheme } from 'react-native-appearance';
 import moment from 'moment';
 import PlacesInput from '../../components/ui/PlacesInput';
+import Modal from 'react-native-modal';
 
 
 let flatListRef;
@@ -66,8 +67,27 @@ const SearchRoomScreen = (props) =>{
                 </TouchableWithoutFeedback>
                 <View style={{...styles.inputContainer, paddingLeft: 24}}>
                     <Ionicons name='ios-pin' size={36} color={Theme.color.purple2}  />
-                    <View style={{...styles.inputWrapper, marginLeft: 22, position: 'absolute', zIndex: 10}}>
-                        <PlacesInput />
+                    <View style={{...styles.inputWrapper, marginLeft: 22}}>
+                        <Modal style={styles.modalBottom} isVisible={true}>
+                            <View style={styles.modalContainer}>
+                                    <View style={{flexDirection: 'row'}}>
+                                        <View style={{flex:1,alignItems:'flex-end', marginLeft: '25%', paddingTop: 5}}>
+                                            <Text style={styles.searchButtonLabel}>Pick a location</Text>
+                                        </View>
+                                        <View style={styles.placesButton}>
+                                            <Button 
+                                                mode="text" 
+                                                uppercase={false}
+                                                color={Theme.color.blue1}
+                                                labelStyle={styles.searchButtonLabel}
+                                                onPress={() => console.log('Choose Location')}>
+                                                Done
+                                            </Button>
+                                        </View>
+                                    </View>
+                                <PlacesInput />
+                            </View>
+                        </Modal>
                     </View>
                 </View>
                 <View style={{...styles.inputContainer, borderBottomWidth: 0}}>
@@ -181,7 +201,13 @@ const styles = StyleSheet.create({
         marginLeft: 15,
     },
     searchButton: {
-        height: 55
+        height: 55,
+        alignItems: 'flex-end'
+    },
+    placesButton: {
+        height: 50,
+        alignItems: 'flex-end',
+        flex:1
     },
     searchButtonLabel: {
         fontFamily: 'Frutiger-Light-Bold',
@@ -210,6 +236,17 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         backgroundColor: Theme.color.white
     },
+    modalContainer: {
+        width: '100%',
+        height: '90%',
+        borderRadius: 20,
+        backgroundColor: Theme.color.white,
+    },
+    modalButtonContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        height: '10%'
+    }
 });
 
 export default SearchRoomScreen;
