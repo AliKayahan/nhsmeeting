@@ -1,96 +1,72 @@
 import React, {useState} from 'react';
-<<<<<<< HEAD
 import {View, Text, StyleSheet, Image} from 'react-native';
-=======
-import {View, Text, Button, StyleSheet, Image} from 'react-native';
->>>>>>> master
 import Background from '../../components/Background';
-import PasswordInputText from 'react-native-hide-password-input';
 import NHSStyle from '../../constants/NHSStyle';
 import NHSInput from '../../components/NHSInput';
-<<<<<<< HEAD
-import {FasEye, Button} from 'react-native-paper';
-import eyeinput from '../../components/eyeinput';
+import {Checkbox, Button} from 'react-native-paper';
 import Theme from '../../constants/Theme';
 
-const SignUpScreen = () => {
-=======
-import Theme from '../../constants/Theme';
-
-const SignUpScreen = () => {
-
-    const [Password, setPassword] = useState('');
-
->>>>>>> master
-    return(  //calling the background from the directory
+const LoginScreen = () => {
+    const [rememberMe, setRememberMe] = useState('checked');
+    return(
         <Background>
             <View style={styles.logoContainer}>
                 <Image 
-                    source={require('../assets/images/NHSLogo.png')} 
+                    source={require('../../assets/images/NHSLogo.png')} 
                     />
             </View>
             <View style={styles.bodyContainer}>
-<<<<<<< HEAD
-                <Text style={NHSStyle.header1}>
-=======
-                <Text style={NHSStyle.headerBold}>
->>>>>>> master
-                    Create{"\n"}Account
+                <Text style={NHSStyle.bigHeader}>
+                    Welcome{"\n"}Back
                 </Text>
                 <View style={styles.inputContainer}>
-                <NHSInput 
-                        mode='outlined'
-                        label='First and Last Name' 
-                    />
                     <NHSInput 
                         mode='outlined'
                         label='E-mail' 
                     />
-                    <PasswordInputText>
                     <NHSInput 
                         mode='outlined'
                         label='Password' 
-                        value={this.StaticRange.password}
-                        onChangeText={ (Password) => this.setState({Password})}
                     />
-                    </PasswordInputText>
-
-<<<<<<< HEAD
-
+                    <View style={styles.rememberMeContainer}>
+                        <Checkbox 
+                            style={styles.checkBox}
+                            status={rememberMe}
+                            color={Theme.color.blue1}
+                            uncheckedColor={Theme.color.grey1}
+                            onPress={() => {
+                                setRememberMe(rememberMe === 'checked' ? 'unchecked' : 'checked')
+                            }}
+                        />
                         <View style={styles.sideTexts}>
-                            <Text style={styles.forgotPasswordText}>Forgot Password ?</Text>
+                            <Text style={styles.rememberMeText}>Remember me</Text>
+                            <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
                         </View>
-=======
->>>>>>> master
                     </View>
                     <View style={styles.buttonContainer}>
                         <Button 
                             mode="contained" 
                             uppercase={false}
-                            color={Theme.color.purple3}
-                            contentStyle={styles.signupButton}
+                            color={Theme.color.purple1}
+                            contentStyle={styles.loginButton}
                             labelStyle={styles.buttonLabel}
-                            style={styles.signupButtonDefault}
-                            onPress={() => console.log('Sign-Up')}>
-                            Sign Up
+                            style={styles.loginButtonDefault}
+                            onPress={() => console.log('Login')}>
+                            Sign In
                         </Button>
                     </View>
                     <View style={styles.signupTextContainer}>
-<<<<<<< HEAD
                         <Text style={styles.signUpText}>
-                            Already got an Account? <Text style={styles.signupLink}> Sign In</Text>
-=======
-                        <Text style={NHSStyle.smallText}>
-                            Already got an Account? <Text style={NHSStyle.smallText}> Sign In</Text>
->>>>>>> master
+                            Don't have an account yet? <Text style={styles.signUpLink}> Sign Up</Text>
                         </Text>
                     </View>
-                    </View>
-                </Background>
+                </View>
+            </View>
+        </Background>
     );
-                        };
+};
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     logoContainer: {
         marginLeft: 41,
         marginTop: 67
@@ -101,6 +77,9 @@ const style = StyleSheet.create({
     },
     inputContainer:{
         marginTop: 20
+    },
+    rememberMeContainer: {
+        flexDirection: 'row',
     },
     buttonContainer: {
         marginVertical: 15,
@@ -115,15 +94,14 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-<<<<<<< HEAD
     signUpText: {
         fontFamily: 'Frutiger',
-        color: Theme.color.grey4
+        color: Theme.color.grey1
     },
     signUpLink: {
-        color: Theme.color.blue2
+        color: Theme.color.teal
     },
-    signupButton: {
+    loginButton: {
         height: 50,
     },
     buttonLabel: {
@@ -131,20 +109,29 @@ const style = StyleSheet.create({
         fontSize: 16,
         paddingTop: 6
     },
-=======
-    signupButton: {
-        height: 50,
-    },
->>>>>>> master
-    signupButtonDefault:{
+    loginButtonDefault:{
         textAlignVertical: 'bottom'
+    },
+    checkBox: {
+
     },
     sideTexts: {
         marginTop: 13,
         marginLeft: 2,
         flexDirection: 'row',
         flex: 1
+    },
+    forgotPasswordText: {
+        fontFamily: 'Frutiger',
+        fontSize: 14,
+        color: Theme.color.grey1,
+        marginLeft: 70
+    },
+    rememberMeText: {
+        fontFamily: 'Frutiger',
+        fontSize: 14,
+        color: Theme.color.black
     }
 });
 
-export default SignUpScreen;
+export default LoginScreen;
