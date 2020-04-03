@@ -7,6 +7,7 @@ import Theme from '../../constants/Theme';
 import BottomSheet from 'reanimated-bottom-sheet';
 import Animated from 'react-native-reanimated'
 import NHSStyle from '../../constants/NHSStyle';
+import { Ionicons } from '@expo/vector-icons';
 
 const LocationMapScreen = () =>{
     const dummyMarkers = [
@@ -70,6 +71,11 @@ const LocationMapScreen = () =>{
         <View style={styles.panel}>
             <View style={styles.roomName}>
                 <Text style={NHSStyle.header}>Apple Room</Text>
+                <Text style={{...NHSStyle.smallText, marginTop: 4}}>Albion Street, Wolverhampton WV1 3EB · 1,9 km</Text>
+            </View>
+            <View style={styles.meetingTime}>
+                <Ionicons style={{marginRight: 5}} color={Theme.color.teal} name='ios-clock' size={25} />
+                <Text style={{...NHSStyle.smallText, color: Theme.color.teal, paddingTop: 4}}>10:00AM - 11:00AM</Text>
             </View>
         </View>
       )
@@ -100,7 +106,7 @@ const LocationMapScreen = () =>{
             </MapView>
             <View style={styles.bottomSheetContainer}>
                 <BottomSheet
-                    snapPoints = {[250, 250, 80]}
+                    snapPoints = {[350, 350, 150]}
                     renderContent = {renderInner}
                     renderHeader = {renderHeader}
                 />
@@ -153,7 +159,18 @@ const styles = StyleSheet.create({
         height: 6,
         borderRadius: 4,
         backgroundColor: Theme.color.purple1,
-        marginTop: -5,
+        marginTop: -7,
+    },
+    meetingTime: {
+        flexDirection: 'row',
+        width: 180,
+        height: 40,
+        backgroundColor: NHSStyle.rgbaTeal20.backgroundColor,
+        borderRadius: 10,
+        alignContent: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 5
     }
   });
 
