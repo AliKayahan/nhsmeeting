@@ -61,6 +61,11 @@ export default NHSStyle = StyleSheet.create({
         fontSize: 22,
         color: Theme.color.grey1
     },
+    buttonLabel: {
+        fontFamily: 'Frutiger-Light-Bold',
+        fontSize: 16,
+        paddingTop: 12
+    },
     rgbaTeal20: {
         backgroundColor: "rgba(65, 182, 230, 0.20)",
     },
