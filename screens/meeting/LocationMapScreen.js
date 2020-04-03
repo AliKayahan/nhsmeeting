@@ -3,7 +3,8 @@ import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 import MapView,{ Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { MapStyle } from '../../constants/MapStyle';
 import Avatar from '../../components/profile/Avatar';
-import roomPin from '../../assets/images/pin.png'
+import Theme from '../../constants/Theme';
+
 const LocationMapScreen = () =>{
     const dummyMarkers = [
         {  
@@ -78,6 +79,9 @@ const LocationMapScreen = () =>{
                     </Marker>
                 ))}
             </MapView>
+            <View style={styles.roomDetailsContainer}>
+                
+            </View>
         </View>
     );
 };
@@ -95,6 +99,12 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
     },
+    roomDetailsContainer: {
+        width: '100%',
+        height: '30%',
+        alignSelf: 'flex-end',
+        backgroundColor: Theme.color.white
+    }
   });
 
 export default LocationMapScreen;
