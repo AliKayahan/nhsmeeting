@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
-import MapView, {Marker, PROVIDER_GOOGLE  }  from 'react-native-maps';
-import roomPin from '../../assets/images/pin.png';
-import Theme from '../../constants/Theme';
+import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import MapView,{ Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { MapStyle } from '../../constants/MapStyle';
+import Theme from '../../constants/Theme';
 
 const LocationMapScreen = () =>{
     const dummyMarkers = [
@@ -21,13 +20,19 @@ const LocationMapScreen = () =>{
     return(
         <View style={styles.container}>
             <MapView 
-                style={styles.mapStyle} 
+                style={styles.map} 
                 customMapStyle={MapStyle}
                 provider={PROVIDER_GOOGLE}
+                initialRegion={{
+                    latitude: 52.582972,
+                    longitude: -2.119449,
+                    latitudeDelta: 0.0922,
+                    longitudeDelta: 0.0421,
+                }}
             >
                 {markers.map(marker => (
                     <Marker
-                        key={marker.key}
+                        key={marker}
                         coordinate={marker.latlng}
                         title={marker.title}
                         description={marker.description}
@@ -69,6 +74,6 @@ const styles = StyleSheet.create({
         width:52,
         height:52
     },
-});
+  });
 
 export default LocationMapScreen;
