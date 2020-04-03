@@ -8,6 +8,7 @@ import BottomSheet from 'reanimated-bottom-sheet';
 import Animated from 'react-native-reanimated'
 import NHSStyle from '../../constants/NHSStyle';
 import { Ionicons } from '@expo/vector-icons';
+import { Button } from 'react-native-paper';
 
 const LocationMapScreen = () =>{
     const dummyMarkers = [
@@ -66,7 +67,7 @@ const LocationMapScreen = () =>{
             </View>
         </View>
       )
-
+    //TODO convert into components
     const renderInner = () => (
         <View style={styles.panel}>
             <View style={styles.roomName}>
@@ -76,6 +77,18 @@ const LocationMapScreen = () =>{
             <View style={styles.meetingTime}>
                 <Ionicons style={{marginRight: 5}} color={Theme.color.teal} name='ios-clock' size={25} />
                 <Text style={{...NHSStyle.smallText, color: Theme.color.teal, paddingTop: 4}}>10:00AM - 11:00AM</Text>
+            </View>
+            <View style={styles.directionsButtonContainer}>
+                <Button 
+                    mode="contained" 
+                    uppercase={false}
+                    color={Theme.color.blue1}
+                    contentStyle={styles.searchButtonContent}
+                    labelStyle={NHSStyle.buttonLabel}
+                    style={styles.directionsButton}
+                    onPress={() => console.log('Open Maps')}>
+                    Directions - 6 mins drive
+                </Button>
             </View>
         </View>
       )
@@ -171,6 +184,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 5
+    },
+    directionsButtonContainer:{
+        width: '100%',
+        shadowColor: Theme.color.grey4,
+        shadowOpacity: 1,
+        shadowOffset: {width: 0, height: 2},
+        shadowRadius: 10,
+        marginTop: 15,
+    },
+    directionsButton: {
+        height: 55
     }
   });
 

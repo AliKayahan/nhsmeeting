@@ -156,7 +156,7 @@ const SearchRoomScreen = (props) =>{
                                     mode="text" 
                                     uppercase={false}
                                     color={Theme.color.blue1}
-                                    labelStyle={styles.searchButtonLabel}
+                                    labelStyle={NHSStyle.buttonLabel}
                                     onPress={() => setLocationModalIsOn(false)}>
                                     Done
                                 </Button>
@@ -219,11 +219,6 @@ const styles = StyleSheet.create({
         height: 50,
         alignItems: 'flex-end',
         flex:1
-    },
-    searchButtonLabel: {
-        fontFamily: 'Frutiger-Light-Bold',
-        fontSize: 16,
-        paddingTop: 12
     },
     roomLister:{
         marginVertical: 25,
