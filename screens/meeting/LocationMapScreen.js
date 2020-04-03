@@ -60,8 +60,8 @@ const LocationMapScreen = () =>{
                 customMapStyle={MapStyle}
                 provider={PROVIDER_GOOGLE}
                 initialRegion={{
-                    latitude: 52.582972,
-                    longitude: -2.119449,
+                    latitude: 52.580108,
+                    longitude: -2.130829,
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
                 }}
