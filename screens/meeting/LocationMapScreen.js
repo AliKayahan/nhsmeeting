@@ -5,7 +5,6 @@ import { MapStyle } from '../../constants/MapStyle';
 import Avatar from '../../components/profile/Avatar';
 import Theme from '../../constants/Theme';
 import BottomSheet from 'reanimated-bottom-sheet';
-import Animated from 'react-native-reanimated'
 import NHSStyle from '../../constants/NHSStyle';
 import { Ionicons } from '@expo/vector-icons';
 import { Button } from 'react-native-paper';
@@ -90,6 +89,15 @@ const LocationMapScreen = () =>{
                     Directions - 6 mins drive
                 </Button>
             </View>
+            <View style={styles.imageContainer}>
+                <View style={styles.bigImageContainer}>
+                    <Image style={styles.bigImage} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOUOqMhQqecVomakcHLaC8irVMIeJk1UwwNs4DMojTymcu_snY&usqp=CAU'}} />
+                </View>
+                <View style={styles.thumbContainer}>
+                    <Image style={styles.smallImage} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOUOqMhQqecVomakcHLaC8irVMIeJk1UwwNs4DMojTymcu_snY&usqp=CAU'}} />
+                    <Image style={styles.smallImage} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOUOqMhQqecVomakcHLaC8irVMIeJk1UwwNs4DMojTymcu_snY&usqp=CAU'}} />
+                </View>
+            </View>
         </View>
       )
     return(
@@ -119,7 +127,7 @@ const LocationMapScreen = () =>{
             </MapView>
             <View style={styles.bottomSheetContainer}>
                 <BottomSheet
-                    snapPoints = {[350, 350, 150]}
+                    snapPoints = {[450, 450, 150]}
                     renderContent = {renderInner}
                     renderHeader = {renderHeader}
                 />
@@ -197,6 +205,23 @@ const styles = StyleSheet.create({
     },
     directionsButton: {
         height: 55
+    },
+    imageContainer: {
+        marginTop: 15,
+        flexDirection: 'row'
+    },
+    thumbContainer: {
+        flexDirection: 'column',
+        marginLeft: 3
+    },
+    bigImage: {
+        width: 245,
+        height: 155
+    },
+    smallImage: {
+        marginBottom: 3,
+        width: 125,
+        height: 76
     }
   });
 
