@@ -3,11 +3,11 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import Theme from '../../constants/Theme';
 import NHSStyle from '../../constants/NHSStyle';
 
-const Avatar = () =>{
+const Avatar = (props) =>{
     return(
         <View style={styles.profilePicShadow}>
             <View style={styles.imageContainer}>
-                <Image style={styles.profilePic} source={{uri: 'https://randomuser.me/api/portraits/men/17.jpg'}} />
+                <Image style={styles.profilePic} source={{uri: props.profilePicture}} />
             </View>
         </View>
     );
