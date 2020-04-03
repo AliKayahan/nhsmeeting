@@ -72,7 +72,8 @@ const LocationMapScreen = () =>{
                         coordinate={marker.latlng}
                         title={marker.title}
                         description={marker.description}
-                    >
+                    > 
+                    {/* TODO: Convert to custom marker https://github.com/react-native-community/react-native-maps */}
                         {marker.room ? <Image source={require('../../assets/images/pin.png')} /> : <Avatar profilePicture={marker.picture} />}
                     </Marker>
                 ))}
