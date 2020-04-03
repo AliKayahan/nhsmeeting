@@ -99,7 +99,7 @@ const LocationMapScreen = () =>{
                 customMapStyle={MapStyle}
                 provider={PROVIDER_GOOGLE}
                 initialRegion={{
-                    latitude: 52.580108,
+                    latitude: 51.580108,
                     longitude: -2.130829,
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
@@ -152,10 +152,12 @@ const styles = StyleSheet.create({
     panel: {
         height: 600,
         padding: 20,
-        backgroundColor: 'rgba(255, 255, 255, 0.70)',
+        //backgroundColor: 'rgba(255, 255, 255, 0.60)',
+        backgroundColor: '#F6F6F7',
     },
     header: {
-        backgroundColor: 'rgba(255, 255, 255, 0.70)',
+        //backgroundColor: 'rgba(255, 255, 255, 0.60)',
+        backgroundColor: '#F6F6F7',
         shadowColor: Theme.color.grey4,
         paddingTop: 20,
         borderTopLeftRadius: 30,
