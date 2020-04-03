@@ -4,6 +4,7 @@ import MapView,{ Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { MapStyle } from '../../constants/MapStyle';
 import Avatar from '../../components/profile/Avatar';
 import Theme from '../../constants/Theme';
+import BottomSheet from 'reanimated-bottom-sheet';
 
 const LocationMapScreen = () =>{
     const dummyMarkers = [
