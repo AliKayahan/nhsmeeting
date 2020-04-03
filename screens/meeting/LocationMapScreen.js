@@ -8,7 +8,7 @@ const LocationMapScreen = () =>{
     const dummyMarkers = [
         {  
             key: 'ABCD',
-            title: 'Ali Kayahan',
+            title: 'Ali',
             description: 'Home',
             latlng:{
                 latitude: 52.582972,
@@ -17,12 +17,33 @@ const LocationMapScreen = () =>{
             room: false
         },
         {  
+            key: 'ABCDE',
+            title: 'Carmi',
+            description: 'Home',
+            latlng:{
+                latitude: 52.595881,
+                longitude: -2.149304,
+            },
+            room: false
+        },
+        ,
+        {  
+            key: 'ABCDF',
+            title: 'Ben',
+            description: 'Home',
+            latlng:{
+                latitude: 52.587824,
+                longitude: -2.138212,
+            },
+            room: false
+        },
+        {  
             key: 'FFFF',
             title: 'Room 505',
             description: 'Home',
             latlng:{
-                latitude: 52.604108,
-                longitude: -2.140829,
+                latitude: 52.580108,
+                longitude: -2.130829,
             },
             room: true
         }
