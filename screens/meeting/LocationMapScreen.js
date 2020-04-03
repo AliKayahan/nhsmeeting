@@ -68,7 +68,9 @@ const LocationMapScreen = () =>{
 
     const renderInner = () => (
         <View style={styles.panel}>
-            
+            <View style={styles.roomName}>
+                <Text style={NHSStyle.header}>Apple Room</Text>
+            </View>
         </View>
       )
     return(
@@ -131,7 +133,7 @@ const styles = StyleSheet.create({
     panel: {
         height: 600,
         padding: 20,
-        backgroundColor: NHSStyle.rgbaTeal20.backgroundColor,
+        backgroundColor: 'rgba(255, 255, 255, 0.70)',
     },
     header: {
         backgroundColor: 'rgba(255, 255, 255, 0.70)',
@@ -139,6 +141,8 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
+        borderBottomColor: Theme.color.grey3,
+        borderBottomWidth: 1
     },
     panelHeader: {
         alignItems: 'center',
