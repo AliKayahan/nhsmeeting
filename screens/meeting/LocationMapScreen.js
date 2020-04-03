@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
-import MapView,{ Marker } from 'react-native-maps';
+import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
+import MapView, {Marker, PROVIDER_GOOGLE  }  from 'react-native-maps';
+import roomPin from '../../assets/images/pin.png';
+import Theme from '../../constants/Theme';
+import { MapStyle } from '../../constants/MapStyle';
 
 const LocationMapScreen = () =>{
     const dummyMarkers = [
@@ -17,7 +20,11 @@ const LocationMapScreen = () =>{
     const [markers, setMarkers] = useState(dummyMarkers);
     return(
         <View style={styles.container}>
-            <MapView style={styles.mapStyle}>
+            <MapView 
+                style={styles.mapStyle} 
+                customMapStyle={MapStyle}
+                provider={PROVIDER_GOOGLE}
+            >
                 {markers.map(marker => (
                     <Marker
                         key={marker.key}
