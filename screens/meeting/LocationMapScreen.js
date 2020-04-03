@@ -6,10 +6,7 @@ import Avatar from '../../components/profile/Avatar';
 import Theme from '../../constants/Theme';
 import BottomSheet from 'reanimated-bottom-sheet';
 import Animated from 'react-native-reanimated'
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import { Button } from 'react-native-paper';
-
-const { block, set, greaterThan, lessThan, Value, cond, sub } = Animated
+import NHSStyle from '../../constants/NHSStyle';
 
 const LocationMapScreen = () =>{
     const dummyMarkers = [
@@ -64,7 +61,7 @@ const LocationMapScreen = () =>{
     const renderHeader = name => (
         <View style={styles.header}>
             <View style={styles.panelHeader}>
-                <View style={styles.panelHandle} />
+                <View style={styles.panelHandle}></View>
             </View>
         </View>
       )
@@ -101,9 +98,9 @@ const LocationMapScreen = () =>{
             </MapView>
             <View style={styles.bottomSheetContainer}>
                 <BottomSheet
-                    snapPoints = {[450, 300, 80]}
-                    renderContent = {renderHeader}
-                    renderHeader = {renderInner}
+                    snapPoints = {[250, 250, 80]}
+                    renderContent = {renderInner}
+                    renderHeader = {renderHeader}
                 />
             </View>
         </View>
@@ -126,70 +123,30 @@ const styles = StyleSheet.create({
     bottomSheetContainer: {
         flex: 1,
         alignSelf: 'flex-start',
-        backgroundColor: '#F5FCFF',
-    },
-    box: {
-        width: 200,
-        height: 200,
-    },
-    panelContainer: {
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
     },
     panel: {
         height: 600,
         padding: 20,
-        backgroundColor: '#f7f5eee9',
+        backgroundColor: NHSStyle.rgbaTeal20.backgroundColor,
     },
     header: {
-        backgroundColor: Theme.color.white,
-        shadowColor: '#000000',
-        height: 50,
+        backgroundColor: 'rgba(255, 255, 255, 0.70)',
+        shadowColor: Theme.color.grey4,
         paddingTop: 20,
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
     },
     panelHeader: {
         alignItems: 'center',
+        height:10
     },
     panelHandle: {
         width: 40,
-        height: 40,
+        height: 6,
         borderRadius: 4,
-        backgroundColor: 'red',
-        marginBottom: 10,
-        marginLeft: 10
-    },
-    panelTitle: {
-        fontSize: 27,
-        height: 35,
-    },
-    panelSubtitle: {
-        fontSize: 14,
-        color: 'gray',
-        height: 30,
-        marginBottom: 10,
-    },
-    panelButton: {
-        padding: 20,
-        borderRadius: 10,
-        backgroundColor: '#318bfb',
-        alignItems: 'center',
-        marginVertical: 10,
-    },
-    panelButtonTitle: {
-        fontSize: 17,
-        fontWeight: 'bold',
-        color: 'white',
-    },
-    photo: {
-        width: '100%',
-        height: 225,
-        marginTop: 30,
-    },
+        backgroundColor: Theme.color.purple1,
+        marginTop: -5,
+    }
   });
 
 export default LocationMapScreen;
