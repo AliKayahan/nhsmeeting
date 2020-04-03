@@ -7,7 +7,7 @@ import Theme from '../../constants/Theme';
 import BottomSheet from 'reanimated-bottom-sheet';
 import NHSStyle from '../../constants/NHSStyle';
 import { Ionicons } from '@expo/vector-icons';
-import { Button } from 'react-native-paper';
+import { Button, FAB } from 'react-native-paper';
 
 const LocationMapScreen = () =>{
     const dummyMarkers = [
@@ -61,6 +61,7 @@ const LocationMapScreen = () =>{
 
     const renderHeader = name => (
         <View style={styles.header}>
+            <FAB style={styles.fab} icon="navigation" onPress={() => console.log('Pressed')}/>
             <View style={styles.panelHeader}>
                 <View style={styles.panelHandle}></View>
             </View>
@@ -223,6 +224,16 @@ const styles = StyleSheet.create({
         marginBottom: 3,
         width: 125,
         height: 76
+    },
+    fab: {
+        position: 'absolute',
+        zIndex:10,
+        margin: 16,
+        right: 0,
+        top: -80,
+        width: 57,
+        height:57,
+        backgroundColor: Theme.color.blue1
     }
   });
 
