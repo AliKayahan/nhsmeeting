@@ -89,13 +89,14 @@ const LocationMapScreen = () =>{
                     Directions - 6 mins drive
                 </Button>
             </View>
+            {/* TODO: Make images clickable/gallery */}
             <View style={styles.imageContainer}>
                 <View style={styles.bigImageContainer}>
                     <Image style={styles.bigImage} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOUOqMhQqecVomakcHLaC8irVMIeJk1UwwNs4DMojTymcu_snY&usqp=CAU'}} />
                 </View>
                 <View style={styles.thumbContainer}>
-                    <Image style={styles.smallImage} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOUOqMhQqecVomakcHLaC8irVMIeJk1UwwNs4DMojTymcu_snY&usqp=CAU'}} />
-                    <Image style={styles.smallImage} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOUOqMhQqecVomakcHLaC8irVMIeJk1UwwNs4DMojTymcu_snY&usqp=CAU'}} />
+                    <Image style={styles.smallImage} source={{uri: 'https://i0.wp.com/iqsmartcenter655.com/wp-content/uploads/2018/07/room-view-2.jpg'}} />
+                    <Image style={styles.smallImage} source={{uri: 'https://images.homify.com/c_fill,f_auto,h_700,q_auto/v1571350662/p/photo/image/3233644/TTI_09.jpg'}} />
                 </View>
             </View>
         </View>
@@ -127,7 +128,7 @@ const LocationMapScreen = () =>{
             </MapView>
             <View style={styles.bottomSheetContainer}>
                 <BottomSheet
-                    snapPoints = {[450, 450, 150]}
+                    snapPoints = {[420, 420, 150]}
                     renderContent = {renderInner}
                     renderHeader = {renderHeader}
                 />
