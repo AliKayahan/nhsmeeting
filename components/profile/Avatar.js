@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import Theme from '../../constants/Theme';
+import NHSStyle from '../../constants/NHSStyle';
 
 const Avatar = () =>{
     return(
@@ -14,10 +15,9 @@ const Avatar = () =>{
 
 const styles = StyleSheet.create({
     profilePicShadow: {
-        shadowColor: Theme.color.black,
-        shadowOpacity: 0.50,
-        shadowOffset: {width: 2, height: 2},
-        shadowRadius: 10,
+        borderWidth:4,
+        borderColor: NHSStyle.rgbaTeal20.backgroundColor,
+        borderRadius: 20,
     },  
     imageContainer: {
         borderWidth: 2,
