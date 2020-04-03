@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 import MapView,{ Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { MapStyle } from '../../constants/MapStyle';
-import Theme from '../../constants/Theme';
-
+import Avatar from '../../components/profile/Avatar';
+import roomPin from '../../assets/images/pin.png'
 const LocationMapScreen = () =>{
     const dummyMarkers = [
         {  
@@ -13,7 +13,18 @@ const LocationMapScreen = () =>{
             latlng:{
                 latitude: 52.582972,
                 longitude: -2.119449,
-            }
+            },
+            room: false
+        },
+        {  
+            key: 'FFFF',
+            title: 'Room 505',
+            description: 'Home',
+            latlng:{
+                latitude: 52.604108,
+                longitude: -2.140829,
+            },
+            room: true
         }
     ];
     const [markers, setMarkers] = useState(dummyMarkers);
@@ -32,12 +43,12 @@ const LocationMapScreen = () =>{
             >
                 {markers.map(marker => (
                     <Marker
-                        key={marker}
+                        key={marker.key}
                         coordinate={marker.latlng}
                         title={marker.title}
                         description={marker.description}
                     >
-                        
+                        {marker.room ? <Image source={require('../../assets/images/pin.png')} /> : <Avatar />}
                     </Marker>
                 ))}
             </MapView>
@@ -57,22 +68,6 @@ const styles = StyleSheet.create({
         ...StyleSheet.absoluteFillObject,
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
-    },
-    profilePicShadow: {
-        shadowColor: Theme.color.black,
-        shadowOpacity: 0.50,
-        shadowOffset: {width: 2, height: 2},
-        shadowRadius: 10,
-    },  
-    imageContainer: {
-        borderWidth: 2,
-        borderColor: Theme.color.white,
-        borderRadius: 20,
-        overflow: 'hidden',
-    },
-    profilePic: {
-        width:52,
-        height:52
     },
   });
 
