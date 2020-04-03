@@ -123,6 +123,10 @@ const styles = StyleSheet.create({
     bottomSheetContainer: {
         flex: 1,
         alignSelf: 'flex-start',
+        shadowColor: Theme.color.grey4,
+        shadowOpacity: 1,
+        shadowOffset: {width: 0, height: 2},
+        shadowRadius: 10,
     },
     panel: {
         height: 600,
