@@ -14,6 +14,7 @@ const LocationMapScreen = () =>{
                 latitude: 52.582972,
                 longitude: -2.119449,
             },
+            picture: 'https://randomuser.me/api/portraits/men/15.jpg',
             room: false
         },
         {  
@@ -24,6 +25,7 @@ const LocationMapScreen = () =>{
                 latitude: 52.595881,
                 longitude: -2.149304,
             },
+            picture: 'https://randomuser.me/api/portraits/men/17.jpg',
             room: false
         },
         ,
@@ -35,6 +37,7 @@ const LocationMapScreen = () =>{
                 latitude: 52.587824,
                 longitude: -2.138212,
             },
+            picture: 'https://randomuser.me/api/portraits/men/19.jpg',
             room: false
         },
         {  
@@ -45,6 +48,7 @@ const LocationMapScreen = () =>{
                 latitude: 52.580108,
                 longitude: -2.130829,
             },
+            picture: '',
             room: true
         }
     ];
@@ -69,7 +73,7 @@ const LocationMapScreen = () =>{
                         title={marker.title}
                         description={marker.description}
                     >
-                        {marker.room ? <Image source={require('../../assets/images/pin.png')} /> : <Avatar />}
+                        {marker.room ? <Image source={require('../../assets/images/pin.png')} /> : <Avatar profilePicture={marker.picture} />}
                     </Marker>
                 ))}
             </MapView>
