@@ -5,6 +5,7 @@ import NHSStyle from '../../constants/NHSStyle';
 import NHSInput from '../../components/NHSInput';
 import {Checkbox, Button} from 'react-native-paper';
 import Theme from '../../constants/Theme';
+import Firebase from '../../components/Firebase';
 
 const LoginScreen = () => {
     const [rememberMe, setRememberMe] = useState('checked');
