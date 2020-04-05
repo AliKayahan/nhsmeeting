@@ -4,8 +4,22 @@ import NHSInputAndroid from "../../components/NHSInputAndroid";
 import NHSStyle from "../../constants/NHSStyle";
 import Background from "../../components/Background";
 import Theme from "../../constants/Theme";
+import Firebase from '../../components/Firebase';
 
 const RegisterScreen = () => {
+    const SignUp = (email, password) => {
+      try {
+          Firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then(user => { 
+                  console.log(user);
+            });
+      } catch (error) {
+        console.log(error.toString(error));
+      }
+    };
+    // SignUp("c.kayahan@wlv.ac.uk","cxchwypyqy");
     return (
       <Background>
         <View>
