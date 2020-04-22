@@ -6,7 +6,7 @@ import Background from "../../components/Background";
 import Theme from "../../constants/Theme";
 import Firebase from '../../components/Firebase';
 
-const RegisterScreen = () => {
+const RegisterScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
@@ -21,7 +21,7 @@ const RegisterScreen = () => {
                 "Success",
                 "Registration Completed.",
                 [
-                  { text: "Ok", onPress: () => console.log("OK Pressed") }
+                  { text: "Ok", onPress: () => navigation.navigate('Login') }
                 ],
                 { cancelable: false }
               );
