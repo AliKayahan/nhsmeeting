@@ -27,7 +27,7 @@ const RegisterScreen = () => {
       }
     };
     const verifySignUpInfo = () => {      
-      SignUp(email,password, fullName);
+      SignUp(email, password, fullName);
     }
     return (
       <Background>
@@ -45,9 +45,9 @@ const RegisterScreen = () => {
           </View>
 
           <View style={styles.inputContainer}>
-            <NHSInputAndroid onChangeText={(fullName) => console.log(fullname)} label="Full Name" />
-            <NHSInputAndroid onChangeText={(email) => console.log(email)}  label="E-mail" />
-            <NHSInputAndroid onChangeText={(password) => console.log(password)} label="Password" />
+            <NHSInputAndroid onChangeText={(fullName) => setFullName(fullName)} label="Full Name" />
+            <NHSInputAndroid onChangeText={(email) => setEmail(email)}  label="E-mail" />
+            <NHSInputAndroid onChangeText={(password) => setPassword(password)} label="Password" />
             <TouchableOpacity style={styles.signUpBtn} onPress={verifySignUpInfo}>
               <Text style={styles.btnText}>Sign Up</Text>
             </TouchableOpacity>
