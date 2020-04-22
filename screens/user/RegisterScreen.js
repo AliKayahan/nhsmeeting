@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Image, Alert } from "react-native";
 import NHSInputAndroid from "../../components/NHSInputAndroid";
 import NHSStyle from "../../constants/NHSStyle";
 import Background from "../../components/Background";
@@ -17,10 +17,14 @@ const RegisterScreen = () => {
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .then(user => { 
-              // Firebase.database().ref('users/' + user.uid).set({
-              //   fullName: fullName,
-              //   email: email
-              // });
+              Alert.alert(
+                "Success",
+                "Registration Completed.",
+                [
+                  { text: "Ok", onPress: () => console.log("OK Pressed") }
+                ],
+                { cancelable: false }
+              );
             });
       } catch (error) {
         console.log(error.toString(error));
