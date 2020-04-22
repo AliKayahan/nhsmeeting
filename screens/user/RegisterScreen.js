@@ -23,6 +23,9 @@ const RegisterScreen = () => {
         console.log(error.toString(error));
       }
     };
+    const onSignup = () => {
+      console.log("test")
+    }
     // SignUp("c.kayahan@wlv.ac.uk","cxchwypyqy");
     return (
       <Background>
@@ -43,7 +46,7 @@ const RegisterScreen = () => {
             <NHSInputAndroid onChangeText={(fullName) => console.log(fullname)} label="Full Name" />
             <NHSInputAndroid onChangeText={(email) => console.log(email)}  label="E-mail" />
             <NHSInputAndroid onChangeText={(password) => console.log(password)} label="Password" />
-            <TouchableOpacity style={styles.signUpBtn}>
+            <TouchableOpacity style={styles.signUpBtn} onPress={onSignup}>
               <Text style={styles.btnText}>Sign Up</Text>
             </TouchableOpacity>
             <Text style={styles.signIn}>
