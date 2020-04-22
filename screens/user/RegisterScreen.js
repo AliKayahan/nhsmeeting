@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import NHSInputAndroid from "../../components/NHSInputAndroid";
 import NHSStyle from "../../constants/NHSStyle";
@@ -7,6 +7,10 @@ import Theme from "../../constants/Theme";
 import Firebase from '../../components/Firebase';
 
 const RegisterScreen = () => {
+    const [email, setEmail] = useState('');
+    const [fullName, setFullName] = useState('');
+    const [password, setPassword] = useState('');
+
     const SignUp = (email, password) => {
       try {
           Firebase
@@ -36,8 +40,8 @@ const RegisterScreen = () => {
           </View>
 
           <View style={styles.inputContainer}>
-            <NHSInputAndroid label="Email" />
-            <NHSInputAndroid label="Username" />
+            <NHSInputAndroid onChangeText={(fullName) => console.log(fullname)} label="Full Name" />
+            <NHSInputAndroid onChangeText={(email) => console.log(email)}  label="E-mail" />
             <NHSInputAndroid label="Password" />
             <TouchableOpacity style={styles.signUpBtn}>
               <Text style={styles.btnText}>Sign Up</Text>
