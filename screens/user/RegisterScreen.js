@@ -17,10 +17,10 @@ const RegisterScreen = () => {
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .then(user => { 
-              firebase.database().ref('users/' + user.uid).set({
-                fullName: fullName,
-                email: email
-              });
+              // Firebase.database().ref('users/' + user.uid).set({
+              //   fullName: fullName,
+              //   email: email
+              // });
             });
       } catch (error) {
         console.log(error.toString(error));
