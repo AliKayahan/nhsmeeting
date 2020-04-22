@@ -42,7 +42,7 @@ const RegisterScreen = () => {
           <View style={styles.inputContainer}>
             <NHSInputAndroid onChangeText={(fullName) => console.log(fullname)} label="Full Name" />
             <NHSInputAndroid onChangeText={(email) => console.log(email)}  label="E-mail" />
-            <NHSInputAndroid label="Password" />
+            <NHSInputAndroid onChangeText={(password) => console.log(password)} label="Password" />
             <TouchableOpacity style={styles.signUpBtn}>
               <Text style={styles.btnText}>Sign Up</Text>
             </TouchableOpacity>
