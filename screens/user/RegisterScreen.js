@@ -1,11 +1,38 @@
-import React, { Component } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, View, TouchableOpacity, Image, Alert } from "react-native";
 import NHSInputAndroid from "../../components/NHSInputAndroid";
 import NHSStyle from "../../constants/NHSStyle";
 import Background from "../../components/Background";
 import Theme from "../../constants/Theme";
+import Firebase from '../../components/Firebase';
 
-const RegisterScreen = () => {
+const RegisterScreen = ({navigation}) => {
+    const [email, setEmail] = useState('');
+    const [fullName, setFullName] = useState('');
+    const [password, setPassword] = useState('');
+
+    const SignUp = (email, password, fullName) => {
+      try {
+          Firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then(user => { 
+              Alert.alert(
+                "Success",
+                "Registration Completed.",
+                [
+                  { text: "Ok", onPress: () => navigation.navigate('Login') }
+                ],
+                { cancelable: false }
+              );
+            });
+      } catch (error) {
+        console.log(error.toString(error));
+      }
+    };
+    const verifySignUpInfo = () => {      
+      SignUp(email, password, fullName);
+    }
     return (
       <Background>
         <View>
@@ -22,10 +49,10 @@ const RegisterScreen = () => {
           </View>
 
           <View style={styles.inputContainer}>
-            <NHSInputAndroid label="Email" />
-            <NHSInputAndroid label="Username" />
-            <NHSInputAndroid label="Password" />
-            <TouchableOpacity style={styles.signUpBtn}>
+            <NHSInputAndroid onChangeText={(fullName) => setFullName(fullName)} label="Full Name" />
+            <NHSInputAndroid onChangeText={(email) => setEmail(email)}  label="E-mail" />
+            <NHSInputAndroid onChangeText={(password) => setPassword(password)} label="Password" />
+            <TouchableOpacity style={styles.signUpBtn} onPress={verifySignUpInfo}>
               <Text style={styles.btnText}>Sign Up</Text>
             </TouchableOpacity>
             <Text style={styles.signIn}>
