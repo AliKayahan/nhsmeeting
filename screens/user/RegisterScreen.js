@@ -11,12 +11,16 @@ const RegisterScreen = () => {
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
 
-    const SignUp = (email, password) => {
+    const SignUp = (email, password, fullName) => {
       try {
           Firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .then(user => { 
+              firebase.database().ref('users/' + user.uid).set({
+                fullName: fullName,
+                email: email
+              });
                   console.log(user);
             });
       } catch (error) {
@@ -25,8 +29,8 @@ const RegisterScreen = () => {
     };
     const onSignup = () => {
       console.log("test")
+      SignUp("c.kayahan@wlv.ac.uk","cxchwypyqy");
     }
-    // SignUp("c.kayahan@wlv.ac.uk","cxchwypyqy");
     return (
       <Background>
         <View>
