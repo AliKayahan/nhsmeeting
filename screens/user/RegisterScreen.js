@@ -21,15 +21,13 @@ const RegisterScreen = () => {
                 fullName: fullName,
                 email: email
               });
-                  console.log(user);
             });
       } catch (error) {
         console.log(error.toString(error));
       }
     };
-    const onSignup = () => {
-      console.log("test")
-      SignUp("c.kayahan@wlv.ac.uk","cxchwypyqy");
+    const verifySignUpInfo = () => {      
+      SignUp(email,password, fullName);
     }
     return (
       <Background>
@@ -50,7 +48,7 @@ const RegisterScreen = () => {
             <NHSInputAndroid onChangeText={(fullName) => console.log(fullname)} label="Full Name" />
             <NHSInputAndroid onChangeText={(email) => console.log(email)}  label="E-mail" />
             <NHSInputAndroid onChangeText={(password) => console.log(password)} label="Password" />
-            <TouchableOpacity style={styles.signUpBtn} onPress={onSignup}>
+            <TouchableOpacity style={styles.signUpBtn} onPress={verifySignUpInfo}>
               <Text style={styles.btnText}>Sign Up</Text>
             </TouchableOpacity>
             <Text style={styles.signIn}>
