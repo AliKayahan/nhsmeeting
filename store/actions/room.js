@@ -1,6 +1,9 @@
 export const FETCH_ROOMS = "FETCH_ROOMS";
-import ROOMS from '../../data/dummy-data';
-
+import Room from '../../models/room';
+/**
+ * This function is used to fetch rooms in the city given
+ * @param {String} city 
+ */
 export const fetchRooms = (city) => {
     return async dispatch => {
         const response = await fetch("https://www.zohoapis.com/crm/v2/coql", {
@@ -10,7 +13,7 @@ export const fetchRooms = (city) => {
                 'Authorization': 'Zoho-oauthtoken 1000.9ffcf1132519863442c12739a6b81420.98d153e11b65b58f070ccc1d8ade30fc'
             },
             body: JSON.stringify({
-                "select_query" : "select Name, Floor, Features, Facility, Description,Images, Facility.Name, Facility.Has_Parking from Rooms where Name != 'void'"
+                "select_query" : "select Name, Floor, Type, Capacity, Features, Facility, Description,Images, Facility.Name, Facility.Has_Parking from Rooms where Name != 'void'"
             })
         });
         ['ios-snow', 'ios-videocam', 'ios-mic', 'ios-wifi', 'ios-car']
@@ -25,11 +28,21 @@ export const fetchRooms = (city) => {
             featuresText.map((val) => {
                 featuresIcon.push(iconReplacements[val])
             });
+            matchingRooms.push(new Room(
+                val["id"],
+                val["Facility.Name"],
+                val["Name"],
+                val["Floor"],
+                val["Capacity"],
+                val["Type"],
+                images,
+                val["Description"],
+                featuresIcon
+            ));
         });
-        //console.log(resData.data);
         dispatch({
             type: FETCH_ROOMS,
-            availableRooms: ROOMS
+            availableRooms: matchingRooms
         })
     }
 }
