@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import * as Font from 'expo-font';
 import {AppLoading} from 'expo';
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import ReduxThunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import userReducer from './store/reducers/user';
 import roomReducer from './store/reducers/room';
