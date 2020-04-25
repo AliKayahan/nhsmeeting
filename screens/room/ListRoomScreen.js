@@ -1,12 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import RoomCard from '../../components/room/RoomCard';
-
+import * as RoomActions from '../../store/actions/room';
 // We are planning to list and manage room state within this function
 const ListRoomScreen = props => {
     //Select rooms from redux store
     const rooms = useSelector(state => state.rooms.availableRooms);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(RoomActions.fetchRooms(''));
+    }, [dispatch]);
+
     return (
         <View style={styles.roomCardContainer}>
             <FlatList 

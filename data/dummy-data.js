@@ -23,7 +23,7 @@ const ROOMS = [
         12,
         'Clinic',
         [
-            'https://www.citizenm.com/cache/images/citizenm_schipol_2-0199_web_00ecec985a24cc.jpg',
+            'https://i.pinimg.com/originals/41/ef/bf/41efbf86ae09f8e2792532806427b199.jpg',
             'https://media.spacebase.com/media/cache/spaces/5755/citizenm-paris-la-defense-fr-med16_1280.jpg'
         ],
         'A clinic room with default setup',
