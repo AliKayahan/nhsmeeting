@@ -10,14 +10,17 @@ export const fetchRooms = (city) => {
                 'Authorization': 'Zoho-oauthtoken 1000.7ac2565bb686ce1b22d8e1234835a347.a69831daa8312ce4d33683b134c8b03e'
             },
             body: JSON.stringify({
-                "select_query" : "select Name from Rooms where Name != 'void'"
+                "select_query" : "select Name, Floor, Features, Facility, Description,Images, Facility.Name, Facility.Has_Parking from Rooms where Name != 'void'"
             })
         });
 
         const resData = await response.json();
         const matchingRooms = [];
-        
-        console.log(resData.data);
+        console.log(resData)
+        resData.data.map((val) => {
+            console.log(val);
+        });
+        //console.log(resData.data);
         dispatch({
             type: FETCH_ROOMS,
             availableRooms: ROOMS
