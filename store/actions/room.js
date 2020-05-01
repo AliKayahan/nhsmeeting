@@ -11,7 +11,7 @@ export const fetchRooms = (city) => {
             method: 'POST',// Method type to gather rooms
             headers: {// We should pass our access token with the authorization header
                 'Content-Type': 'application/json',
-                'Authorization': 'Zoho-oauthtoken 1000.9ffcf1132519863442c12739a6b81420.98d153e11b65b58f070ccc1d8ade30fc' // TODO: this token should be refreshed for each 55 mins
+                'Authorization': 'Zoho-oauthtoken 1000.9029a2c2a8960a29a14184267a704833.3400d41ac955cb1b5d33672ef31e09d8' // TODO: this token should be refreshed for each 55 mins
             },
             body: JSON.stringify({ // Our back-end query to fetch necessary information of the rooms selected
                 "select_query" : "select Name, Floor, Type, Capacity, Features, Facility, Description,Images, Facility.Name, Facility.Has_Parking from Rooms where Name != 'void'"
