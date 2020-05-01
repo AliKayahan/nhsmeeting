@@ -1,7 +1,7 @@
 import React from 'react';
 
 import renderer from 'react-test-renderer';
-import Avatar from '../components/profile/Avatar';
+import Avatar from '../../../components/profile/Avatar';
 
 /**
  * Unit test for Avatar component

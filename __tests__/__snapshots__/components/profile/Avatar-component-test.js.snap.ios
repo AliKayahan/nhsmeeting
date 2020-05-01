@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login UI renders correctly 1`] = `
+exports[`Avatar component renders correctly 1`] = `
 <View
   style={
     Object {
