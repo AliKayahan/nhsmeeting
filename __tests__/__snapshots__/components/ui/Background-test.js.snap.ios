@@ -32,5 +32,10 @@ exports[`Background component renders correctly 1`] = `
       ]
     }
   />
+  <View>
+    <Text>
+      Test Output
+    </Text>
+  </View>
 </View>
 `;
