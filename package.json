@@ -8,7 +8,11 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "test": "jest",
     "eject": "expo eject"
+  },
+  "jest": {
+    "preset": "react-native"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.0",
