@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login UI renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "borderColor": "rgba(65, 182, 230, 0.20)",
+      "borderRadius": 20,
+      "borderWidth": 4,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "borderColor": "#FFFFFF",
+        "borderRadius": 20,
+        "borderWidth": 2,
+        "overflow": "hidden",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": undefined,
+        }
+      }
+      style={
+        Object {
+          "height": 52,
+          "width": 52,
+        }
+      }
+    />
+  </View>
+</View>
+`;
