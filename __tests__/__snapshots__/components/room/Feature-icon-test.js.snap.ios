@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Feature Icon component renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "marginTop": 12,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#F2F6FC",
+        "borderRadius": 6,
+        "height": 30,
+        "justifyContent": "center",
+        "marginRight": 5,
+        "width": 30,
+      }
+    }
+  >
+    <Text />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#F2F6FC",
+        "borderRadius": 6,
+        "height": 30,
+        "justifyContent": "center",
+        "marginRight": 5,
+        "width": 30,
+      }
+    }
+  >
+    <Text />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#F2F6FC",
+        "borderRadius": 6,
+        "height": 30,
+        "justifyContent": "center",
+        "marginRight": 5,
+        "width": 30,
+      }
+    }
+  >
+    <Text />
+  </View>
+</View>
+`;

@@ -8,7 +8,14 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "test": "jest",
     "eject": "expo eject"
+  },
+  "jest": {
+    "projects": [
+      { "preset": "jest-expo/ios" },
+      { "preset": "jest-expo/android" }
+    ]
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.0",
@@ -53,7 +60,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "babel-preset-expo": "^8.0.0"
+    "babel-preset-expo": "^8.0.0",
+    "jest-expo": "^37.0.0"
   },
   "private": true
 }
