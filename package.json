@@ -12,7 +12,10 @@
     "eject": "expo eject"
   },
   "jest": {
-    "preset": "react-native"
+    "projects": [
+      { "preset": "jest-expo/ios" },
+      { "preset": "jest-expo/android" }
+    ]
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.0",
@@ -57,7 +60,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "babel-preset-expo": "^8.0.0"
+    "babel-preset-expo": "^8.0.0",
+    "jest-expo": "^37.0.0"
   },
   "private": true
 }
