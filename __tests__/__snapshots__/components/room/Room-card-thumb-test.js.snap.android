@@ -7,7 +7,15 @@ exports[`Room Card component renders correctly 1`] = `
       "alignItems": "center",
       "flex": 1,
       "justifyContent": "center",
+      "marginRight": 15,
       "paddingTop": 5,
+      "shadowColor": "#DEEAFF",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 1,
+      "shadowRadius": 10,
     }
   }
 >
@@ -33,17 +41,10 @@ exports[`Room Card component renders correctly 1`] = `
         Object {
           "backgroundColor": "#FFFFFF",
           "borderRadius": 10,
-          "height": 215,
+          "height": 230,
           "marginVertical": 10,
           "overflow": "hidden",
-          "shadowColor": "#DEEAFF",
-          "shadowOffset": Object {
-            "height": 2,
-            "width": 0,
-          },
-          "shadowOpacity": 1,
-          "shadowRadius": 10,
-          "width": 380,
+          "width": 168,
         }
       }
     >
@@ -52,9 +53,11 @@ exports[`Room Card component renders correctly 1`] = `
           Object {
             "borderLeftColor": "#AE2573",
             "borderLeftWidth": 3,
-            "height": 34,
+            "height": 20,
+            "justifyContent": "center",
             "marginTop": 15,
             "paddingLeft": 15,
+            "paddingTop": 3,
           }
         }
       >
@@ -66,19 +69,8 @@ exports[`Room Card component renders correctly 1`] = `
                 "fontFamily": "Frutiger",
                 "fontSize": 14,
               },
-            ]
-          }
-        >
-          Test Building
-        </Text>
-        <Text
-          style={
-            Array [
               Object {
                 "color": "#0A1145",
-                "fontFamily": "Frutiger",
-                "fontSize": 18,
-                "lineHeight": 22,
               },
             ]
           }
@@ -92,7 +84,7 @@ exports[`Room Card component renders correctly 1`] = `
       <View
         style={
           Object {
-            "flexDirection": "row",
+            "flexDirection": "column",
             "marginTop": 17,
           }
         }
@@ -101,10 +93,10 @@ exports[`Room Card component renders correctly 1`] = `
           style={
             Object {
               "borderRadius": 10,
-              "height": 132,
-              "marginLeft": 18,
+              "height": 84,
+              "marginLeft": 10,
               "overflow": "hidden",
-              "width": 173,
+              "width": 146,
             }
           }
         >
@@ -126,6 +118,7 @@ exports[`Room Card component renders correctly 1`] = `
           style={
             Object {
               "marginLeft": 10,
+              "marginTop": 10,
             }
           }
         >
@@ -144,11 +137,11 @@ exports[`Room Card component renders correctly 1`] = `
                   Object {
                     "color": "#A1A5B3",
                     "fontFamily": "Frutiger",
-                    "fontSize": 16,
+                    "fontSize": 14,
                   },
                   Object {
-                    "paddingLeft": 6,
-                    "paddingTop": 6,
+                    "paddingLeft": 8,
+                    "paddingTop": 5,
                   },
                 ]
               }
@@ -172,11 +165,11 @@ exports[`Room Card component renders correctly 1`] = `
                   Object {
                     "color": "#A1A5B3",
                     "fontFamily": "Frutiger",
-                    "fontSize": 16,
+                    "fontSize": 14,
                   },
                   Object {
-                    "paddingLeft": 6,
-                    "paddingTop": 6,
+                    "paddingLeft": 8,
+                    "paddingTop": 5,
                   },
                   Object {
                     "paddingLeft": 9,
@@ -189,68 +182,6 @@ exports[`Room Card component renders correctly 1`] = `
 
               Wolverhampton
             </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "paddingLeft": 3,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "marginTop": 12,
-                }
-              }
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#F2F6FC",
-                    "borderRadius": 6,
-                    "height": 30,
-                    "justifyContent": "center",
-                    "marginRight": 5,
-                    "width": 30,
-                  }
-                }
-              >
-                <Text />
-              </View>
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#F2F6FC",
-                    "borderRadius": 6,
-                    "height": 30,
-                    "justifyContent": "center",
-                    "marginRight": 5,
-                    "width": 30,
-                  }
-                }
-              >
-                <Text />
-              </View>
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#F2F6FC",
-                    "borderRadius": 6,
-                    "height": 30,
-                    "justifyContent": "center",
-                    "marginRight": 5,
-                    "width": 30,
-                  }
-                }
-              >
-                <Text />
-              </View>
-            </View>
           </View>
         </View>
       </View>

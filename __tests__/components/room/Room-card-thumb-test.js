@@ -1,14 +1,14 @@
 import React from 'react';
 
 import renderer from 'react-test-renderer';
-import RoomCard from '../../../components/room/RoomCard';
+import RoomCardThumb from '../../../components/room/RoomCardThumb';
 
 /**
- * Unit test for RoomCard component
+ * Unit test for RoomCardThumbs component
  * We are passing some sample icons to be rendered
  */
 test('Room Card component renders correctly', () => {
-  const tree = renderer.create(<RoomCard 
+  const tree = renderer.create(<RoomCardThumb 
     name={"Test Room"}
     building={"Test Building"}
     floor={"4"}

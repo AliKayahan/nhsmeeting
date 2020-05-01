@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Feature Icon component renders correctly 1`] = `
+exports[`Room Card component renders correctly 1`] = `
 <View
   style={
     Object {

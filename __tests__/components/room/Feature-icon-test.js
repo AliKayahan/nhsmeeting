@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import FeatureIcon from '../../../components/room/FeatureIcon';
 
 /**
- * Unit test for Avatar component
+ * Unit test for FeatureIcon component
  * We are passing some sample icons to be rendered
  */
 test('Feature Icon component renders correctly', () => {
